@@ -20,16 +20,13 @@ Welcome to my **Flutter-based** portfolio project! This application is designed 
 - **Vercel**: For web deployment.
 
 ## 🛠️ Project Structure
-
+```bash
 lib/
-
 │
-
 ├── main.dart            # Entry point of the application
-
 ├── screens/               # UI components and screens
-
 └── utils/               # Utility classes and constants
+```
 
 
 ## 🎨 Design Inspiration
