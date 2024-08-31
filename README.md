@@ -19,12 +19,12 @@ Welcome to my **Flutter-based** portfolio project! This application is designed 
 - **GetX**: Efficient state management and routing.
 - **Vercel**: For web deployment.
 
-## 🛠️ Project Structure
+## 📂 Project Structure
 ```bash
 lib/
 │
 ├── main.dart            # Entry point of the application
-├── screens/               # UI components and screens
+├── screens/             # UI components and screens
 └── utils/               # Utility classes and constants
 ```
 
