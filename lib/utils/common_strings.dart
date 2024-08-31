@@ -1,0 +1,109 @@
+
+class CommonStrings {
+  static const String aboutMe = "I’m a Frontend Developer with 4.5 years of experience in building mobile and web applications using Flutter. I specialize in creating intuitive, user-centric designs that deliver high performance and align with business goals. Skilled in Flutter and Dart, I am familiar with various state management solutions.\n\nMy focus is on writing clean, scalable code while following industry best practices. I also have experience integrating Firebase services and APIs, ensuring that the applications I build are both functional and visually appealing. My goal is to create seamless digital experiences that engage users and drive success.";
+  static const educationMap = [
+
+    {
+      'title': 'Kendriya Vidyalaya JNU',
+      'time': '2011 - 2013',
+      'desc': 'Completed 10th grade with a solid academic record, excelling in Mathematics and Science.'
+    },
+    {
+      'title': 'Kendriya Vidyalaya JNU',
+      'time': '2013 - 2015',
+      'desc': 'Completed 12th grade with a focus on Science stream, building a strong foundation in Mathematics, Physics, and Computer Science.'
+    },
+    {
+      'title': 'Maharshi Dayanand University, Rohtak',
+      'time': '2015 - 2019',
+      'desc': 'Graduated with a B.Tech in Computer Science, specializing in software development and web technologies.'
+    }
+  ];
+
+  static const experienceMap = [
+    {
+      'title': 'Shephertz Technologies, Gurugram',
+      'time': 'April 2023 - Present',
+      'desc': 'Developed mobile applications using Flutter, implemented AI-driven features, and optimized performance through code refactoring.'
+    },
+    {
+      'title': 'The Phantom Codes Pvt. Ltd., Gurugram',
+      'time': 'Jan 2020 - Mar 2023',
+      'desc': 'Built and published mobile applications using React Native, integrated payment gateways, and improved app performance through optimization.'
+    }
+  ];
+
+  static const Map<String, String> darknetDiariesApp = {
+    'playstoreUrl' : "https://play.google.com/store/apps/details?id=com.bug32.darknetdiaries&hl=en_IN",
+    'coverImage': "assets/images/darknet-diaries.png",
+    'title': "Darknet Diaries - Podcast",
+    'iconUrl': "assets/images/dd-app-icon.png",
+    'about': '''
+Darknet Diaries is a Flutter-based media player application developed from scratch, designed to provide users with a seamless experience for streaming and managing podcasts. The app leverages several key technologies and services:
+
+-  Firebase Integration: Utilizes Firebase for capturing user interactions, such as marking favorite podcasts. Firebase Authentication is implemented for secure Google Sign-In functionality.
+
+-  Offline Storage: Features robust offline capabilities, allowing users to download podcasts and access them without an internet connection.
+
+-  Audio Streaming: Incorporates advanced audio player libraries to facilitate smooth and high-quality streaming of online podcasts.
+
+This modernized approach ensures a user-friendly interface, reliable offline access, and enhanced personalization features.
+  ''',
+    'type': "Mobile Application"
+  };
+
+  static const Map<String, String> libriVoxApp = {
+    'playstoreUrl' : "https://play.google.com/store/apps/details?id=com.bug32.librivoxapi&hl=en_IN",
+    'coverImage': "assets/images/librivox.png",
+    'title': "LibriVox - Free Audiobooks",
+    'iconUrl': "assets/images/librivox-app-icon.png",
+    'about': '''
+LibriVox is a Android Java-based media player application designed to provide users with free audiobooks available in the public domain. The app is built with a focus on delivering a rich and immersive reading and listening experience.
+
+-  REST API Integration: The app fetches audiobook data through REST APIs that provide access to public domain content.
+
+-  HTML Rendering: The entire text of the book being played is rendered on the screen, allowing users to read along with the audio.
+
+This application combines audio playback with an interactive reading experience, offering users a convenient way to enjoy classic literature.
+  ''',
+    'type': "Mobile Application"
+  };
+
+  static const Map<String, String> talentAnywhereApp = {
+    'playstoreUrl' : "",
+    'coverImage': 'assets/images/project-cover.png',
+    'title': "Talent Anywhere",
+    'iconUrl': "",
+    'type': "Mobile Application",
+    'about': '''
+Talent Anywhere is a dynamic job portal built using Flutter, designed to streamline the interaction between candidates and enterprises. It incorporates advanced AI technologies and several key features:
+
+-  AI-Driven Resume Parsing: Leverages AI for optimizing search results, making job matching more efficient.
+-  Firebase Notifications: Integrates Firebase to provide real-time notifications for job postings and candidate updates.
+-  Deep Linking & Google Sign-In: Enables smooth user experiences with deep linking for easy navigation and Google Sign-In for secure authentication.
+-  State Management: Follows MVVM architecture, making use of GetX for efficient state management.
+
+This app modernizes job search processes, making it easier for candidates to find opportunities and for enterprises to connect with top talent.
+'''
+  };
+
+  static const Map<String, String> workAnywhereApp = {
+    'playstoreUrl' : "",
+    'coverImage': 'assets/images/project-cover.png',
+    'title': "Work Anywhere",
+    'iconUrl': "",
+    'type': "Mobile Application",
+    'about': '''
+Work Anywhere is a comprehensive HRMS (Human Resource Management System) application developed using Flutter. It is designed to enhance remote work efficiency by providing a range of features for attendance tracking, work progress monitoring, and project management. Key features include:
+
+-  Real-time Location Fetching: Tracks employee location for accurate attendance marking.
+-  Face Recognition: Secure authentication using Google ML Kit & Microsoft Cognitive Services.
+-  Voice Recording: Enables users to record and share voice notes related to their tasks or meetings.
+-  Meeting Scheduling & Calendar Integration: Allows users to schedule meetings and manage events within the app.
+-  Activity Capture: Provides real-time tracking of tasks and activities through the mobile application.
+-  User Management: Supports multiple roles such as Admin, Manager, and Member to facilitate proper access control.
+
+This app is designed to support seamless remote working and efficient project management, empowering organizations to maintain productivity and communication.
+'''
+  };
+}
