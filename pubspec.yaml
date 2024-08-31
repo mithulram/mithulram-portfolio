@@ -43,7 +43,6 @@ dependencies:
   latlong2: ^0.9.1
   emailjs: ^4.0.0
   fluttertoast: ^8.2.8
-  hovering: ^1.0.4
   url_launcher: ^6.3.0
   responsive_builder: ^0.7.1
   flutter_dotenv: ^5.1.0
