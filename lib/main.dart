@@ -21,7 +21,7 @@ class App extends StatelessWidget {
     return ResponsiveBuilder(
       builder: (context, size) {
         return GetMaterialApp(
-          title: 'Portfolio',
+          title: 'Rahul Chauhan - Portfolio',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             useMaterial3: true,
