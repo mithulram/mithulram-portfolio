@@ -63,6 +63,7 @@ class HomeView extends StatelessWidget {
               ),
               Obx(() =>
                   CustomContainer(
+                    padding: EdgeInsets.zero,
                     bgColor: AppColors.lightBlackContainer,
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
@@ -71,44 +72,7 @@ class HomeView extends StatelessWidget {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        TabItem(
-                          title: "About",
-                          onTap: (){
-                            homeController.selectedTabIndex.value = 0;
-                            homeController.selectedTabName.value = "About Me";
-                          },
-                          isSelected: homeController.selectedTabIndex.value == 0,
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                        ),
-                        TabItem(
-                          title: "Resume",
-                          onTap: (){
-                            homeController.selectedTabIndex.value = 1;
-                            homeController.selectedTabName.value = "Resume";
-                          },
-                          isSelected: homeController.selectedTabIndex.value == 1,
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                        ),
-                        TabItem(
-                          title: "Portfolio",
-                          onTap: (){
-                            homeController.selectedTabIndex.value = 2;
-                            homeController.selectedTabName.value = "Portfolio";
-                          },
-                          isSelected: homeController.selectedTabIndex.value == 2,
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                        ),
-                        TabItem(
-                          title: "Contact",
-                          onTap: (){
-                            homeController.selectedTabIndex.value = 3;
-                            homeController.selectedTabName.value = "Contact";
-                          },
-                          isSelected: homeController.selectedTabIndex.value == 3,
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                        ),
-                      ],
+                      children: tabItems(homeController),
                     ),
                   )
               )
@@ -132,6 +96,7 @@ class HomeView extends StatelessWidget {
                 ),
                 Obx(() =>
                     CustomContainer(
+                      padding: EdgeInsets.zero,
                       bgColor: AppColors.lightBlackContainer,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(20),
@@ -142,44 +107,7 @@ class HomeView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            TabItem(
-                              title: "About",
-                              onTap: (){
-                                homeController.selectedTabIndex.value = 0;
-                                homeController.selectedTabName.value = "About Me";
-                              },
-                              isSelected: homeController.selectedTabIndex.value == 0,
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                            TabItem(
-                              title: "Resume",
-                              onTap: (){
-                                homeController.selectedTabIndex.value = 1;
-                                homeController.selectedTabName.value = "Resume";
-                              },
-                              isSelected: homeController.selectedTabIndex.value == 1,
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                            TabItem(
-                              title: "Portfolio",
-                              onTap: (){
-                                homeController.selectedTabIndex.value = 2;
-                                homeController.selectedTabName.value = "Portfolio";
-                              },
-                              isSelected: homeController.selectedTabIndex.value == 2,
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                            TabItem(
-                              title: "Contact",
-                              onTap: (){
-                                homeController.selectedTabIndex.value = 3;
-                                homeController.selectedTabName.value = "Contact";
-                              },
-                              isSelected: homeController.selectedTabIndex.value == 3,
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                            ),
-                          ],
+                          children: tabItems(homeController),
                         ),
                       ),
                     )
@@ -190,6 +118,47 @@ class HomeView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  List<Widget> tabItems(HomeController homeController) {
+    return [
+      TabItem(
+        title: "About",
+        onTap: (){
+          homeController.selectedTabIndex.value = 0;
+          homeController.selectedTabName.value = "About Me";
+        },
+        isSelected: homeController.selectedTabIndex.value == 0,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+      ),
+      TabItem(
+        title: "Resume",
+        onTap: (){
+          homeController.selectedTabIndex.value = 1;
+          homeController.selectedTabName.value = "Resume";
+        },
+        isSelected: homeController.selectedTabIndex.value == 1,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+      ),
+      TabItem(
+        title: "Portfolio",
+        onTap: (){
+          homeController.selectedTabIndex.value = 2;
+          homeController.selectedTabName.value = "Portfolio";
+        },
+        isSelected: homeController.selectedTabIndex.value == 2,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+      ),
+      TabItem(
+        title: "Contact",
+        onTap: (){
+          homeController.selectedTabIndex.value = 3;
+          homeController.selectedTabName.value = "Contact";
+        },
+        isSelected: homeController.selectedTabIndex.value == 3,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+      ),
+    ];
   }
 }
 
@@ -246,6 +215,7 @@ class MainPage extends StatelessWidget {
                         // child: SelectableText(homeController.selectedTabName.value, style: Theme.of(context).textTheme.headlineLarge,),
                       ),
                       CustomContainer(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
                         bgColor: AppColors.lightBlackContainer,
                         borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(20),
@@ -314,8 +284,8 @@ class MainPage extends StatelessWidget {
   Widget TabItem({required void Function() onTap, required String title, bool isSelected = false} ) {
     return InkWell(
       onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         child: Text(title, style: Theme.of(Get.context!).textTheme.labelLarge?.copyWith(
             color: isSelected? AppColors.selectionColor: AppColors.white
         ),),

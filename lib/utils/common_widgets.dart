@@ -274,13 +274,15 @@ class TabItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Padding(
-        padding: padding?? const EdgeInsets.symmetric(horizontal: 24),
-        child: Text(title, style: Theme.of(Get.context!).textTheme.labelLarge?.copyWith(
-            color: isSelected? AppColors.selectionColor: AppColors.white
-        ),),
+    return Expanded(
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          child: Text(title, style: Theme.of(Get.context!).textTheme.labelLarge?.copyWith(
+              color: isSelected? AppColors.selectionColor: AppColors.white
+          ),),
+        ),
       ),
     );
   }
