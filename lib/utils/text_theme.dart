@@ -37,7 +37,7 @@ TextTheme mobileTextTheme = const TextTheme(
     fontFamily: 'Poppins',
   ),
   labelLarge: TextStyle(
-    fontSize: 10, // Small heading size
+    fontSize: 12, // Small heading size
     fontWeight: FontWeight.w500,
     color: AppColors.white,
     fontFamily: 'Poppins',
@@ -49,12 +49,12 @@ TextTheme mobileTextTheme = const TextTheme(
     fontFamily: 'Poppins',
   ),
   bodyLarge: TextStyle(
-    fontSize: 11, // Standard body text size
+    fontSize: 12, // Standard body text size
     color: AppColors.lightGray, // Light gray color for body text
     fontFamily: 'Poppins',
   ),
   bodyMedium: TextStyle(
-    fontSize: 10, // Medium body text size
+    fontSize: 11, // Medium body text size
     color: AppColors.lightGray, // Light gray color for body text
     fontFamily: 'Poppins',
   ),

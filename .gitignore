@@ -88,7 +88,6 @@ coverage/
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 # Web related
-lib/generated_plugin_registrant.dart
 
 # Symbolication related
 app.*.symbols
@@ -137,3 +136,5 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
+
+.vercel

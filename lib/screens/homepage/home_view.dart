@@ -387,8 +387,8 @@ class SideBar extends StatelessWidget {
                     onTap: homeController.toggleExpanded,
                     child: CustomContainer(
                       borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(15), topRight: Radius.circular(17)),
-                      padding: const EdgeInsets.all(8),
-                      child: Icon(homeController.isExpanded.value? Icons.expand_less_rounded: Icons.expand_more, size: 14, color: homeController.isExpanded.value? AppColors.selectionColor: AppColors.white,),
+                      padding: const EdgeInsets.all(6),
+                      child: Icon(homeController.isExpanded.value? Icons.expand_less_rounded: Icons.expand_more, size: 16, color: homeController.isExpanded.value? AppColors.selectionColor: AppColors.white,),
                     ),
                   ),
                 ],

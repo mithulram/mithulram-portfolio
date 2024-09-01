@@ -27,24 +27,7 @@ class PortfolioView extends StatelessWidget {
           crossAxisAlignment: WrapCrossAlignment.center,
           runAlignment: WrapAlignment.center,
           alignment: WrapAlignment.center,
-          children: [
-            PortfolioCard(
-                context,
-                portfolioInfo: CommonStrings.workAnywhereApp
-            ),
-            PortfolioCard(
-                context,
-                portfolioInfo: CommonStrings.talentAnywhereApp
-            ),
-            PortfolioCard(
-                context,
-                portfolioInfo: CommonStrings.darknetDiariesApp
-            ),
-            PortfolioCard(
-                context,
-                portfolioInfo: CommonStrings.libriVoxApp
-            ),
-          ],
+          children: children(context),
         ),
       ),
       desktopView: Container(
@@ -55,27 +38,35 @@ class PortfolioView extends StatelessWidget {
           runSpacing: 20,
           crossAxisAlignment: WrapCrossAlignment.start,
           runAlignment: WrapAlignment.start,
-          children: [
-            PortfolioCard(
-                context,
-                portfolioInfo: CommonStrings.workAnywhereApp
-            ),
-            PortfolioCard(
-                context,
-                portfolioInfo: CommonStrings.talentAnywhereApp
-            ),
-            PortfolioCard(
-                context,
-                portfolioInfo: CommonStrings.darknetDiariesApp
-            ),
-            PortfolioCard(
-                context,
-                portfolioInfo: CommonStrings.libriVoxApp
-            ),
-          ],
+          children: children(context),
         ),
       )
     );
+  }
+
+  List<Widget> children (BuildContext context) {
+    return [
+      PortfolioCard(
+          context,
+          portfolioInfo: CommonStrings.portfolioApp
+      ),
+      PortfolioCard(
+          context,
+          portfolioInfo: CommonStrings.workAnywhereApp
+      ),
+      PortfolioCard(
+          context,
+          portfolioInfo: CommonStrings.talentAnywhereApp
+      ),
+      PortfolioCard(
+          context,
+          portfolioInfo: CommonStrings.darknetDiariesApp
+      ),
+      PortfolioCard(
+          context,
+          portfolioInfo: CommonStrings.libriVoxApp
+      ),
+    ];
   }
 
   Widget PortfolioCard(BuildContext context, {required Map<String, String> portfolioInfo}) {
@@ -197,7 +188,7 @@ class CustomDialogue extends StatelessWidget {
                       children: [
                         Row(
                           mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             AvatarContainer(
                                 clip: Clip.antiAlias,
@@ -210,20 +201,30 @@ class CustomDialogue extends StatelessWidget {
                                 Image.asset(portfolioInfo['iconUrl']!, fit: BoxFit.cover,)
                             ),
                             const SizedBox(width: 10,),
-                            portfolioInfo['playstoreUrl']! == ""? const SizedBox():
-                            InkWell(
-                              onTap: () async {
-                                if(!await launchUrl(Uri.parse(portfolioInfo['playstoreUrl']!))) {
-                                  throw Exception("could not launch url");
-                                }
-                              },
-                              child: CustomContainer(
-                                bgColor: AppColors.lightBlackContainer,
-                                borderColor: Colors.transparent,
-                                padding: const EdgeInsets.all(8),
-                                border: 8,
-                                child: SvgPicture.asset('assets/svg/playstore.svg', height: 14,),
-                              ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                SelectableText(portfolioInfo['title']!,
+                                  maxLines: 2,
+                                  style: Theme.of(context).textTheme.headlineLarge,
+                                ),
+                                portfolioInfo['playstoreUrl']! == ""? const SizedBox():
+                                InkWell(
+                                  onTap: () async {
+                                    if(!await launchUrl(Uri.parse(portfolioInfo['playstoreUrl']!))) {
+                                      throw Exception("could not launch url");
+                                    }
+                                  },
+                                  child: CustomContainer(
+                                    bgColor: AppColors.lightBlackContainer,
+                                    borderColor: Colors.transparent,
+                                    padding: const EdgeInsets.all(8),
+                                    border: 8,
+                                    child: SvgPicture.asset('assets/svg/playstore.svg', height: 14,),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -242,7 +243,7 @@ class CustomDialogue extends StatelessWidget {
                     const SizedBox(height: 20,),
                     Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
                         child: ScrollConfiguration(
                           behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
                           child: SingleChildScrollView(
@@ -250,11 +251,6 @@ class CustomDialogue extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Flexible(
-                                  child: SelectableText(portfolioInfo['title']!,
-                                    style: Theme.of(context).textTheme.headlineLarge,
-                                  ),
-                                ),
                                 const SizedBox(height: 10,),
                                 Flexible(
                                   child: SelectableText(portfolioInfo['about']!,

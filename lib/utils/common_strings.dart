@@ -106,4 +106,29 @@ Work Anywhere is a comprehensive HRMS (Human Resource Management System) applica
 This app is designed to support seamless remote working and efficient project management, empowering organizations to maintain productivity and communication.
 '''
   };
+
+  static const Map<String, String> portfolioApp = {
+    'playstoreUrl': "",
+    'coverImage': "assets/images/portfolio-cover.png",
+    'title': "Personal Portfolio",
+    'iconUrl': "assets/images/profile.png",
+    'type': "Web Application",
+    'about': '''
+Indeed, the very portfolio you are browsing is a testament to my skills and expertise, meticulously crafted using the Flutter framework. This web application is designed to showcase my skills, projects, and professional journey. Developed from scratch, the portfolio incorporates modern technologies and best practices to create an engaging and responsive user experience. Key features include:
+
+-  Responsive Design: Utilizes Responsive Builder to ensure the portfolio looks great on any device, whether it's a desktop, tablet, or mobile phone.
+
+-  State Management: Powered by GetX for efficient state management, ensuring a smooth user experience across the application.
+
+-  Interactive Maps: Integrated with flutter_map to display interactive maps, showcasing various project locations or any geographic-based data.
+
+-  Contact Form: Implemented using EmailJS for seamless and efficient handling of contact form submissions, enabling users to reach out directly through the site.
+
+-  Smooth Animations: Includes sleek transitions and animations to enhance user engagement and create a polished interface.
+
+This portfolio serves as a personal brand statement, highlighting my expertise in Flutter development and my commitment to delivering high-quality applications.
+
+Technologies: Built using Flutter, with GetX for state management, flutter_map for map integration, EmailJS for the contact form, and Responsive Builder for dynamic UI adaptation.
+'''
+  };
 }
