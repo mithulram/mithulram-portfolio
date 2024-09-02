@@ -186,22 +186,21 @@ class CustomDialogue extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            AvatarContainer(
-                                clip: Clip.antiAlias,
-                                padding: EdgeInsets.zero,
-                                radius: 20,
-                                height: 80,
-                                width: 80,
-                                child: portfolioInfo['iconUrl']! == ""?
-                                Image.asset('assets/images/app-icon.jpg', fit: BoxFit.cover,):
-                                Image.asset(portfolioInfo['iconUrl']!, fit: BoxFit.cover,)
-                            ),
-                            const SizedBox(width: 10,),
-                            Column(
+                        AvatarContainer(
+                            clip: Clip.antiAlias,
+                            padding: EdgeInsets.zero,
+                            radius: 20,
+                            height: 80,
+                            width: 80,
+                            child: portfolioInfo['iconUrl']! == ""?
+                            Image.asset('assets/images/app-icon.jpg', fit: BoxFit.cover,):
+                            Image.asset(portfolioInfo['iconUrl']!, fit: BoxFit.cover,)
+                        ),
+
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10),
+                            child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -226,16 +225,14 @@ class CustomDialogue extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          ],
+                          ),
                         ),
                         InkWell(
                           onTap: Get.back,
                           child: const AvatarContainer(
-                            height: 30,
-                            width: 30,
-                            padding: EdgeInsets.all(3),
+                            padding: EdgeInsets.all(2),
                             radius: 8,
-                            child: Icon(Icons.close, size: 20, color: AppColors.white,),
+                            child: Icon(Icons.close, size: 20, color: AppColors.lightGray,),
                           ),
                         ),
                       ],
@@ -363,7 +360,7 @@ class CustomDialogue extends StatelessWidget {
                           width: 30,
                           padding: EdgeInsets.all(3),
                           radius: 8,
-                          child: Icon(Icons.close, size: 20, color: AppColors.white,),
+                          child: Icon(Icons.close, size: 20, color: AppColors.lightGray,),
                         ),
                       ),
                     ),

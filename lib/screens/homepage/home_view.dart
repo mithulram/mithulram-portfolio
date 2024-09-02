@@ -63,16 +63,18 @@ class HomeView extends StatelessWidget {
               ),
               Obx(() =>
                   CustomContainer(
-                    padding: EdgeInsets.zero,
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     bgColor: AppColors.lightBlackContainer,
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: tabItems(homeController),
+                    child: Center(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: tabItems(homeController),
+                      ),
                     ),
                   )
               )
@@ -96,7 +98,7 @@ class HomeView extends StatelessWidget {
                 ),
                 Obx(() =>
                     CustomContainer(
-                      padding: EdgeInsets.zero,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       bgColor: AppColors.lightBlackContainer,
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(20),
@@ -215,7 +217,7 @@ class MainPage extends StatelessWidget {
                         // child: SelectableText(homeController.selectedTabName.value, style: Theme.of(context).textTheme.headlineLarge,),
                       ),
                       CustomContainer(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         bgColor: AppColors.lightBlackContainer,
                         borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(20),

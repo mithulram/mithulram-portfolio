@@ -278,7 +278,8 @@ class TabItem extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(vertical: 16),
           child: Text(title, style: Theme.of(Get.context!).textTheme.labelLarge?.copyWith(
               color: isSelected? AppColors.selectionColor: AppColors.white
           ),),
