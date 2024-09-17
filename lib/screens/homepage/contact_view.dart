@@ -10,6 +10,7 @@ import 'package:portfolio/screens/responsive_layout.dart';
 import 'package:portfolio/utils/app_colors.dart';
 import 'package:portfolio/utils/common_methods.dart';
 import 'package:portfolio/utils/common_widgets.dart';
+import 'package:portfolio/utils/controllers.dart';
 
 import '../../utils/common_strings.dart';
 import 'home_controller.dart';
@@ -22,6 +23,7 @@ class ContactView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeController = Get.put(HomeController(), tag: 'home_controller');
+    analyticServices.logScreenView(screenName: context.toString());
 
     OutlineInputBorder errorBorder = OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),

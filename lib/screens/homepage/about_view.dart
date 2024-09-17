@@ -6,6 +6,7 @@ import 'package:portfolio/screens/responsive_layout.dart';
 import 'package:portfolio/utils/app_colors.dart';
 import 'package:portfolio/utils/common_methods.dart';
 import 'package:portfolio/utils/common_widgets.dart';
+import 'package:portfolio/utils/controllers.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:timeline_tile/timeline_tile.dart' as tt;
 import '../../utils/common_strings.dart';
@@ -15,6 +16,8 @@ class AboutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    analyticServices.logScreenView(screenName: context.toString());
+
     return ResponsiveLayout(
       mobileView: Column(
         mainAxisSize: MainAxisSize.min,

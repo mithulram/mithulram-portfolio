@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/screens/responsive_layout.dart';
 import 'package:portfolio/utils/app_colors.dart';
 import 'package:portfolio/utils/common_widgets.dart';
+import 'package:portfolio/utils/controllers.dart';
 
 import '../../utils/common_strings.dart';
 
@@ -13,6 +14,9 @@ class ResumeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // print("context: ${context.toString()}");
+    analyticServices.logScreenView(screenName: context.toString());
+
     return ResponsiveLayout(
       mobileView: Container(
           alignment: Alignment.centerLeft,

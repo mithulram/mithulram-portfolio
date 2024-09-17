@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:portfolio/screens/responsive_layout.dart';
 import 'package:portfolio/utils/app_colors.dart';
 import 'package:portfolio/utils/common_widgets.dart';
+import 'package:portfolio/utils/controllers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../utils/common_strings.dart';
@@ -17,6 +18,8 @@ class PortfolioView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    analyticServices.logScreenView(screenName: context.toString());
+
     return ResponsiveLayout(
       mobileView: Container(
         alignment: Alignment.center,
@@ -85,7 +88,7 @@ class PortfolioView extends StatelessWidget {
               );
             },
             child: Container(
-              constraints: BoxConstraints(
+              constraints: const BoxConstraints(
                 maxWidth: 350
               ),
               clipBehavior: Clip.antiAlias,

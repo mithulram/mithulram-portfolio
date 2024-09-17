@@ -9,6 +9,7 @@ import 'package:portfolio/screens/responsive_layout.dart';
 import 'package:portfolio/utils/app_colors.dart';
 import 'package:portfolio/utils/common_strings.dart';
 import 'package:portfolio/utils/common_widgets.dart';
+import 'package:portfolio/utils/controllers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeView extends StatelessWidget {
@@ -16,6 +17,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    analyticServices.logScreenView(screenName: context.toString());
     final homeController = Get.put(HomeController(), tag: 'home_controller');
     final maxWidth = MediaQuery.of(context).size.width;
     final double padding = (maxWidth > 1200)
