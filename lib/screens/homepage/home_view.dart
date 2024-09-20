@@ -181,19 +181,35 @@ class MainPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 10, top: 16, bottom: 0),
-                child: SelectableText(homeController.selectedTabName.value, style: Theme.of(context).textTheme.headlineLarge,),
-                // child: SelectableText(homeController.selectedTabName.value, style: Theme.of(context).textTheme.headlineLarge,),
-              ),
-              Container(
-                margin: const EdgeInsets.only(left: 10, top: 15),
-                width: 45,
-                height: 6,
-                decoration: BoxDecoration(
-                    gradient: AppColors.yellowGradient,
-                    borderRadius: BorderRadius.circular(3)
-                ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, top: 16, bottom: 0),
+                        child: SelectableText(homeController.selectedTabName.value, style: Theme.of(context).textTheme.headlineLarge,),
+                        // child: SelectableText(homeController.selectedTabName.value, style: Theme.of(context).textTheme.headlineLarge,),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(left: 10, top: 15),
+                        width: 45,
+                        height: 6,
+                        decoration: BoxDecoration(
+                            gradient: AppColors.yellowGradient,
+                            borderRadius: BorderRadius.circular(3)
+                        ),
+                      ),
+                    ],
+                  ),
+                  homeController.selectedTabIndex.value != 1? const SizedBox():
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10, top: 16, bottom: 0),
+                    child: downloadCVButton(),
+                  ),
+                ],
               ),
               homeController.getTabView(),
               const SizedBox(height: 10,)

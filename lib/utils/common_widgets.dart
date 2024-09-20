@@ -5,8 +5,10 @@ import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:portfolio/screens/responsive_layout.dart';
+import 'package:portfolio/utils/controllers.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:timeline_tile/timeline_tile.dart' as tt;
+import 'package:url_launcher/url_launcher.dart';
 
 import 'app_colors.dart';
 
@@ -287,4 +289,39 @@ class TabItem extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget downloadCVButton() {
+  return InkWell(
+    onTap: () async {
+      analyticServices.logEvent(eventName: "CV downloaded");
+      launchUrl(
+          Uri.parse("https://drive.google.com/file/d/1wLE1ViAMXpBkOz5kDCPRkXci-Ejiwzf6/view"), // CV pdf link
+          mode: LaunchMode.platformDefault
+      );
+    },
+    child: Neumorphic(
+      style: NeumorphicStyle(
+          shape: NeumorphicShape.concave,
+          boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
+          depth: .4,
+          lightSource: LightSource.topLeft,
+          color: AppColors.lightBlackContainer,
+          shadowLightColor: AppColors.white
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Icon(Icons.download, size: 18, color: AppColors.selectionColor,),
+            const SizedBox(width: 8,),
+            Text("Download CV", style: Theme.of(Get.context!).textTheme.labelLarge?.copyWith(
+                color: AppColors.white
+            ),)
+          ],
+        ),
+      ),
+    ),
+  );
 }

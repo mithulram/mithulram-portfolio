@@ -319,13 +319,8 @@ class ContactView extends StatelessWidget {
                   child: InkWell(
                     onTap: homeController.loading.value? null: () async {
                       if(homeController.formKey.currentState!.validate()) {
+                        analyticServices.logEvent(eventName: "Contact sent");
                         await homeController.sendEmail();
-                        //
-                        // homeController.nameController.value.text = "";
-                        // homeController.emailController.value.text = "";
-                        // homeController.messageController.value.clear();
-                      } else {
-                        print("form not validated!");
                       }
                     },
                     child: Neumorphic(

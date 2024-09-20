@@ -6,6 +6,7 @@ import 'package:portfolio/screens/responsive_layout.dart';
 import 'package:portfolio/utils/app_colors.dart';
 import 'package:portfolio/utils/common_widgets.dart';
 import 'package:portfolio/utils/controllers.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../utils/common_strings.dart';
 
@@ -139,16 +140,22 @@ class ResumeView extends StatelessWidget {
               //   data: CommonStrings.educationMap.reversed.toList(),
               // ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Neumorphic(
-                    padding: const EdgeInsets.all(12),
-                    style: cardStyle(radius: 12),
-                    child: const Icon(Icons.school_outlined, color: AppColors.accent, size: 18, weight: .2,),
-                  ),const SizedBox(width: 20,),
-                  SelectableText(
-                    "Education",
-                    style: Theme.of(context).textTheme.headlineMedium,
+                  Row(
+                    children: [
+                      Neumorphic(
+                        padding: const EdgeInsets.all(12),
+                        style: cardStyle(radius: 12),
+                        child: const Icon(Icons.school_outlined, color: AppColors.accent, size: 18, weight: .2,),
+                      ),const SizedBox(width: 20,),
+                      SelectableText(
+                        "Education",
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                    ],
                   ),
+                  downloadCVButton(),
                 ],
               ),
               TimeLineListView(
