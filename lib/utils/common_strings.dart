@@ -1,5 +1,10 @@
 
 class CommonStrings {
+  static const myDetails = {
+    "email": "rchauhan439@gmail.com",
+    "mobile": "+91 8810529272",
+    "address": "Chattarpur, New Delhi - 110074",
+  };
   static const String aboutMe = "I’m a Frontend Developer with 4.5 years of experience in building mobile and web applications using Flutter. I specialize in creating intuitive, user-centric designs that deliver high performance and align with business goals. Skilled in Flutter and Dart, I am familiar with various state management solutions.\n\nMy focus is on writing clean, scalable code while following industry best practices. I also have experience integrating Firebase services and APIs, ensuring that the applications I build are both functional and visually appealing. My goal is to create seamless digital experiences that engage users and drive success.";
   static const educationMap = [
 

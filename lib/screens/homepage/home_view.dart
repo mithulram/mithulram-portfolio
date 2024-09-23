@@ -397,10 +397,10 @@ class SideBar extends StatelessWidget {
                       CustomListTile(
                           icon: Icons.mail_outline_rounded,
                           title: "EMAIL",
-                          subtitle: "rchauhan439@gmail.com",
+                          subtitle: CommonStrings.myDetails['email'],
                           onTap: (){
                             launchUrl(
-                                Uri(scheme: "mailto", path: "rchauhan439@gmail.com"),
+                                Uri(scheme: "mailto", path: CommonStrings.myDetails['email']),
                                 mode: LaunchMode.platformDefault
                             );
                           }
@@ -408,10 +408,10 @@ class SideBar extends StatelessWidget {
                       CustomListTile(
                           icon: Icons.phone_android,
                           title: "PHONE",
-                          subtitle: "+91 9868563310",
+                          subtitle: CommonStrings.myDetails['mobile'],
                           onTap: (){
                             launchUrl(
-                                Uri(scheme: "tel", path: "+919868563310"),
+                                Uri(scheme: "tel", path: CommonStrings.myDetails['mobile']),
                                 mode: LaunchMode.platformDefault
                             );
                           }
@@ -419,7 +419,7 @@ class SideBar extends StatelessWidget {
                       CustomListTile(
                         icon: Icons.location_on_outlined,
                         title: "LOCATION",
-                        subtitle: "Chattarpur, New Delhi - 110074",
+                        subtitle: CommonStrings.myDetails['address'],
                       ),
                     ],
                   ),
@@ -511,10 +511,10 @@ class SideBar extends StatelessWidget {
                       CustomListTile(
                           icon: Icons.mail_outline_rounded,
                           title: "EMAIL",
-                          subtitle: "rchauhan439@gmail.com",
+                          subtitle: CommonStrings.myDetails['email'],
                           onTap: (){
                             launchUrl(
-                                Uri(scheme: "mailto", path: "rchauhan439@gmail.com"),
+                                Uri(scheme: "mailto", path: CommonStrings.myDetails['email']),
                                 mode: LaunchMode.platformDefault
                             );
                           }
@@ -522,10 +522,10 @@ class SideBar extends StatelessWidget {
                       CustomListTile(
                           icon: Icons.phone_android,
                           title: "PHONE",
-                          subtitle: "+91 9868563310",
+                          subtitle: CommonStrings.myDetails['mobile'],
                           onTap: (){
                             launchUrl(
-                                Uri(scheme: "tel", path: "+919868563310"),
+                                Uri(scheme: "tel", path: CommonStrings.myDetails['mobile']),
                                 mode: LaunchMode.platformDefault
                             );
                           }
@@ -533,7 +533,7 @@ class SideBar extends StatelessWidget {
                       CustomListTile(
                         icon: Icons.location_on_outlined,
                         title: "LOCATION",
-                        subtitle: "Chattarpur, New Delhi - 110074",
+                        subtitle: CommonStrings.myDetails['address'],
                       ),
                     ],
                   ),
@@ -583,10 +583,10 @@ class SideBar extends StatelessWidget {
                   CustomListTile(
                       icon: Icons.mail_outline_rounded,
                       title: "EMAIL",
-                      subtitle: "rchauhan439@gmail.com",
+                      subtitle: CommonStrings.myDetails['email'],
                       onTap: (){
                         launchUrl(
-                            Uri(scheme: "mailto", path: "rchauhan439@gmail.com"),
+                            Uri(scheme: "mailto", path: CommonStrings.myDetails['email']),
                             mode: LaunchMode.platformDefault
                         );
                       }
@@ -597,7 +597,7 @@ class SideBar extends StatelessWidget {
                       subtitle: "+91 9868563310",
                       onTap: (){
                         launchUrl(
-                            Uri(scheme: "tel", path: "+919868563310"),
+                            Uri(scheme: "tel", path: CommonStrings.myDetails['mobile']),
                             mode: LaunchMode.platformDefault
                         );
                       }
@@ -605,7 +605,7 @@ class SideBar extends StatelessWidget {
                   CustomListTile(
                     icon: Icons.location_on_outlined,
                     title: "LOCATION",
-                    subtitle: "Chattarpur, New Delhi - 110074",
+                    subtitle: CommonStrings.myDetails['address'],
                   )
                 ],
               ),
