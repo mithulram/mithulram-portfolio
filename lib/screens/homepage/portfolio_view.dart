@@ -67,6 +67,10 @@ class PortfolioView extends StatelessWidget {
       ),
       PortfolioCard(
           context,
+          portfolioInfo: CommonStrings.neoMartApp
+      ),
+      PortfolioCard(
+          context,
           portfolioInfo: CommonStrings.libriVoxApp
       ),
     ];

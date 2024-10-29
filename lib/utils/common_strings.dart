@@ -5,7 +5,7 @@ class CommonStrings {
     "mobile": "+91 8810529272",
     "address": "Chattarpur, New Delhi - 110074",
   };
-  static const String aboutMe = "I’m a Frontend Developer with 4.5 years of experience in building mobile and web applications using Flutter. I specialize in creating intuitive, user-centric designs that deliver high performance and align with business goals. Skilled in Flutter and Dart, I am familiar with various state management solutions.\n\nMy focus is on writing clean, scalable code while following industry best practices. I also have experience integrating Firebase services and APIs, ensuring that the applications I build are both functional and visually appealing. My goal is to create seamless digital experiences that engage users and drive success.";
+  static const String aboutMe = "I’m a Frontend Developer with 5 years of experience in building mobile and web applications using Flutter and React. I specialize in crafting intuitive, user-centric designs that deliver high performance and align with business goals. Skilled in Flutter, Dart, and React, I’m well-versed in state management solutions, including GetX and Provider for Flutter, as well as Redux and Context for React.\n\nWith a focus on writing clean, scalable code, I follow industry best practices and integrate Firebase services and APIs to ensure applications are both functional and visually appealing. My work has consistently led to results like reduced load times and increased user engagement. I thrive in collaborative settings, working seamlessly across teams to prioritize user experience and performance while driving measurable success.";
   static const educationMap = [
 
     {
@@ -134,6 +134,33 @@ Indeed, the very portfolio you are browsing is a testament to my skills and expe
 This portfolio serves as a personal brand statement, highlighting my expertise in Flutter development and my commitment to delivering high-quality applications.
 
 Technologies: Built using Flutter, with GetX for state management, flutter_map for map integration, EmailJS for the contact form, and Responsive Builder for dynamic UI adaptation.
+'''
+  };
+
+  static const Map<String, String> neoMartApp = {
+    'playstoreUrl': "https://apps.apple.com/in/app/neomart/id1519575784",
+    'coverImage': "assets/images/project-cover.png",
+    'title': "NeoMart Consumer App",
+    'iconUrl': "",
+    'type': "Mobile Application",
+    'about': '''
+NeoMart Consumer App is a cutting-edge eCommerce platform designed to connect users with their favorite local markets and stores. This innovative app simplifies shopping for groceries, vegetables, fruits, medicines, and more—all from the comfort of home. Key features include:
+
+-  **Comprehensive Shopping**: Offers a wide selection of products, allowing users to choose from various local stores and markets in one seamless app.
+
+-  **Real-Time Communication**: Enables users to chat and call local shopkeepers, providing personalized support and enhancing the shopping experience.
+
+-  **Push Notifications**: Integrated push notifications keep users informed about order updates, special offers, and new arrivals, ensuring they never miss out.
+
+-  **Real-Time Delivery Tracking**: Users can monitor their order status in real time, providing transparency and improving customer satisfaction.
+
+-  **Secure Payment Integration**: Supports multiple payment gateways, allowing users to complete transactions securely and efficiently.
+
+-  **User-Friendly Interface**: Designed for ease of use, the app delivers a smooth and intuitive shopping experience for users of all backgrounds.
+
+-  **Chat Support**: Built-in chat support feature helps users with any queries or issues, ensuring timely assistance.
+
+Technologies: Developed using Flutter for cross-platform functionality, integrated with Firebase for push notifications and chat support, and real-time database features to ensure smooth order tracking and communication. This app is designed to provide a reliable and engaging eCommerce experience.
 '''
   };
 }
