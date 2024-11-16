@@ -105,6 +105,13 @@ class ResumeView extends StatelessWidget {
                       ),
                     ),
                     SkillCard(
+                      title: "React Native",
+                      child: SvgPicture.asset(
+                        'assets/svg/react.svg',
+                        height: 65,
+                      ),
+                    ),
+                    SkillCard(
                       title: "Dart",
                       child: SvgPicture.asset(
                         'assets/svg/dart.svg',
@@ -206,6 +213,13 @@ class ResumeView extends StatelessWidget {
                   ),
                   SkillCard(
                     title: "React",
+                    child: SvgPicture.asset(
+                      'assets/svg/react.svg',
+                      height: 65,
+                    ),
+                  ),
+                  SkillCard(
+                    title: "React Native",
                     child: SvgPicture.asset(
                       'assets/svg/react.svg',
                       height: 65,
