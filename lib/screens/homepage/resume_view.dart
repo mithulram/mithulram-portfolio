@@ -16,7 +16,7 @@ class ResumeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // print("context: ${context.toString()}");
-    analyticServices.logScreenView(screenName: context.toString());
+    //analyticServices.logScreenView(screenName: context.toString());
 
     return ResponsiveLayout(
       mobileView: Container(

@@ -23,7 +23,7 @@ class ContactView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeController = Get.put(HomeController(), tag: 'home_controller');
-    analyticServices.logScreenView(screenName: context.toString());
+    //analyticServices.logScreenView(screenName: context.toString());
 
     OutlineInputBorder errorBorder = OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
@@ -319,7 +319,7 @@ class ContactView extends StatelessWidget {
                   child: InkWell(
                     onTap: homeController.loading.value? null: () async {
                       if(homeController.formKey.currentState!.validate()) {
-                        analyticServices.logEvent(eventName: "Contact sent");
+                        // analyticServices.logEvent(eventName: "Contact sent");
                         await homeController.sendEmail();
                       }
                     },

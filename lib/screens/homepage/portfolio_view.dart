@@ -18,7 +18,7 @@ class PortfolioView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    analyticServices.logScreenView(screenName: context.toString());
+    //analyticServices.logScreenView(screenName: context.toString());
 
     return ResponsiveLayout(
       mobileView: Container(

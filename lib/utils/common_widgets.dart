@@ -294,7 +294,7 @@ class TabItem extends StatelessWidget {
 Widget downloadCVButton() {
   return InkWell(
     onTap: () async {
-      analyticServices.logEvent(eventName: "CV downloaded");
+      // analyticServices.logEvent(eventName: "CV downloaded");
       launchUrl(
           Uri.parse("https://drive.google.com/file/d/1wLE1ViAMXpBkOz5kDCPRkXci-Ejiwzf6/view"), // CV pdf link
           mode: LaunchMode.platformDefault

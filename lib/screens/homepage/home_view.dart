@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    analyticServices.logScreenView(screenName: context.toString());
+    //analyticServices.logScreenView(screenName: context.toString());
     final homeController = Get.put(HomeController(), tag: 'home_controller');
     final maxWidth = MediaQuery.of(context).size.width;
     final double padding = (maxWidth > 1200)
