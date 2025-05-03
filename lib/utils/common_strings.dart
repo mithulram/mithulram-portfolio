@@ -5,7 +5,7 @@ class CommonStrings {
     "mobile": "+91 8810529272",
     "address": "Chattarpur, New Delhi - 110074",
   };
-  static const String aboutMe = "I’m a Frontend Developer with 5 years of experience in building mobile and web applications using Flutter and React. I specialize in crafting intuitive, user-centric designs that deliver high performance and align with business goals. Skilled in Flutter, Dart, and React, I’m well-versed in state management solutions, including GetX and Provider for Flutter, as well as Redux and Context for React.\n\nWith a focus on writing clean, scalable code, I follow industry best practices and integrate Firebase services and APIs to ensure applications are both functional and visually appealing. My work has consistently led to results like reduced load times and increased user engagement. I thrive in collaborative settings, working seamlessly across teams to prioritize user experience and performance while driving measurable success.";
+  static const String aboutMe = "I'm a Frontend Developer with 5 years of experience in building mobile and web applications using Flutter and React. I specialize in crafting intuitive, user-centric designs that deliver high performance and align with business goals. Skilled in Flutter, Dart, and React, I'm well-versed in state management solutions, including GetX and Provider for Flutter, as well as Redux and Context for React. My technical expertise extends to Firebase integration, API implementation, and responsive design principles that ensure applications are both functional and visually appealing.\n\nWith a commitment to clean, scalable code and industry best practices, my work has consistently delivered measurable results including reduced load times, increased user engagement, and positive app store ratings. I thrive in collaborative environments, working seamlessly with cross-functional teams to translate design visions into technical realities. My approach balances technical excellence with business priorities, ensuring projects meet both user needs and organizational objectives. I'm passionate about creating digital experiences that make a difference and am ready to bring my frontend expertise to your next project.";
   static const educationMap = [
 
     {
@@ -28,7 +28,7 @@ class CommonStrings {
   static const experienceMap = [
     {
       'title': 'Shephertz Technologies, Gurugram',
-      'time': 'April 2023 - Present',
+      'time': 'April 2023 - March 2025',
       'desc': 'Developed mobile applications using Flutter, implemented AI-driven features, and optimized performance through code refactoring.'
     },
     {
@@ -163,4 +163,33 @@ NeoMart Consumer App is a cutting-edge eCommerce platform designed to connect us
 Technologies: Developed using Flutter for cross-platform functionality, integrated with Firebase for push notifications and chat support, and real-time database features to ensure smooth order tracking and communication. This app is designed to provide a reliable and engaging eCommerce experience.
 '''
   };
+
+  static const Map<String, String> remoteCursorPackage = {
+    'playstoreUrl': 'https://pub.dev/packages/remote_cursor',
+    'coverImage': 'https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ffh6eax88thjcndx9jvly.png',
+    'title': 'Remote Cursor Package',
+    'iconUrl': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ccrKgnGQ14EhsAmrL0dTt3Kkj5jx_Ilb77llYmgkqrsFokSSrt3GcxJy9iiY278ugzc&usqp=CAU',
+    'type': 'Flutter Package',
+    'about': '''
+RemoteCursor is a powerful Flutter package that transforms your mobile device into a wireless mouse or trackpad controller. It enables precise control of your computer cursor using touch gestures or device gyroscope movements via WebSocket communication.
+
+**Key Features:**
+
+- **Dual Control Methods**: Use your device as a touchpad or motion-controlled pointer.
+- **Precise Tracking**: Advanced algorithms ensure smooth cursor movement.
+- **Customizable Sensitivity**: Fine-tune controls to match your preferences.
+- **WebSocket Communication**: Establishes a low-latency connection to your computer.
+- **Gesture Support**: Supports click, right-click, and double-click actions.
+- **Configuration Options**: Extensive parameters to customize behavior.
+
+**Technologies Used:**
+
+- **Flutter**: For cross-platform mobile application development.
+- **WebSocket**: Facilitates real-time communication between the mobile device and desktop.
+- **Gyroscope & Touch Input**: Leverages device sensors for intuitive control.
+
+Explore the package on pub.dev: https://pub.dev/packages/remote_cursor
+'''
+  };
+
 }

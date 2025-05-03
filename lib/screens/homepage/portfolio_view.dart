@@ -51,6 +51,10 @@ class PortfolioView extends StatelessWidget {
     return [
       PortfolioCard(
           context,
+          portfolioInfo: CommonStrings.remoteCursorPackage
+      ),
+      PortfolioCard(
+          context,
           portfolioInfo: CommonStrings.portfolioApp
       ),
       PortfolioCard(
@@ -101,7 +105,9 @@ class PortfolioView extends StatelessWidget {
               ),
               child: AspectRatio(
                   aspectRatio: 16/9,
-                  child: Image.asset(portfolioInfo['coverImage']!, fit: BoxFit.cover,)
+                  child: portfolioInfo['coverImage']!.startsWith('http')?
+                    Image.network(portfolioInfo['coverImage']!, fit: BoxFit.cover,):
+                    Image.asset(portfolioInfo['coverImage']!, fit: BoxFit.cover,)
               ),
             )
           ),
@@ -144,7 +150,9 @@ class PortfolioView extends StatelessWidget {
               ),
               child: AspectRatio(
                   aspectRatio: 16/9,
-                  child: Image.asset(portfolioInfo['coverImage']!, fit: BoxFit.cover,)
+                child: portfolioInfo['coverImage']!.startsWith('http')?
+                Image.network(portfolioInfo['coverImage']!, fit: BoxFit.cover,):
+                Image.asset(portfolioInfo['coverImage']!, fit: BoxFit.cover,)
               ),
             ),
           ),
@@ -168,8 +176,8 @@ class PortfolioView extends StatelessWidget {
 }
 
 class CustomDialogue extends StatelessWidget {
-  Map<String, String> portfolioInfo;
-  CustomDialogue({required this.portfolioInfo, super.key});
+  final Map<String, String> portfolioInfo;
+  const CustomDialogue({required this.portfolioInfo, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -201,7 +209,9 @@ class CustomDialogue extends StatelessWidget {
                             width: 80,
                             child: portfolioInfo['iconUrl']! == ""?
                             Image.asset('assets/images/app-icon.jpg', fit: BoxFit.cover,):
-                            Image.asset(portfolioInfo['iconUrl']!, fit: BoxFit.cover,)
+                            portfolioInfo['iconUrl']!.startsWith('http')?
+                              Image.network(portfolioInfo['iconUrl']!, fit: BoxFit.cover,):
+                              Image.asset(portfolioInfo['iconUrl']!, fit: BoxFit.cover,)
                         ),
 
                         Expanded(
@@ -216,6 +226,26 @@ class CustomDialogue extends StatelessWidget {
                                   style: Theme.of(context).textTheme.headlineLarge,
                                 ),
                                 portfolioInfo['playstoreUrl']! == ""? const SizedBox():
+                                portfolioInfo['playstoreUrl']!.contains('pub.dev')?
+                                InkWell(
+                                  onTap: () async {
+                                    if(!await launchUrl(Uri.parse(portfolioInfo['playstoreUrl']!))) {
+                                      throw Exception("could not launch url");
+                                    }
+                                  },
+                                  child: CustomContainer(
+                                    bgColor: AppColors.lightBlackContainer,
+                                    borderColor: Colors.transparent,
+                                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                    border: 8,
+                                    child: Row(
+                                      children: [
+                                        SvgPicture.asset('assets/svg/dart.svg', height: 20,),
+                                        Text("  pub.dev", style: Theme.of(context).textTheme.bodySmall,),
+                                      ],
+                                    ),
+                                  ),
+                                ):
                                 InkWell(
                                   onTap: () async {
                                     if(!await launchUrl(Uri.parse(portfolioInfo['playstoreUrl']!))) {
@@ -305,10 +335,32 @@ class CustomDialogue extends StatelessWidget {
                             width: 160,
                             child: portfolioInfo['iconUrl']! == ""?
                             Image.asset('assets/images/app-icon.jpg', fit: BoxFit.cover,):
+                              portfolioInfo['iconUrl']!.startsWith('http')?
+                              Image.network(portfolioInfo['iconUrl']!, fit: BoxFit.cover,):
                             Image.asset(portfolioInfo['iconUrl']!, fit: BoxFit.cover,)
                         ),
                         const SizedBox(height: 40,),
                         portfolioInfo['playstoreUrl']! == ""? const SizedBox():
+                        portfolioInfo['playstoreUrl']!.contains('pub.dev')?
+                        InkWell(
+                          onTap: () async {
+                            if(!await launchUrl(Uri.parse(portfolioInfo['playstoreUrl']!))) {
+                              throw Exception("could not launch url");
+                            }
+                          },
+                          child: CustomContainer(
+                            bgColor: AppColors.lightBlackContainer,
+                            borderColor: Colors.transparent,
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                            border: 8,
+                            child: Row(
+                              children: [
+                                SvgPicture.asset('assets/svg/dart.svg', height: 20,),
+                                Text("  pub.dev", style: Theme.of(context).textTheme.bodySmall,),
+                              ],
+                            ),
+                          ),
+                        ):
                         InkWell(
                           onTap: () async {
                             if(!await launchUrl(Uri.parse(portfolioInfo['playstoreUrl']!))) {
