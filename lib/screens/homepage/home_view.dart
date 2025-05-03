@@ -145,10 +145,10 @@ class HomeView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10),
       ),
       TabItem(
-        title: "Portfolio",
+        title: "Projects",
         onTap: (){
           homeController.selectedTabIndex.value = 2;
-          homeController.selectedTabName.value = "Portfolio";
+          homeController.selectedTabName.value = "Projects";
         },
         isSelected: homeController.selectedTabIndex.value == 2,
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -261,10 +261,10 @@ class MainPage extends StatelessWidget {
                                 isSelected: homeController.selectedTabIndex.value == 1
                             ),
                             TabItem(
-                                title: "Portfolio",
+                                title: "Projects",
                                 onTap: (){
                                   homeController.selectedTabIndex.value = 2;
-                                  homeController.selectedTabName.value = "Portfolio";
+                                  homeController.selectedTabName.value = "Projects";
                                 },
                                 isSelected: homeController.selectedTabIndex.value == 2
                             ),
