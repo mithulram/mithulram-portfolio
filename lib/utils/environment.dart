@@ -35,8 +35,13 @@ class Environment {
             return '';
         }
       } else {
-        // For local development, use .env file
-        return dotenv.get(key);
+        // For local development, use .env file only if it exists
+        try {
+          return dotenv.get(key);
+        } catch (e) {
+          // If .env file doesn't exist, return empty string
+          return '';
+        }
       }
     } catch (e) {
       // Return empty string for web deployment when .env is not available

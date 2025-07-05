@@ -90,14 +90,15 @@ class HomeController extends GetxController {
 
     try {
       // Wait 3 seconds before sending auto-reply
-      await Future.delayed(const Duration(seconds: 15));
+      await Future.delayed(const Duration(seconds: 3));
 
       // 2. Send auto-reply to the sender
       await emailjs.send(
         Environment.serviceId,
         Environment.autoReplyTemplateId,
         {
-          'from_name': nameController.value.text.trim(),
+          'to_name': nameController.value.text.trim(),
+          'to_email': emailController.value.text.trim(),
           'message': messageController.value.text.trim(),
         },
         emailjs.Options(

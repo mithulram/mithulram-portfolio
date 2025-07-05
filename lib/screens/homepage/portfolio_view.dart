@@ -28,7 +28,7 @@ class PortfolioView extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 1,
-              childAspectRatio: 2.2,
+              childAspectRatio: 2.5,
               crossAxisSpacing: 0,
               mainAxisSpacing: 24,
             ),
@@ -44,7 +44,7 @@ class PortfolioView extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
-              childAspectRatio: 1.2,
+              childAspectRatio: 1.4,
               crossAxisSpacing: 32,
               mainAxisSpacing: 32,
             ),
