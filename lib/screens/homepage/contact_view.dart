@@ -27,13 +27,11 @@ class ContactView extends StatelessWidget {
 
     OutlineInputBorder errorBorder = OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: const BorderSide(color: Colors.redAccent, width: 1)
-    );
+        borderSide: const BorderSide(color: Colors.redAccent, width: 1));
 
     OutlineInputBorder border = OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
-        borderSide: const BorderSide(color: AppColors.borderColor, width: 1)
-    );
+        borderSide: const BorderSide(color: AppColors.borderColor, width: 1));
 
     return ResponsiveLayout(
       mobileView: Container(
@@ -43,36 +41,39 @@ class ContactView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AspectRatio(
-              aspectRatio: 16/11,
+              aspectRatio: 16 / 11,
               child: Container(
                 clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20)
-                ),
+                decoration:
+                    BoxDecoration(borderRadius: BorderRadius.circular(20)),
                 child: FlutterMap(
                   options: const MapOptions(
-                      initialCenter: LatLng(28.4959, 77.1848),
+                      initialCenter: LatLng(48.5667, 13.4667),
                       initialZoom: 13,
                       interactionOptions: InteractionOptions(
                         flags: InteractiveFlag.doubleTapZoom,
                       ),
-                      maxZoom: 15
-                  ),
+                      maxZoom: 15),
                   children: [
                     TileLayer(
-                      urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                      urlTemplate:
+                          "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                       subdomains: const ['a', 'b', 'c'],
                     ),
                   ],
                 ),
               ),
             ),
-            const SizedBox(height: 40,),
+            const SizedBox(
+              height: 40,
+            ),
             SelectableText(
               "Contact Form",
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Form(
               key: homeController.formKey,
               child: Column(
@@ -84,47 +85,51 @@ class ContactView extends StatelessWidget {
                       TextFormField(
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         controller: homeController.nameController.value,
-                        validator: (text){
-                          if(text == null || text.isEmpty) {
+                        validator: (text) {
+                          if (text == null || text.isEmpty) {
                             return "Enter full name!";
                           }
                           return null;
                         },
                         decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 15),
                             border: border,
                             enabledBorder: border,
                             disabledBorder: border,
                             focusedBorder: border,
                             errorBorder: errorBorder,
                             hintText: "Full Name",
-                            hintStyle: Theme.of(context).textTheme.bodyMedium
-                        ),
+                            hintStyle: Theme.of(context).textTheme.bodyMedium),
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       TextFormField(
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         controller: homeController.emailController.value,
-                        validator: (text){
-                          if(text == null || !GetUtils.isEmail(text)) {
+                        validator: (text) {
+                          if (text == null || !GetUtils.isEmail(text)) {
                             return "Enter valid email address!";
                           }
                           return null;
                         },
                         decoration: InputDecoration(
-                            contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 15),
                             border: border,
                             enabledBorder: border,
                             disabledBorder: border,
                             focusedBorder: border,
                             errorBorder: errorBorder,
                             hintText: "Email address",
-                            hintStyle: Theme.of(context).textTheme.bodyMedium
-                        ),
+                            hintStyle: Theme.of(context).textTheme.bodyMedium),
                       )
                     ],
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   Container(
                     constraints: const BoxConstraints(
                       minHeight: 140,
@@ -132,63 +137,79 @@ class ContactView extends StatelessWidget {
                     child: TextFormField(
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       controller: homeController.messageController.value,
-                      validator: (text){
+                      validator: (text) {
+                        if (text == null || text.trim().isEmpty) {
+                          return "Please enter a message!";
+                        }
                         return null;
                       },
                       maxLines: 6,
                       minLines: null,
                       decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                          contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 15),
                           border: border,
                           enabledBorder: border,
                           disabledBorder: border,
                           focusedBorder: border,
                           errorBorder: errorBorder,
                           hintText: "Your Message",
-                          hintStyle: Theme.of(context).textTheme.bodyMedium
-                      ),
+                          hintStyle: Theme.of(context).textTheme.bodyMedium),
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 20,),
-            Obx(() =>
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: InkWell(
-                    onTap: homeController.loading.value? null: () async {
-                      if(homeController.formKey.currentState!.validate()) {
-                        await homeController.sendEmail();
-                        //
-                        // homeController.nameController.value.text = "";
-                        // homeController.emailController.value.text = "";
-                        // homeController.messageController.value.clear();
-                      } else {
-                        print("form not validated!");
-                      }
-                    },
-                    child: Neumorphic(
-                      style: cardStyle(radius: 14),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            SvgPicture.asset(
-                              'assets/svg/send.svg',
-                              height: 15,
-                            ),
-                            const SizedBox(width: 8,),
-                            Text(homeController.loading.value? "Sending...": "Send Message", style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                                color: AppColors.selectionColor
-                            ),)
-                          ],
-                        ),
+            const SizedBox(
+              height: 20,
+            ),
+            Obx(
+              () => Align(
+                alignment: Alignment.centerRight,
+                child: InkWell(
+                  onTap: homeController.loading.value
+                      ? null
+                      : () async {
+                          if (homeController.formKey.currentState!.validate()) {
+                            await homeController.sendEmail();
+                            //
+                            // homeController.nameController.value.text = "";
+                            // homeController.emailController.value.text = "";
+                            // homeController.messageController.value.clear();
+                          } else {
+                            print("form not validated!");
+                          }
+                        },
+                  child: Neumorphic(
+                    style: cardStyle(radius: 14),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SvgPicture.asset(
+                            'assets/svg/send.svg',
+                            height: 15,
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          Text(
+                            homeController.loading.value
+                                ? "Sending..."
+                                : "Send Message",
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(color: AppColors.selectionColor),
+                          )
+                        ],
                       ),
                     ),
                   ),
                 ),
+              ),
             )
           ],
         ),
@@ -201,34 +222,37 @@ class ContactView extends StatelessWidget {
           children: [
             Container(
               clipBehavior: Clip.antiAlias,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20)
-              ),
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
               width: double.infinity,
               height: 400,
               child: FlutterMap(
                 options: const MapOptions(
-                    initialCenter: LatLng(28.4959, 77.1848),
+                    initialCenter: LatLng(48.5667, 13.4667),
                     initialZoom: 13,
                     interactionOptions: InteractionOptions(
                       flags: InteractiveFlag.doubleTapZoom,
                     ),
-                    maxZoom: 15
-                ),
+                    maxZoom: 15),
                 children: [
                   TileLayer(
-                    urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                    urlTemplate:
+                        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                     subdomains: const ['a', 'b', 'c'],
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 40,),
+            const SizedBox(
+              height: 40,
+            ),
             SelectableText(
               "Contact Form",
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Form(
               key: homeController.formKey,
               child: Column(
@@ -241,50 +265,56 @@ class ContactView extends StatelessWidget {
                         child: TextFormField(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: homeController.nameController.value,
-                          validator: (text){
-                            if(text == null || text.isEmpty) {
+                          validator: (text) {
+                            if (text == null || text.isEmpty) {
                               return "Enter full name!";
                             }
                             return null;
                           },
                           decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 15),
                               border: border,
                               enabledBorder: border,
                               disabledBorder: border,
                               focusedBorder: border,
                               errorBorder: errorBorder,
                               hintText: "Full Name",
-                              hintStyle: Theme.of(context).textTheme.bodyMedium
-                          ),
+                              hintStyle:
+                                  Theme.of(context).textTheme.bodyMedium),
                         ),
                       ),
-                      const SizedBox(width: 20,),
+                      const SizedBox(
+                        width: 20,
+                      ),
                       Expanded(
                         child: TextFormField(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: homeController.emailController.value,
-                          validator: (text){
-                            if(text == null || !GetUtils.isEmail(text)) {
+                          validator: (text) {
+                            if (text == null || !GetUtils.isEmail(text)) {
                               return "Enter valid email address!";
                             }
                             return null;
                           },
                           decoration: InputDecoration(
-                              contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 15),
                               border: border,
                               enabledBorder: border,
                               disabledBorder: border,
                               focusedBorder: border,
                               errorBorder: errorBorder,
                               hintText: "Email address",
-                              hintStyle: Theme.of(context).textTheme.bodyMedium
-                          ),
+                              hintStyle:
+                                  Theme.of(context).textTheme.bodyMedium),
                         ),
                       )
                     ],
                   ),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Container(
                     constraints: const BoxConstraints(
                       minHeight: 140,
@@ -292,64 +322,81 @@ class ContactView extends StatelessWidget {
                     child: TextFormField(
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       controller: homeController.messageController.value,
-                      validator: (text){
+                      validator: (text) {
+                        if (text == null || text.trim().isEmpty) {
+                          return "Please enter a message!";
+                        }
                         return null;
                       },
                       maxLines: 6,
                       minLines: null,
                       decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                          contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 15),
                           border: border,
                           enabledBorder: border,
                           disabledBorder: border,
                           focusedBorder: border,
                           errorBorder: errorBorder,
                           hintText: "Your Message",
-                          hintStyle: Theme.of(context).textTheme.bodyMedium
-                      ),
+                          hintStyle: Theme.of(context).textTheme.bodyMedium),
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 30,),
-            Obx(() =>
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: InkWell(
-                    onTap: homeController.loading.value? null: () async {
-                      if(homeController.formKey.currentState!.validate()) {
-                        // analyticServices.logEvent(eventName: "Contact sent");
-                        await homeController.sendEmail();
-                      }
-                    },
-                    child: Neumorphic(
-                      style: NeumorphicStyle(
-                          shape: NeumorphicShape.concave,
-                          boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(14)),
-                          depth: .4,
-                          lightSource: LightSource.topLeft,
-                          color: AppColors.lightBlackContainer,
-                          shadowLightColor: AppColors.white),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            SvgPicture.asset(
-                              'assets/svg/send.svg',
-                              height: 18,
-                            ),
-                            const SizedBox(width: 10,),
-                            Text(homeController.loading.value? "Sending...": "Send Message", style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                                color: AppColors.selectionColor
-                            ),)
-                          ],
-                        ),
+            const SizedBox(
+              height: 30,
+            ),
+            Obx(
+              () => Align(
+                alignment: Alignment.centerRight,
+                child: InkWell(
+                  onTap: homeController.loading.value
+                      ? null
+                      : () async {
+                          if (homeController.formKey.currentState!.validate()) {
+                            // analyticServices.logEvent(eventName: "Contact sent");
+                            await homeController.sendEmail();
+                          }
+                        },
+                  child: Neumorphic(
+                    style: NeumorphicStyle(
+                        shape: NeumorphicShape.concave,
+                        boxShape: NeumorphicBoxShape.roundRect(
+                            BorderRadius.circular(14)),
+                        depth: .4,
+                        lightSource: LightSource.topLeft,
+                        color: AppColors.lightBlackContainer,
+                        shadowLightColor: AppColors.white),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SvgPicture.asset(
+                            'assets/svg/send.svg',
+                            height: 18,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            homeController.loading.value
+                                ? "Sending..."
+                                : "Send Message",
+                            style: Theme.of(context)
+                                .textTheme
+                                .labelLarge
+                                ?.copyWith(color: AppColors.selectionColor),
+                          )
+                        ],
                       ),
                     ),
                   ),
                 ),
+              ),
             )
           ],
         ),

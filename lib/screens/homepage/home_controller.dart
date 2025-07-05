@@ -1,10 +1,10 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get/get_rx/get_rx.dart';
 import 'package:portfolio/screens/homepage/about_view.dart';
 import 'package:portfolio/screens/homepage/portfolio_view.dart';
 import 'package:portfolio/screens/homepage/resume_view.dart';
+import 'package:portfolio/screens/homepage/certificates_view.dart';
 import 'package:emailjs/emailjs.dart' as emailjs;
 import 'package:portfolio/utils/environment.dart';
 
@@ -39,46 +39,88 @@ class HomeController extends GetxController {
 
   getTabView() {
     switch (selectedTabIndex.value) {
-      case 0: return const AboutView();
-      case 1: return const ResumeView();
-      case 2: return const PortfolioView();
-      case 3: return const ContactView();
-      default: return const AboutView();
+      case 0:
+        return const AboutView();
+      case 1:
+        return const ResumeView();
+      case 2:
+        return const PortfolioView();
+      case 3:
+        return const CertificatesView();
+      case 4:
+        return const ContactView();
+      default:
+        return const AboutView();
     }
   }
 
   Future<bool> sendEmail() async {
+    loading.value = true;
+    bool notificationSent = false;
+    bool autoReplySent = false;
+
     try {
-      loading.value = true;
+      // 1. Send notification to you
       await emailjs.send(
         Environment.serviceId,
-        Environment.templateId,
+        Environment.notificationTemplateId,
         {
-          'to_name': nameController.value.text.trim().toString(),
-          'user_email': emailController.value.text.trim().toString(),
-          'reply_to': "rchauhan439@gmail.com",
-          'message': messageController.value.text.trim().toString()
+          'to_name': 'Mithul',
+          'to_email': 'gmithulram@gmail.com',
+          'from_name': nameController.value.text.trim(),
+          'from_email': emailController.value.text.trim(),
+          'reply_to': emailController.value.text.trim(),
+          'message': messageController.value.text.trim(),
+          'subject': 'New Contact Message from Portfolio'
         },
         emailjs.Options(
           publicKey: Environment.publicKey,
           privateKey: Environment.privateKey,
-          limitRate: const emailjs.LimitRate(
-            id: 'web-app',
-            throttle: 10000,
-          ),
+          limitRate: const emailjs.LimitRate(id: 'web-app', throttle: 10000),
         ),
       );
-      print('SUCCESS!');
-      CommonMethods().showSuccessToast("Message Sent!");
-      loading.value = false;
+      notificationSent = true;
+    } catch (e) {
+      print("Notification email failed: $e");
+    }
+
+    try {
+      // Wait 30 seconds before sending auto-reply to avoid rate limiting
+      await Future.delayed(const Duration(seconds: 30));
+      await emailjs.send(
+        Environment.serviceId,
+        Environment.autoReplyTemplateId,
+        {
+          'to_name': nameController.value.text.trim(),
+          'to_email': emailController.value.text.trim(),
+          'from_name': 'Mithulram Gunasekaran',
+          'from_email': 'gmithulram@gmail.com',
+          'message': messageController.value.text.trim(),
+          'subject': "We've received your message!"
+        },
+        emailjs.Options(
+          publicKey: Environment.publicKey,
+          privateKey: Environment.privateKey,
+          limitRate: const emailjs.LimitRate(id: 'web-app', throttle: 10000),
+        ),
+      );
+      autoReplySent = true;
+    } catch (e) {
+      print("Auto-reply email failed: $e");
+    }
+
+    loading.value = false;
+
+    if (notificationSent || autoReplySent) {
+      CommonMethods().showSuccessToast("Message Sent Successfully!");
+      nameController.value.clear();
+      emailController.value.clear();
+      messageController.value.clear();
+      formKey.currentState?.reset();
       return true;
-    } catch (error) {
-      CommonMethods().showDangerToast("Something went wrong!");
-      loading.value = false;
-      if (error is emailjs.EmailJSResponseStatus) {
-        print('ERROR... ${error.status}: ${error.text}');
-      }
-      print(error.toString());
+    } else {
+      CommonMethods()
+          .showDangerToast("Failed to send message. Please try again.");
       return false;
     }
   }

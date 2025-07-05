@@ -6,4 +6,8 @@ class Environment {
   static String get templateId => dotenv.get('EMAIL_JS_TEMPLATE_ID');
   static String get publicKey => dotenv.get('EMAIL_JS_PUBLIC_KEY_ID');
   static String get privateKey => dotenv.get('EMAIL_JS_PRIVATE_KEY_ID');
+  static String get notificationTemplateId =>
+      dotenv.get('EMAIL_JS_NOTIFICATION_TEMPLATE_ID');
+  static String get autoReplyTemplateId =>
+      dotenv.get('EMAIL_JS_AUTOREPLY_TEMPLATE_ID');
 }

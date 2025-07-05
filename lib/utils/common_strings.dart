@@ -1,99 +1,120 @@
-
 class CommonStrings {
   static const myDetails = {
-    "email": "rchauhan439@gmail.com",
-    "mobile": "+91 8810529272",
-    "address": "New Delhi - 110074",
+    "email": "gmithulram@gmail.com",
+    "mobile": "+91-9500539218",
+    "address": "Passau, Germany",
   };
-  static const String aboutMe = "I'm a Flutter Developer with 5 years of experience in building mobile and web applications using Flutter and React. I specialize in crafting intuitive, user-centric designs that deliver high performance and align with business goals. Skilled in Flutter, Dart, and React, I'm well-versed in state management solutions, including GetX and Provider for Flutter, as well as Redux and Context for React. My technical expertise extends to Firebase integration, API implementation, and responsive design principles that ensure applications are both functional and visually appealing.\n\nWith a commitment to clean, scalable code and industry best practices, my work has consistently delivered measurable results including reduced load times, increased user engagement, and positive app store ratings. I thrive in collaborative environments, working seamlessly with cross-functional teams to translate design visions into technical realities. My approach balances technical excellence with business priorities, ensuring projects meet both user needs and organizational objectives. I'm passionate about creating digital experiences that make a difference and am ready to bring my frontend expertise to your next project.";
+  static const String aboutMe =
+      "I'm Mithulram G, an aspiring AI Solutions Architect and Backend & Mobile Developer currently pursuing a Master's in AI Engineering at the University of Passau, Germany. With over 3 years of experience in Java & Spring Boot backend development and Flutter mobile development, I specialize in bridging AI technologies with scalable backend systems.\n\nMy expertise spans across multiple technologies including Java & J2EE, Dart, C++, Flutter, REST APIs, SQL, Spring Boot, and Azure Services. I'm passionate about designing intelligent, efficient, and user-centric solutions for real-world challenges. My goal is to become an AI Solutions Architect, leading projects that integrate AI, cloud technologies, and robust backend systems to drive innovation and efficiency across industries.\n\nI hold several certifications including Python Certified Associate, Java SE 11 Developer, Azure Solutions Architect Expert, and Microsoft Azure Administrator. I'm fluent in English, Tamil, and German, enabling me to work effectively in diverse international environments.";
   static const educationMap = [
-
     {
-      'title': 'Kendriya Vidyalaya JNU',
-      'time': '2011 - 2013',
-      'desc': 'Completed 10th grade with a solid academic record, excelling in Mathematics and Science.'
+      'title': 'University of Passau',
+      'time': '2024 - Present',
+      'desc':
+          'Currently pursuing Master\'s in AI Engineering, focusing on AI technologies, machine learning, and intelligent systems development.'
     },
     {
-      'title': 'Kendriya Vidyalaya JNU',
-      'time': '2013 - 2015',
-      'desc': 'Completed 12th grade with a focus on Science stream, building a strong foundation in Mathematics, Physics, and Computer Science.'
-    },
-    {
-      'title': 'Maharshi Dayanand University, Rohtak',
-      'time': '2015 - 2019',
-      'desc': 'Graduated with a B.Tech in Computer Science, specializing in software development and web technologies.'
+      'title': 'SRM University',
+      'time': '2018 - 2022',
+      'desc':
+          'Bachelor in Computer Science-IT with CGPA 7.8/10, specializing in software development, algorithms, and computer systems.'
     }
   ];
 
   static const experienceMap = [
     {
-      'title': 'Shephertz Technologies, Gurugram',
-      'time': 'April 2023 - March 2025',
-      'desc': 'Developed mobile applications using Flutter, implemented AI-driven features, and optimized performance through code refactoring.'
+      'title': 'Xmplar, Bangalore, Karnataka, India',
+      'time': 'Dec 2021 - Aug 2024',
+      'desc':
+          'Junior Developer: Tripled data handling efficiency through strategic process optimization. Designed responsive user interfaces resulting in 20% increase in user engagement. Enhanced user experience with precise turn-by-turn location tracking. Utilized Firebase for analytics, crash analysis, push notifications, and dynamic linking. Engineered innovative referral system achieving 50% boost in user engagement. Acquired Flutter expertise and spearheaded projects for identifying qualified professionals for gym and event training coverage.'
     },
     {
-      'title': 'The Phantom Codes Pvt. Ltd., Gurugram',
-      'time': 'Jan 2020 - Mar 2023',
-      'desc': 'Built and published mobile applications using React Native, integrated payment gateways, and improved app performance through optimization.'
+      'title': 'Adpay, Chennai, Tamil Nadu, India',
+      'time': 'May 2020 - July 2020 (3 months)',
+      'desc':
+          'Intern: Worked in backend development creating APIs using Java and Spring Boot for a Distributor application in Android.'
     }
   ];
 
-  static const Map<String, String> darknetDiariesApp = {
-    'playstoreUrl' : "https://play.google.com/store/apps/details?id=com.bug32.darknetdiaries&hl=en_IN",
-    'coverImage': "assets/images/darknet-diaries.png",
-    'title': "Darknet Diaries - Podcast",
-    'iconUrl': "assets/images/dd-app-icon.png",
+  static const Map<String, String> sudokuSolverApp = {
+    'playstoreUrl': "",
+    'coverImage': "assets/images/project-cover.png",
+    'title': "Sudoku Solver",
+    'iconUrl': "assets/images/profile.png",
     'about': '''
-Darknet Diaries is a Flutter-based media player application developed from scratch, designed to provide users with a seamless experience for streaming and managing podcasts. The app leverages several key technologies and services:
+A sophisticated 9x9 Sudoku solver developed using Python and the Backtracking Algorithm. This project features both GUI and Text-Based interfaces, providing users with a comprehensive solution for solving complex Sudoku puzzles.
 
--  Firebase Integration: Utilizes Firebase for capturing user interactions, such as marking favorite podcasts. Firebase Authentication is implemented for secure Google Sign-In functionality.
+**Key Features:**
+- **Backtracking Algorithm**: Implements an efficient backtracking approach to solve any valid 9x9 Sudoku puzzle
+- **Dual Interface**: Offers both graphical user interface and command-line text interface for different user preferences
+- **Visual Demonstration**: Provides step-by-step algorithm visualization to help users understand the solving process
+- **Error Handling**: Robust input validation and error handling for invalid puzzles
 
--  Offline Storage: Features robust offline capabilities, allowing users to download podcasts and access them without an internet connection.
+**Technologies Used:**
+- **Python**: Core programming language for algorithm implementation
+- **Backtracking Algorithm**: Efficient puzzle-solving methodology
+- **GUI Framework**: User-friendly graphical interface
+- **Tkinter/Pygame**: For visual representation and user interaction
 
--  Audio Streaming: Incorporates advanced audio player libraries to facilitate smooth and high-quality streaming of online podcasts.
-
-This modernized approach ensures a user-friendly interface, reliable offline access, and enhanced personalization features.
-  ''',
-    'type': "Mobile Application"
+This project demonstrates strong algorithmic thinking, problem-solving skills, and the ability to create user-friendly applications with multiple interface options.
+''',
+    'type': "Python Application"
   };
 
-  static const Map<String, String> libriVoxApp = {
-    'playstoreUrl' : "https://play.google.com/store/apps/details?id=com.bug32.librivoxapi&hl=en_IN",
-    'coverImage': "assets/images/librivox.png",
-    'title': "LibriVox - Free Audiobooks",
-    'iconUrl': "assets/images/librivox-app-icon.png",
+  static const Map<String, String> pathfindingVisualizationApp = {
+    'playstoreUrl': "",
+    'coverImage': "assets/images/project-cover.png",
+    'title': "Pathfinding Visualization",
+    'iconUrl': "assets/images/profile.png",
     'about': '''
-LibriVox is a Android Java-based media player application designed to provide users with free audiobooks available in the public domain. The app is built with a focus on delivering a rich and immersive reading and listening experience.
+An interactive visualization tool for the A* algorithm, designed to demonstrate shortest pathfinding in real-time. This Python application provides an engaging way to understand pathfinding algorithms through dynamic visualization.
 
--  REST API Integration: The app fetches audiobook data through REST APIs that provide access to public domain content.
+**Key Features:**
+- **A* Algorithm Implementation**: Efficient shortest pathfinding using heuristic-based search
+- **Interactive Grid System**: Dynamic grid creation with customizable dimensions and obstacle placement
+- **Real-time Visualization**: Live pathfinding demonstration with step-by-step algorithm execution
+- **Obstacle Management**: Interactive obstacle placement and removal for testing different scenarios
+- **Heuristic Optimization**: Multiple heuristic functions for optimal pathfinding performance
 
--  HTML Rendering: The entire text of the book being played is rendered on the screen, allowing users to read along with the audio.
+**Technologies Used:**
+- **Python**: Core programming language for algorithm implementation
+- **A* Algorithm**: Advanced pathfinding methodology with heuristic optimization
+- **Pygame/Tkinter**: Interactive graphical interface for visualization
+- **Heuristic Functions**: Various distance calculation methods (Manhattan, Euclidean, etc.)
 
-This application combines audio playback with an interactive reading experience, offering users a convenient way to enjoy classic literature.
-  ''',
-    'type': "Mobile Application"
+This project showcases advanced algorithmic knowledge, interactive design skills, and the ability to create educational tools that make complex algorithms accessible and engaging.
+''',
+    'type': "Python Application"
   };
 
-  static const Map<String, String> talentAnywhereApp = {
-    'playstoreUrl' : "",
+  static const Map<String, String> snakeGameApp = {
+    'playstoreUrl': "",
     'coverImage': 'assets/images/project-cover.png',
-    'title': "Talent Anywhere",
-    'iconUrl': "",
-    'type': "Mobile Application",
+    'title': "Snake Game",
+    'iconUrl': "assets/images/profile.png",
+    'type': "Python Application",
     'about': '''
-Talent Anywhere is a dynamic job portal built using Flutter, designed to streamline the interaction between candidates and enterprises. It incorporates advanced AI technologies and several key features:
+A classic Snake game implementation in Python, featuring terminal-based gameplay with modern enhancements. This project demonstrates fundamental game development concepts while providing an engaging user experience.
 
--  AI-Driven Resume Parsing: Leverages AI for optimizing search results, making job matching more efficient.
--  Firebase Notifications: Integrates Firebase to provide real-time notifications for job postings and candidate updates.
--  Deep Linking & Google Sign-In: Enables smooth user experiences with deep linking for easy navigation and Google Sign-In for secure authentication.
--  State Management: Follows MVVM architecture, making use of GetX for efficient state management.
+**Key Features:**
+- **Classic Gameplay**: Traditional Snake game mechanics with growing snake and food collection
+- **Real-time Scoring**: Dynamic score tracking and display during gameplay
+- **Responsive Controls**: Smooth and responsive keyboard controls for precise movement
+- **Terminal Interface**: Clean, text-based user interface optimized for terminal environments
+- **Game Logic**: Robust collision detection, boundary handling, and game state management
 
-This app modernizes job search processes, making it easier for candidates to find opportunities and for enterprises to connect with top talent.
+**Technologies Used:**
+- **Python**: Core programming language for game implementation
+- **Terminal Interface**: Text-based user interface using curses or similar libraries
+- **Game Logic**: Custom game mechanics and state management
+- **Input Handling**: Keyboard event processing for game controls
+
+This project showcases fundamental programming concepts, game development skills, and the ability to create engaging applications with clean, maintainable code. It demonstrates proficiency in Python programming and understanding of basic game development principles.
 '''
   };
 
   static const Map<String, String> workAnywhereApp = {
-    'playstoreUrl' : "",
+    'playstoreUrl': "",
     'coverImage': 'assets/images/project-cover.png',
     'title': "Work Anywhere",
     'iconUrl': "",
@@ -115,25 +136,27 @@ This app is designed to support seamless remote working and efficient project ma
   static const Map<String, String> portfolioApp = {
     'playstoreUrl': "",
     'coverImage': "assets/images/portfolio-cover.png",
-    'title': "Personal Portfolio",
+    'title': "Personal Portfolio - Mithulram G",
     'iconUrl': "assets/images/profile.png",
     'type': "Web Application",
     'about': '''
-Indeed, the very portfolio you are browsing is a testament to my skills and expertise, meticulously crafted using the Flutter framework. This web application is designed to showcase my skills, projects, and professional journey. Developed from scratch, the portfolio incorporates modern technologies and best practices to create an engaging and responsive user experience. Key features include:
+This portfolio represents my professional journey as an aspiring AI Solutions Architect and Backend & Mobile Developer. Built using Flutter framework, it showcases my expertise in multiple technologies and my commitment to creating intelligent, efficient solutions.
 
--  Responsive Design: Utilizes Responsive Builder to ensure the portfolio looks great on any device, whether it's a desktop, tablet, or mobile phone.
+**Key Features:**
+- **Responsive Design**: Optimized for all devices using Responsive Builder for seamless viewing experience
+- **Modern UI/UX**: Clean, professional design with smooth animations and transitions
+- **Interactive Elements**: Interactive maps and dynamic content presentation
+- **Contact Integration**: EmailJS-powered contact form for direct communication
+- **State Management**: Efficient state management using GetX for smooth user experience
 
--  State Management: Powered by GetX for efficient state management, ensuring a smooth user experience across the application.
+**Technologies Used:**
+- **Flutter**: Cross-platform framework for web application development
+- **GetX**: State management and dependency injection
+- **Flutter Map**: Interactive map integration
+- **EmailJS**: Contact form functionality
+- **Responsive Builder**: Adaptive UI design
 
--  Interactive Maps: Integrated with flutter_map to display interactive maps, showcasing various project locations or any geographic-based data.
-
--  Contact Form: Implemented using EmailJS for seamless and efficient handling of contact form submissions, enabling users to reach out directly through the site.
-
--  Smooth Animations: Includes sleek transitions and animations to enhance user engagement and create a polished interface.
-
-This portfolio serves as a personal brand statement, highlighting my expertise in Flutter development and my commitment to delivering high-quality applications.
-
-Technologies: Built using Flutter, with GetX for state management, flutter_map for map integration, EmailJS for the contact form, and Responsive Builder for dynamic UI adaptation.
+This portfolio demonstrates my technical skills, professional experience, and projects while providing an engaging platform for potential employers and collaborators to learn about my capabilities and achievements.
 '''
   };
 
@@ -166,9 +189,11 @@ Technologies: Developed using Flutter for cross-platform functionality, integrat
 
   static const Map<String, String> remoteCursorPackage = {
     'playstoreUrl': 'https://pub.dev/packages/remote_cursor',
-    'coverImage': 'https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ffh6eax88thjcndx9jvly.png',
+    'coverImage':
+        'https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ffh6eax88thjcndx9jvly.png',
     'title': 'Remote Cursor Package',
-    'iconUrl': 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ccrKgnGQ14EhsAmrL0dTt3Kkj5jx_Ilb77llYmgkqrsFokSSrt3GcxJy9iiY278ugzc&usqp=CAU',
+    'iconUrl':
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ccrKgnGQ14EhsAmrL0dTt3Kkj5jx_Ilb77llYmgkqrsFokSSrt3GcxJy9iiY278ugzc&usqp=CAU',
     'type': 'Flutter Package',
     'about': '''
 RemoteCursor is a powerful Flutter package that transforms your mobile device into a wireless mouse or trackpad controller. It enables precise control of your computer cursor using touch gestures or device gyroscope movements via WebSocket communication.
@@ -191,5 +216,4 @@ RemoteCursor is a powerful Flutter package that transforms your mobile device in
 Explore the package on pub.dev: https://pub.dev/packages/remote_cursor
 '''
   };
-
 }

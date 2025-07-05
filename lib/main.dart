@@ -24,31 +24,30 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ResponsiveBuilder(
-      builder: (context, size) {
-        return GetMaterialApp(
-          title: 'Rahul Chauhan - Portfolio',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            useMaterial3: true,
-            brightness: Brightness.dark,
-            primaryColor: AppColors.background,
-            scaffoldBackgroundColor: AppColors.background,
-            canvasColor: AppColors.lightBlackContainer,
-            cardColor: AppColors.lightBlackContainer,
-            dividerColor: AppColors.borderColor,
-            textSelectionTheme: TextSelectionThemeData(
-                selectionColor: AppColors.selectionColor.withOpacity(.7),
-                selectionHandleColor: AppColors.accentDark,
-                cursorColor: AppColors.accent
-            ),
-            textTheme: size.deviceScreenType == DeviceScreenType.mobile? mobileTextTheme: deskTopTextTheme,
-            fontFamily: 'Poppins',
-          ),
-          // navigatorObservers: [analyticServices.getAnalyticsObserver()],
-          home: const HomeView(),
-        );
-      }
-    );
+    return ResponsiveBuilder(builder: (context, size) {
+      return GetMaterialApp(
+        title: 'Mithulram G - Portfolio',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          useMaterial3: true,
+          brightness: Brightness.dark,
+          primaryColor: AppColors.background,
+          scaffoldBackgroundColor: AppColors.background,
+          canvasColor: AppColors.lightBlackContainer,
+          cardColor: AppColors.lightBlackContainer,
+          dividerColor: AppColors.borderColor,
+          textSelectionTheme: TextSelectionThemeData(
+              selectionColor: AppColors.selectionColor.withOpacity(.7),
+              selectionHandleColor: AppColors.accentDark,
+              cursorColor: AppColors.accent),
+          textTheme: size.deviceScreenType == DeviceScreenType.mobile
+              ? mobileTextTheme
+              : deskTopTextTheme,
+          fontFamily: 'Poppins',
+        ),
+        // navigatorObservers: [analyticServices.getAnalyticsObserver()],
+        home: const HomeView(),
+      );
+    });
   }
 }
