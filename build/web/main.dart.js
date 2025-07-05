@@ -28534,8 +28534,8 @@ try{switch(a){case"EMAIL_JS_SERVICE_ID":return"service_y4j9o3s"
 case"EMAIL_JS_TEMPLATE_ID":return r
 case"EMAIL_JS_PUBLIC_KEY_ID":return"zqdRR9or9HFvVA9yO"
 case"EMAIL_JS_PRIVATE_KEY_ID":return"IFQCl2z8s1uzhKhYoox_x"
-case"EMAIL_JS_NOTIFICATION_TEMPLATE_ID":return r
-case"EMAIL_JS_AUTOREPLY_TEMPLATE_ID":return"template_1yjj5ve"
+case"EMAIL_JS_NOTIFICATION_TEMPLATE_ID":return"template_1yjj5ve"
+case"EMAIL_JS_AUTOREPLY_TEMPLATE_ID":return r
 default:return""}}catch(s){return""}},
 aKw(a,b){var s=a.a
 if($.rq==null)$.rq=new A.w9()
