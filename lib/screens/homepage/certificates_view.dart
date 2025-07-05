@@ -43,7 +43,7 @@ class CertificatesView extends StatelessWidget {
         imagePath:
             "assets/images/certificates/mithulramg Microsoft az-104-1.png",
         certificateUrl:
-            "https://www.credly.com/badges/your-azure-badge-id", // Replace with actual URL
+            "https://learn.microsoft.com/en-us/users/mithulramg-5060/credentials/certification/azure-administrator", // Replace with actual URL
         icon: Icons.cloud,
         color: Colors.blue,
       ),
@@ -68,7 +68,7 @@ class CertificatesView extends StatelessWidget {
             "Advanced certification for designing and implementing solutions on Microsoft Azure",
         imagePath: "assets/images/certificates/Solution_arc-1.png",
         certificateUrl:
-            "https://www.credly.com/badges/your-solution-architect-badge-id", // Replace with actual URL
+            "https://learn.microsoft.com/en-us/users/mithulramg-5060/credentials/certification/azure-solutions-architect", // Replace with actual URL
         icon: Icons.architecture,
         color: Colors.purple,
       ),
