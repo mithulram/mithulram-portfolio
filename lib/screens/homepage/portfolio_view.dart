@@ -22,25 +22,34 @@ class PortfolioView extends StatelessWidget {
     return ResponsiveLayout(
         mobileView: Container(
           alignment: Alignment.center,
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-          child: Wrap(
-            spacing: 20,
-            runSpacing: 30,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            runAlignment: WrapAlignment.center,
-            alignment: WrapAlignment.center,
-            children: children(context),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+          child: GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 1,
+              childAspectRatio: 2.2,
+              crossAxisSpacing: 0,
+              mainAxisSpacing: 24,
+            ),
+            itemCount: children(context).length,
+            itemBuilder: (context, index) => children(context)[index],
           ),
         ),
         desktopView: Container(
           alignment: Alignment.centerLeft,
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-          child: Wrap(
-            spacing: 20,
-            runSpacing: 20,
-            crossAxisAlignment: WrapCrossAlignment.start,
-            runAlignment: WrapAlignment.start,
-            children: children(context),
+          padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+          child: GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              childAspectRatio: 1.2,
+              crossAxisSpacing: 32,
+              mainAxisSpacing: 32,
+            ),
+            itemCount: children(context).length,
+            itemBuilder: (context, index) => children(context)[index],
           ),
         ));
   }
@@ -61,86 +70,38 @@ class PortfolioView extends StatelessWidget {
   Widget PortfolioCard(BuildContext context,
       {required Map<String, String> portfolioInfo}) {
     return ResponsiveLayout(
-      mobileView: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          InkWell(
-              onTap: () {
-                Get.dialog(
-                  CustomDialogue(portfolioInfo: portfolioInfo),
-                  barrierDismissible: true,
-                  transitionDuration: const Duration(milliseconds: 500),
-                  transitionCurve: Curves.easeInOut,
-                  useSafeArea: true,
-                );
-              },
-              child: Container(
-                constraints: const BoxConstraints(maxWidth: 350),
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: AspectRatio(
-                    aspectRatio: 16 / 9,
-                    child: portfolioInfo['coverImage']!.startsWith('http')
-                        ? Image.network(
-                            portfolioInfo['coverImage']!,
-                            fit: BoxFit.cover,
-                          )
-                        : Image.asset(
-                            portfolioInfo['coverImage']!,
-                            fit: BoxFit.cover,
-                          )),
-              )),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SelectableText(
-                  portfolioInfo['title']!,
-                  style: Theme.of(context).textTheme.titleMedium,
-                  maxLines: 1,
-                ),
-                SelectableText(
-                  portfolioInfo['type']!,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                  minLines: 1,
-                ),
-              ],
+      mobileView: SizedBox(
+        width: double.infinity,
+        child: InkWell(
+          onTap: () {
+            Get.dialog(
+              CustomDialogue(portfolioInfo: portfolioInfo),
+              barrierDismissible: true,
+              transitionDuration: const Duration(milliseconds: 500),
+              transitionCurve: Curves.easeInOut,
+              useSafeArea: true,
+            );
+          },
+          child: Neumorphic(
+            padding: const EdgeInsets.all(16),
+            style: NeumorphicStyle(
+              shape: NeumorphicShape.concave,
+              boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(16)),
+              depth: 0.4,
+              lightSource: LightSource.topLeft,
+              color: AppColors.lightBlackContainer,
+              shadowLightColor: AppColors.selectionColor,
             ),
-          )
-        ],
-      ),
-      desktopView: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          InkWell(
-            onTap: () {
-              Get.dialog(
-                CustomDialogue(portfolioInfo: portfolioInfo),
-                barrierDismissible: true,
-                transitionDuration: const Duration(milliseconds: 500),
-                transitionCurve: Curves.easeInOut,
-                useSafeArea: true,
-              );
-            },
-            child: Container(
-              clipBehavior: Clip.antiAlias,
-              constraints: const BoxConstraints(
-                maxHeight: 200,
-                maxWidth: 250,
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-              ),
-              child: AspectRatio(
-                  aspectRatio: 16 / 9,
+            child: Row(
+              children: [
+                // Image
+                Container(
+                  width: 120,
+                  height: 80,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                   child: portfolioInfo['coverImage']!.startsWith('http')
                       ? Image.network(
                           portfolioInfo['coverImage']!,
@@ -149,33 +110,110 @@ class PortfolioView extends StatelessWidget {
                       : Image.asset(
                           portfolioInfo['coverImage']!,
                           fit: BoxFit.cover,
-                        )),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SelectableText(
-                  portfolioInfo['title']!,
-                  style: Theme.of(context).textTheme.titleMedium,
-                  maxLines: 1,
+                        ),
                 ),
-                SelectableText(
-                  portfolioInfo['type']!,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                  minLines: 1,
+                const SizedBox(width: 16),
+                // Content
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SelectableText(
+                        portfolioInfo['title']!,
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                ),
+                        maxLines: 2,
+                      ),
+                      const SizedBox(height: 4),
+                      SelectableText(
+                        portfolioInfo['type']!,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              color: AppColors.selectionColor,
+                            ),
+                        maxLines: 1,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
-          )
-        ],
+          ),
+        ),
+      ),
+      desktopView: Container(
+        child: InkWell(
+          onTap: () {
+            Get.dialog(
+              CustomDialogue(portfolioInfo: portfolioInfo),
+              barrierDismissible: true,
+              transitionDuration: const Duration(milliseconds: 500),
+              transitionCurve: Curves.easeInOut,
+              useSafeArea: true,
+            );
+          },
+          child: Neumorphic(
+            padding: const EdgeInsets.all(20),
+            style: NeumorphicStyle(
+              shape: NeumorphicShape.concave,
+              boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(16)),
+              depth: 0.4,
+              lightSource: LightSource.topLeft,
+              color: AppColors.lightBlackContainer,
+              shadowLightColor: AppColors.selectionColor,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Image
+                Container(
+                  width: double.infinity,
+                  height: 140,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: portfolioInfo['coverImage']!.startsWith('http')
+                      ? Image.network(
+                          portfolioInfo['coverImage']!,
+                          fit: BoxFit.cover,
+                        )
+                      : Image.asset(
+                          portfolioInfo['coverImage']!,
+                          fit: BoxFit.cover,
+                        ),
+                ),
+                const SizedBox(height: 16),
+                // Content
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SelectableText(
+                        portfolioInfo['title']!,
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                ),
+                        maxLines: 2,
+                      ),
+                      const SizedBox(height: 8),
+                      SelectableText(
+                        portfolioInfo['type']!,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                              color: AppColors.selectionColor,
+                            ),
+                        maxLines: 1,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

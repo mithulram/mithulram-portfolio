@@ -13,20 +13,33 @@ class CertificatesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveLayout(
       mobileView: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ...certificateCards(context),
-          ],
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+        child: GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 1,
+            childAspectRatio: 3.5,
+            crossAxisSpacing: 0,
+            mainAxisSpacing: 20,
+          ),
+          itemCount: certificateCards(context).length,
+          itemBuilder: (context, index) => certificateCards(context)[index],
         ),
       ),
       desktopView: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-        child: Wrap(
-          spacing: 20,
-          runSpacing: 20,
-          children: certificateCards(context),
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+        child: GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 2.8,
+            crossAxisSpacing: 32,
+            mainAxisSpacing: 32,
+          ),
+          itemCount: certificateCards(context).length,
+          itemBuilder: (context, index) => certificateCards(context)[index],
         ),
       ),
     );
@@ -158,9 +171,8 @@ class CertificateCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveLayout(
-      mobileView: Container(
+      mobileView: SizedBox(
         width: double.infinity,
-        margin: const EdgeInsets.only(bottom: 15),
         child: GestureDetector(
           onTap: () => _showCertificateModal(context),
           child: Neumorphic(
@@ -173,78 +185,60 @@ class CertificateCard extends StatelessWidget {
               color: AppColors.lightBlackContainer,
               shadowLightColor: AppColors.selectionColor,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: Row(
               children: [
-                Row(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: color.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Icon(icon, color: color, size: 24),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SelectableText(
-                            title,
-                            style: Theme.of(context).textTheme.titleLarge,
-                            maxLines: 2,
-                          ),
-                          SelectableText(
-                            issuer,
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium
-                                ?.copyWith(
-                                  color: AppColors.selectionColor,
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: color.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Icon(icon, color: color, size: 24),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SelectableText(
+                        title,
+                        style:
+                            Theme.of(context).textTheme.titleMedium?.copyWith(
+                                  fontWeight: FontWeight.w600,
                                 ),
-                          ),
-                        ],
+                        maxLines: 2,
                       ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: AppColors.selectionColor.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(6),
-                      ),
-                      child: Text(
-                        date,
-                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      const SizedBox(height: 4),
+                      SelectableText(
+                        issuer,
+                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               color: AppColors.selectionColor,
                             ),
+                        maxLines: 1,
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 4),
+                      SelectableText(
+                        description,
+                        style: Theme.of(context).textTheme.bodySmall,
+                        maxLines: 1,
+                      ),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 12),
-                SelectableText(
-                  description,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-                const SizedBox(height: 8),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.touch_app,
-                      size: 16,
-                      color: AppColors.selectionColor.withOpacity(0.7),
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      "Tap to view certificate",
-                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                            color: AppColors.selectionColor.withOpacity(0.7),
-                          ),
-                    ),
-                  ],
+                Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: AppColors.selectionColor.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: Text(
+                    date,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: AppColors.selectionColor,
+                        ),
+                  ),
                 ),
               ],
             ),
@@ -252,7 +246,7 @@ class CertificateCard extends StatelessWidget {
         ),
       ),
       desktopView: SizedBox(
-        width: 350,
+        width: double.infinity,
         child: GestureDetector(
           onTap: () => _showCertificateModal(context),
           child: Neumorphic(
@@ -285,9 +279,15 @@ class CertificateCard extends StatelessWidget {
                         children: [
                           SelectableText(
                             title,
-                            style: Theme.of(context).textTheme.titleLarge,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.copyWith(
+                                  fontWeight: FontWeight.w600,
+                                ),
                             maxLines: 2,
                           ),
+                          const SizedBox(height: 4),
                           SelectableText(
                             issuer,
                             style: Theme.of(context)
@@ -296,6 +296,7 @@ class CertificateCard extends StatelessWidget {
                                 ?.copyWith(
                                   color: AppColors.selectionColor,
                                 ),
+                            maxLines: 1,
                           ),
                         ],
                       ),
@@ -317,21 +318,24 @@ class CertificateCard extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 15),
-                SelectableText(
-                  description,
-                  style: Theme.of(context).textTheme.bodyMedium,
+                Expanded(
+                  child: SelectableText(
+                    description,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    maxLines: 3,
+                  ),
                 ),
                 const SizedBox(height: 10),
                 Row(
                   children: [
                     Icon(
                       Icons.touch_app,
-                      size: 18,
+                      size: 16,
                       color: AppColors.selectionColor.withOpacity(0.7),
                     ),
-                    const SizedBox(width: 6),
+                    const SizedBox(width: 4),
                     Text(
-                      "Click to view certificate",
+                      "Tap to view certificate",
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: AppColors.selectionColor.withOpacity(0.7),
                           ),

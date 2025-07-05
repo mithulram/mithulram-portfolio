@@ -7,6 +7,7 @@ import 'package:portfolio/screens/homepage/resume_view.dart';
 import 'package:portfolio/screens/homepage/certificates_view.dart';
 import 'package:emailjs/emailjs.dart' as emailjs;
 import 'package:portfolio/utils/environment.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../utils/common_methods.dart';
 import 'contact_view.dart';
@@ -56,6 +57,13 @@ class HomeController extends GetxController {
 
   Future<bool> sendEmail() async {
     loading.value = true;
+
+    // Check if EmailJS is configured
+    if (Environment.serviceId.isEmpty || Environment.publicKey.isEmpty) {
+      // Fallback: Open email client
+      return await _openEmailClient();
+    }
+
     bool notificationSent = false;
     bool autoReplySent = false;
 
@@ -65,46 +73,40 @@ class HomeController extends GetxController {
         Environment.serviceId,
         Environment.notificationTemplateId,
         {
-          'to_name': 'Mithul',
-          'to_email': 'gmithulram@gmail.com',
           'from_name': nameController.value.text.trim(),
           'from_email': emailController.value.text.trim(),
-          'reply_to': emailController.value.text.trim(),
           'message': messageController.value.text.trim(),
-          'subject': 'New Contact Message from Portfolio'
         },
         emailjs.Options(
           publicKey: Environment.publicKey,
           privateKey: Environment.privateKey,
-          limitRate: const emailjs.LimitRate(id: 'web-app', throttle: 10000),
         ),
       );
       notificationSent = true;
+      print("Notification sent successfully");
     } catch (e) {
       print("Notification email failed: $e");
     }
 
     try {
-      // Wait 30 seconds before sending auto-reply to avoid rate limiting
-      await Future.delayed(const Duration(seconds: 30));
+      // Wait 3 seconds before sending auto-reply
+      await Future.delayed(const Duration(seconds: 15));
+
+      // 2. Send auto-reply to the sender
       await emailjs.send(
         Environment.serviceId,
         Environment.autoReplyTemplateId,
         {
-          'to_name': nameController.value.text.trim(),
-          'to_email': emailController.value.text.trim(),
-          'from_name': 'Mithulram Gunasekaran',
-          'from_email': 'gmithulram@gmail.com',
+          'from_name': nameController.value.text.trim(),
           'message': messageController.value.text.trim(),
-          'subject': "We've received your message!"
         },
         emailjs.Options(
           publicKey: Environment.publicKey,
           privateKey: Environment.privateKey,
-          limitRate: const emailjs.LimitRate(id: 'web-app', throttle: 10000),
         ),
       );
       autoReplySent = true;
+      print("Auto-reply sent successfully");
     } catch (e) {
       print("Auto-reply email failed: $e");
     }
@@ -121,6 +123,50 @@ class HomeController extends GetxController {
     } else {
       CommonMethods()
           .showDangerToast("Failed to send message. Please try again.");
+      return false;
+    }
+  }
+
+  Future<bool> _openEmailClient() async {
+    try {
+      final name = nameController.value.text.trim();
+      final email = emailController.value.text.trim();
+      final message = messageController.value.text.trim();
+
+      final subject = 'Contact from Portfolio - $name';
+      final body = '''
+Hello Mithulram,
+
+You have received a new message from your portfolio:
+
+Name: $name
+Email: $email
+Message: $message
+
+Best regards,
+Portfolio Contact Form
+''';
+
+      final uri = Uri.parse(
+          'mailto:gmithulram@gmail.com?subject=${Uri.encodeComponent(subject)}&body=${Uri.encodeComponent(body)}');
+
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri);
+        CommonMethods().showSuccessToast("Email client opened!");
+        nameController.value.clear();
+        emailController.value.clear();
+        messageController.value.clear();
+        formKey.currentState?.reset();
+        loading.value = false;
+        return true;
+      } else {
+        CommonMethods().showDangerToast("Could not open email client");
+        loading.value = false;
+        return false;
+      }
+    } catch (e) {
+      CommonMethods().showDangerToast("Error opening email client");
+      loading.value = false;
       return false;
     }
   }
