@@ -85,7 +85,6 @@ flutter:
     - assets/fonts/
     - assets/svg/
     - assets/images/
-    - .env
     - assets/images/certificates/mithulramg Microsoft az-104-1.png
     - assets/images/certificates/Certificate Java SE 11 dev-1.png
     - assets/images/certificates/certificate_vb3f.j6jH.Ew3M (1)-1.png
