@@ -28,9 +28,9 @@ class Environment {
           case 'EMAIL_JS_PRIVATE_KEY_ID':
             return 'IFQCl2z8s1uzhKhYoox_x';
           case 'EMAIL_JS_NOTIFICATION_TEMPLATE_ID':
-            return 'template_as4jfzb';
+            return 'template_1yjj5ve'; // Swapped: This should send to you
           case 'EMAIL_JS_AUTOREPLY_TEMPLATE_ID':
-            return 'template_1yjj5ve';
+            return 'template_as4jfzb'; // Swapped: This should send to sender
           default:
             return '';
         }
