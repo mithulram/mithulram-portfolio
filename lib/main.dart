@@ -13,7 +13,13 @@ import 'package:responsive_builder/responsive_builder.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Get.put(AnalyticServices(), tag: 'analytics');
-  await dotenv.load(fileName: Environment.envFile);
+  try {
+    await dotenv.load(fileName: Environment.envFile);
+  } catch (e) {
+    // .env file not found, continue without it (for web deployment)
+    print(
+        'Warning: .env file not found. Email functionality will be disabled.');
+  }
   // analyticServices.logEvent(eventName: "App initialized");
   runApp(const App());
 }
