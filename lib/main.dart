@@ -19,6 +19,7 @@ void main() async {
     // .env file not found, continue without it (for web deployment)
     print(
         'Warning: .env file not found. Email functionality will be disabled.');
+    // Don't let this error crash the app
   }
   // analyticServices.logEvent(eventName: "App initialized");
   runApp(const App());
