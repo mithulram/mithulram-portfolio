@@ -1,1 +1,0 @@
-:  /Users/mithul/Development/projects/portfolio/Portfolio/web/index.html
