@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Java coffee cup -->
+  <!-- Steam -->
+  <path d="M22 6 Q20 11 22 16" stroke="#EA2D2E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M28 4 Q26 10 28 16" stroke="#EA2D2E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M34 6 Q32 11 34 16" stroke="#EA2D2E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <!-- Cup body -->
+  <path d="M12 22 L16 54 L48 54 L52 22 Z" fill="#5382A1"/>
+  <!-- Cup rim -->
+  <rect x="10" y="18" width="44" height="6" rx="3" fill="#EA2D2E"/>
+  <!-- Handle -->
+  <path d="M52 30 Q62 30 62 38 Q62 46 52 46" stroke="#5382A1" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Java text -->
+  <text x="32" y="46" font-family="Arial Black, sans-serif" font-size="13" font-weight="900" fill="white" text-anchor="middle">JAVA</text>
+  <!-- Saucer -->
+  <ellipse cx="32" cy="55" rx="22" ry="4" fill="#EA2D2E" opacity="0.5"/>
+</svg>

@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0533"/>
+      <stop offset="50%" style="stop-color:#2d1057"/>
+      <stop offset="100%" style="stop-color:#3d1a6e"/>
+    </linearGradient>
+    <linearGradient id="card1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b"/>
+      <stop offset="100%" style="stop-color:#ee5a24"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a29bfe"/>
+      <stop offset="100%" style="stop-color:#6c5ce7"/>
+    </linearGradient>
+    <linearGradient id="card3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#55efc4"/>
+      <stop offset="100%" style="stop-color:#00b894"/>
+    </linearGradient>
+    <linearGradient id="card4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdcb6e"/>
+      <stop offset="100%" style="stop-color:#e17055"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="700" cy="50" r="120" fill="#ffffff05"/>
+  <circle cx="720" cy="400" r="90" fill="#ffffff05"/>
+
+  <!-- Phone mockup -->
+  <g transform="translate(285, 20)">
+    <!-- Phone body -->
+    <rect width="240" height="410" rx="30" fill="#1a1a2e" stroke="#ffffff20" stroke-width="1.5"/>
+    <!-- Screen -->
+    <rect x="8" y="35" width="224" height="365" rx="22" fill="#0f0f1a"/>
+    <!-- Notch -->
+    <rect x="80" y="35" width="80" height="22" rx="11" fill="#1a1a2e"/>
+    <!-- Home indicator -->
+    <rect x="90" y="393" width="60" height="4" rx="2" fill="#ffffff30"/>
+
+    <!-- App content -->
+    <!-- Header -->
+    <rect x="8" y="35" width="224" height="55" rx="22" fill="#7c3aed"/>
+    <rect x="8" y="57" width="224" height="33" fill="#7c3aed"/>
+    <text x="70" y="58" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">NeoMart</text>
+    <text x="70" y="74" font-family="Arial, sans-serif" font-size="9" fill="#ffffff90">Fresh delivery at your door</text>
+    <!-- Cart icon in header -->
+    <rect x="188" y="46" width="26" height="22" rx="4" fill="#ffffff20"/>
+    <text x="201" y="62" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">🛒</text>
+    <!-- Notification badge -->
+    <circle cx="214" cy="46" r="7" fill="#ff6b6b"/>
+    <text x="214" y="50" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">3</text>
+
+    <!-- Search bar -->
+    <rect x="18" y="97" width="204" height="26" rx="13" fill="#1e1e35"/>
+    <text x="42" y="114" font-family="Arial, sans-serif" font-size="10" fill="#ffffff50">🔍 Search groceries, fruits...</text>
+
+    <!-- Category chips -->
+    <rect x="18" y="132" width="56" height="20" rx="10" fill="#7c3aed"/>
+    <text x="46" y="146" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">All</text>
+    <rect x="80" y="132" width="60" height="20" rx="10" fill="#ffffff15"/>
+    <text x="110" y="146" font-family="Arial, sans-serif" font-size="9" fill="#ffffffa0" text-anchor="middle">Fruits</text>
+    <rect x="146" y="132" width="70" height="20" rx="10" fill="#ffffff15"/>
+    <text x="181" y="146" font-family="Arial, sans-serif" font-size="9" fill="#ffffffa0" text-anchor="middle">Veggies</text>
+
+    <!-- Product cards row 1 -->
+    <!-- Card 1 -->
+    <rect x="18" y="162" width="95" height="100" rx="12" fill="#1e1e35"/>
+    <rect x="18" y="162" width="95" height="55" rx="12" fill="url(#card1)" opacity="0.3"/>
+    <text x="65" y="200" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">🍎</text>
+    <text x="65" y="222" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Fresh Apples</text>
+    <text x="65" y="234" font-family="Arial, sans-serif" font-size="8" fill="#ffffff70" text-anchor="middle">per kg</text>
+    <text x="40" y="249" font-family="Arial, sans-serif" font-size="9" fill="#a29bfe" font-weight="bold">₹ 80</text>
+    <rect x="82" y="240" width="22" height="16" rx="8" fill="#7c3aed"/>
+    <text x="93" y="252" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">+</text>
+
+    <!-- Card 2 -->
+    <rect x="119" y="162" width="95" height="100" rx="12" fill="#1e1e35"/>
+    <rect x="119" y="162" width="95" height="55" rx="12" fill="url(#card3)" opacity="0.3"/>
+    <text x="166" y="200" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">🥦</text>
+    <text x="166" y="222" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Broccoli</text>
+    <text x="166" y="234" font-family="Arial, sans-serif" font-size="8" fill="#ffffff70" text-anchor="middle">500g pack</text>
+    <text x="141" y="249" font-family="Arial, sans-serif" font-size="9" fill="#a29bfe" font-weight="bold">₹ 45</text>
+    <rect x="183" y="240" width="22" height="16" rx="8" fill="#7c3aed"/>
+    <text x="194" y="252" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">+</text>
+
+    <!-- Product cards row 2 -->
+    <!-- Card 3 -->
+    <rect x="18" y="270" width="95" height="100" rx="12" fill="#1e1e35"/>
+    <rect x="18" y="270" width="95" height="55" rx="12" fill="url(#card4)" opacity="0.3"/>
+    <text x="65" y="308" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">🥛</text>
+    <text x="65" y="330" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Milk 1L</text>
+    <text x="65" y="342" font-family="Arial, sans-serif" font-size="8" fill="#ffffff70" text-anchor="middle">Amul</text>
+    <text x="40" y="357" font-family="Arial, sans-serif" font-size="9" fill="#a29bfe" font-weight="bold">₹ 65</text>
+    <rect x="82" y="348" width="22" height="16" rx="8" fill="#7c3aed"/>
+    <text x="93" y="360" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">+</text>
+
+    <!-- Card 4 -->
+    <rect x="119" y="270" width="95" height="100" rx="12" fill="#1e1e35"/>
+    <rect x="119" y="270" width="95" height="55" rx="12" fill="url(#card2)" opacity="0.3"/>
+    <text x="166" y="308" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">💊</text>
+    <text x="166" y="330" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Medicine</text>
+    <text x="166" y="342" font-family="Arial, sans-serif" font-size="8" fill="#ffffff70" text-anchor="middle">Pharmacy</text>
+    <text x="141" y="357" font-family="Arial, sans-serif" font-size="9" fill="#a29bfe" font-weight="bold">₹ 120</text>
+    <rect x="183" y="348" width="22" height="16" rx="8" fill="#7c3aed"/>
+    <text x="194" y="360" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">+</text>
+
+    <!-- Bottom nav -->
+    <rect x="8" y="375" width="224" height="25" rx="8" fill="#1e1e35"/>
+    <text x="46" y="391" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">🏠</text>
+    <text x="90" y="391" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">🔍</text>
+    <text x="134" y="391" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">🛒</text>
+    <text x="178" y="391" font-family="Arial, sans-serif" font-size="13" text-anchor="middle">👤</text>
+    <!-- Active indicator -->
+    <line x1="40" y1="375" x2="52" y2="375" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Second phone (slightly behind) -->
+  <g transform="translate(520, 50)" opacity="0.4">
+    <rect width="200" height="340" rx="25" fill="#1a1a2e" stroke="#ffffff20" stroke-width="1"/>
+    <rect x="7" y="30" width="186" height="303" rx="18" fill="#0f0f1a"/>
+    <!-- Tracking screen preview -->
+    <rect x="7" y="30" width="186" height="55" rx="18" fill="#7c3aed"/>
+    <rect x="7" y="55" width="186" height="30" fill="#7c3aed"/>
+    <text x="100" y="53" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Order Tracking</text>
+    <text x="100" y="68" font-family="Arial, sans-serif" font-size="8" fill="#ffffff90" text-anchor="middle">Live location update</text>
+    <!-- Map area -->
+    <rect x="20" y="100" width="160" height="120" rx="8" fill="#1e3a5f" opacity="0.5"/>
+    <circle cx="100" cy="155" r="15" fill="#7c3aed" opacity="0.8"/>
+    <circle cx="100" cy="155" r="25" fill="#7c3aed" opacity="0.2"/>
+    <text x="100" y="160" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">📍</text>
+    <!-- ETA -->
+    <rect x="20" y="235" width="160" height="40" rx="8" fill="#1e1e35"/>
+    <text x="100" y="252" font-family="Arial, sans-serif" font-size="9" fill="#ffffff90" text-anchor="middle">Estimated Delivery</text>
+    <text x="100" y="268" font-family="Arial, sans-serif" font-size="13" fill="#a29bfe" text-anchor="middle" font-weight="bold">12 mins</text>
+  </g>
+
+  <!-- Left side text -->
+  <text x="40" y="140" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#a29bfe" letter-spacing="4">FLUTTER</text>
+  <text x="35" y="190" font-family="Arial, sans-serif" font-size="34" font-weight="bold" fill="#ffffff">NeoMart</text>
+  <text x="35" y="230" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ffffff90">Consumer App</text>
+  <line x1="35" y1="248" x2="195" y2="248" stroke="#a29bfe" stroke-width="3" stroke-linecap="round"/>
+  <text x="35" y="278" font-family="Arial, sans-serif" font-size="12" fill="#ffffff80">Local Market</text>
+  <text x="35" y="296" font-family="Arial, sans-serif" font-size="12" fill="#ffffff80">eCommerce Platform</text>
+
+  <!-- Feature badges -->
+  <rect x="35" y="320" width="120" height="22" rx="11" fill="#7c3aed30" stroke="#7c3aed60" stroke-width="1"/>
+  <text x="95" y="335" font-family="Arial, sans-serif" font-size="10" fill="#a29bfe" text-anchor="middle">Real-time Tracking</text>
+  <rect x="35" y="348" width="100" height="22" rx="11" fill="#7c3aed30" stroke="#7c3aed60" stroke-width="1"/>
+  <text x="85" y="363" font-family="Arial, sans-serif" font-size="10" fill="#a29bfe" text-anchor="middle">Push Notifications</text>
+  <rect x="35" y="376" width="90" height="22" rx="11" fill="#7c3aed30" stroke="#7c3aed60" stroke-width="1"/>
+  <text x="80" y="391" font-family="Arial, sans-serif" font-size="10" fill="#a29bfe" text-anchor="middle">Chat Support</text>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="az1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0078D4"/>
+      <stop offset="100%" style="stop-color:#50E6FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Azure "A" logo shape -->
+  <!-- Left blue block -->
+  <path d="M8 54 L26 8 L38 8 L22 42 L38 42 Z" fill="url(#az1)"/>
+  <!-- Right angled block -->
+  <path d="M28 28 L48 28 L56 54 L36 54 Z" fill="#0078D4"/>
+  <!-- Highlight triangle -->
+  <path d="M26 8 L44 8 L36 26 Z" fill="#50E6FF" opacity="0.7"/>
+</svg>

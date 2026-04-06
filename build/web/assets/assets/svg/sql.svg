@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Database cylinders -->
+  <!-- Bottom cylinder -->
+  <rect x="8" y="42" width="48" height="16" rx="2" fill="#00758F"/>
+  <ellipse cx="32" cy="42" rx="24" ry="6" fill="#00909E"/>
+  <ellipse cx="32" cy="58" rx="24" ry="6" fill="#005F73"/>
+  <!-- Middle cylinder -->
+  <rect x="8" y="26" width="48" height="16" rx="2" fill="#00909E"/>
+  <ellipse cx="32" cy="26" rx="24" ry="6" fill="#00B4CC"/>
+  <ellipse cx="32" cy="42" rx="24" ry="6" fill="#00758F"/>
+  <!-- Top cylinder -->
+  <rect x="8" y="10" width="48" height="16" rx="2" fill="#00B4CC"/>
+  <ellipse cx="32" cy="10" rx="24" ry="6" fill="#00D4EE"/>
+  <ellipse cx="32" cy="26" rx="24" ry="6" fill="#00909E"/>
+  <!-- Highlight lines on top -->
+  <path d="M16 14 Q32 18 48 14" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+  <path d="M20 30 Q32 34 44 30" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.4"/>
+</svg>
