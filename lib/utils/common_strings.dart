@@ -4,7 +4,7 @@ class CommonStrings {
     "mobile": "+91-9500539218",
     "mobile_de": "+49-1708834985",
     "address": "Passau, Germany",
-    "german_level": "German A2",
+    "german_level": "German B1",
     "availability": "20 h/week (student visa)",
   };
 
@@ -19,7 +19,7 @@ class CommonStrings {
       "AI-Oriented Software Engineer · Backend, Cloud & Mobile";
 
   static const String aboutMe =
-      "I'm Mithulram G, a software engineer based in Passau, Germany. I'm pursuing my Master's in Informatics at the University of Passau, with a focus on AI engineering and scalable software systems.\n\nBefore moving to Germany, I spent three years at Xmplar in Bangalore shipping production Flutter apps and Java/Spring Boot backends — fitness scheduling platforms, Firebase integrations, referral flows, and location-aware features that moved real engagement numbers.\n\nI'm looking for working-student or junior roles where I can contribute across backend services, mobile products, and cloud tooling. Comfortable with Java, Spring Boot, Flutter, Python, Azure, REST APIs, and SQL.\n\nCertified in Java SE 11, PCAP Python, Azure Administrator, and Azure Solutions Architect Expert. I speak English and Tamil fluently, and German at A2 level.";
+      "I'm Mithulram G — a software engineer in Passau, Germany, finishing my Master's in Informatics at the University of Passau with a focus on AI engineering and scalable systems.\n\nI spent three years at Xmplar in Bangalore building production Flutter apps and Java/Spring Boot backends: fitness platforms, Firebase integrations, referral flows, and location-aware features that moved real engagement numbers.\n\nThese days I'm open to Werkstudent and junior roles across backend, mobile, and cloud. I work comfortably with Java, Spring Boot, Flutter, Python, Azure, REST APIs, and SQL.\n\nCertified in Java SE 11, PCAP Python, Azure Administrator, and Azure Solutions Architect Expert. Fluent in English and Tamil; German at B1 level.";
 
   static const educationMap = [
     {
@@ -52,13 +52,51 @@ class CommonStrings {
   ];
 
   static const skillGroups = {
-    'Backend': ['Java', 'Spring Boot', 'REST APIs', 'SQL', 'Microservices'],
-    'Mobile / Frontend': ['Flutter', 'Dart', 'Firebase', 'MVVM', 'BLoC', 'GetX'],
-    'Cloud / DevOps': ['Azure', 'Azure DevOps', 'CI/CD', 'Azure CLI'],
-    'AI / Data': ['Python', 'Algorithms', 'A* Search', 'ML Foundations'],
+    'Backend': [
+      'Java',
+      'J2EE',
+      'Spring Boot',
+      'REST APIs',
+      'SQL',
+      'Microservices',
+      'API Design',
+    ],
+    'Mobile / Frontend': [
+      'Flutter',
+      'Dart',
+      'Firebase',
+      'MVVM',
+      'MVC',
+      'BLoC',
+      'GetX',
+      'JavaScript',
+    ],
+    'Cloud / DevOps': [
+      'Azure',
+      'Azure DevOps',
+      'CI/CD',
+      'Azure CLI',
+      'Cloud Architecture',
+    ],
+    'AI / Data': [
+      'Python',
+      'C++',
+      'Algorithms',
+      'A* Search',
+      'Backtracking',
+      'ML Foundations',
+      'TensorFlow/Keras',
+    ],
+    'Engineering': [
+      'OOP',
+      'Agile',
+      'System Design',
+      'Clean Architecture',
+      'Testing',
+    ],
   };
 
-  static const languages = ['English', 'Tamil', 'German (A2)'];
+  static const languages = ['English (Fluent)', 'Tamil (Fluent)', 'German (B1)'];
 
   static const Map<String, String> coverMeApp = {
     'playstoreUrl': "https://play.google.com/store/apps/details?id=com.coverme.fitness.instructor",
@@ -174,21 +212,27 @@ This project showcases fundamental programming concepts, game development skills
 
   static const Map<String, String> workAnywhereApp = {
     'playstoreUrl': "",
+    'githubUrl': "",
     'coverImage': 'assets/images/project-cover.png',
     'title': "Work Anywhere",
-    'iconUrl': "",
+    'iconUrl': "assets/images/app-icon.jpg",
     'type': "Mobile Application",
     'about': '''
-Work Anywhere is a comprehensive HRMS (Human Resource Management System) application developed using Flutter. It is designed to enhance remote work efficiency by providing a range of features for attendance tracking, work progress monitoring, and project management. Key features include:
+Work Anywhere is a comprehensive HRMS (Human Resource Management System) built with Flutter for remote-first teams. It helps organisations track attendance, monitor work progress, and manage projects from one mobile app.
 
--  Real-time Location Fetching: Tracks employee location for accurate attendance marking.
--  Face Recognition: Secure authentication using Google ML Kit & Microsoft Cognitive Services.
--  Voice Recording: Enables users to record and share voice notes related to their tasks or meetings.
--  Meeting Scheduling & Calendar Integration: Allows users to schedule meetings and manage events within the app.
--  Activity Capture: Provides real-time tracking of tasks and activities through the mobile application.
--  User Management: Supports multiple roles such as Admin, Manager, and Member to facilitate proper access control.
+**Key Features:**
+- Real-time location fetching for accurate attendance marking
+- Face recognition authentication via Google ML Kit and Microsoft Cognitive Services
+- Voice recording for task and meeting notes
+- Meeting scheduling with calendar integration
+- Activity capture and real-time task tracking
+- Role-based access for Admin, Manager, and Member users
 
-This app is designed to support seamless remote working and efficient project management, empowering organizations to maintain productivity and communication.
+**Technologies Used:**
+- Flutter for cross-platform mobile development
+- Google ML Kit and Azure Cognitive Services for face recognition
+- Location services and real-time data sync
+- Role-based user management and secure authentication
 '''
   };
 

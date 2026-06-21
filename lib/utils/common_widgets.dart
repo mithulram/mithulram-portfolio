@@ -348,53 +348,62 @@ Widget downloadCVButton() {
 }
 
 Widget socialLinksRow({double iconSize = 22}) {
-  final links = [
-    (
-      'assets/svg/github.svg',
-      CommonStrings.profileLinks['github']!,
-      'GitHub',
-    ),
-    (
-      'assets/svg/linkedin.svg',
-      CommonStrings.profileLinks['linkedin']!,
-      'LinkedIn',
-    ),
-    (
-      'assets/svg/web-dev.svg',
-      CommonStrings.profileLinks['portfolio']!,
-      'Portfolio',
-    ),
-  ];
-
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
-    children: links.map((link) {
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 6),
-        child: InkWell(
-          onTap: () => launchUrl(
-            Uri.parse(link.$2),
-            mode: LaunchMode.externalApplication,
-          ),
-          borderRadius: BorderRadius.circular(10),
-          child: Tooltip(
-            message: link.$3,
-            child: Neumorphic(
-              padding: const EdgeInsets.all(10),
-              style: NeumorphicStyle(
-                shape: NeumorphicShape.concave,
-                boxShape:
-                    NeumorphicBoxShape.roundRect(BorderRadius.circular(10)),
-                depth: 0.4,
-                lightSource: LightSource.topLeft,
-                color: AppColors.lightBlackContainer,
-                shadowLightColor: AppColors.selectionColor,
-              ),
-              child: SvgPicture.asset(link.$1, height: iconSize),
-            ),
-          ),
+    children: [
+      _socialButton(
+        tooltip: 'GitHub',
+        url: CommonStrings.profileLinks['github']!,
+        background: const Color(0xFF1A1A1B),
+        border: AppColors.borderColor,
+        child: SvgPicture.asset('assets/svg/github.svg', height: iconSize),
+      ),
+      _socialButton(
+        tooltip: 'LinkedIn',
+        url: CommonStrings.profileLinks['linkedin']!,
+        background: const Color(0xFF0A66C2),
+        border: const Color(0xFF0A66C2),
+        child: SvgPicture.asset(
+          'assets/svg/linkedin.svg',
+          height: iconSize,
+          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
         ),
-      );
-    }).toList(),
+      ),
+      _socialButton(
+        tooltip: 'Portfolio',
+        url: CommonStrings.profileLinks['portfolio']!,
+        background: AppColors.selectionColor.withValues(alpha: 0.15),
+        border: AppColors.selectionColor.withValues(alpha: 0.45),
+        child: SvgPicture.asset('assets/svg/flutter.svg', height: iconSize),
+      ),
+    ],
+  );
+}
+
+Widget _socialButton({
+  required String tooltip,
+  required String url,
+  required Color background,
+  required Color border,
+  required Widget child,
+}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 6),
+    child: InkWell(
+      onTap: () => launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication),
+      borderRadius: BorderRadius.circular(12),
+      child: Tooltip(
+        message: tooltip,
+        child: Container(
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: background,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: border),
+          ),
+          child: child,
+        ),
+      ),
+    ),
   );
 }

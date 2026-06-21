@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/screens/responsive_layout.dart';
@@ -9,49 +10,62 @@ class AboutView extends StatelessWidget {
   const AboutView({super.key});
 
   static const _focusAreas = [
-    (
-      'assets/svg/mobile-phone.svg',
-      'Mobile Development',
-      'Production Flutter apps for iOS and Android — Firebase, location services, and clean architecture.',
+    _FocusArea(
+      iconPath: 'assets/svg/flutter.svg',
+      accent: Color(0xFF47C5FB),
+      title: 'Mobile Development',
+      description:
+          'Production Flutter apps for iOS and Android — Firebase, location services, BLoC, and clean architecture.',
     ),
-    (
-      'assets/svg/spring.svg',
-      'Backend & APIs',
-      'Java and Spring Boot services, REST APIs, SQL, and integration workflows for real products.',
+    _FocusArea(
+      iconPath: 'assets/svg/spring.svg',
+      accent: Color(0xFF6DB33F),
+      title: 'Backend & APIs',
+      description:
+          'Java and Spring Boot services, REST APIs, SQL, microservices, and integration workflows.',
     ),
-    (
-      'assets/svg/azure.svg',
-      'Cloud & DevOps',
-      'Azure services, CI/CD pipelines, and cloud architecture for reliable delivery.',
+    _FocusArea(
+      iconPath: 'assets/svg/azure.svg',
+      accent: Color(0xFF0078D4),
+      title: 'Cloud & DevOps',
+      description:
+          'Azure services, CI/CD pipelines, Azure DevOps, and cloud architecture for reliable delivery.',
+    ),
+    _FocusArea(
+      iconPath: 'assets/svg/python.svg',
+      accent: Color(0xFF3776AB),
+      title: 'AI & Data',
+      description:
+          'Python, algorithms, ML foundations, and data-oriented engineering for intelligent systems.',
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return ResponsiveLayout(
-      mobileView: _layout(context, horizontal: 10, cardPadding: 16, iconSize: 55),
-      desktopView: _layout(context, horizontal: 30, cardPadding: 24, iconSize: 65),
+      mobileView: _layout(context, horizontal: 10, columns: 1),
+      tabView: _layout(context, horizontal: 20, columns: 2),
+      desktopView: _layout(context, horizontal: 30, columns: 2),
     );
   }
 
-  Widget _layout(
-    BuildContext context, {
-    required double horizontal,
-    required double cardPadding,
-    required double iconSize,
-  }) {
+  Widget _layout(BuildContext context,
+      {required double horizontal, required int columns}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          padding: EdgeInsets.fromLTRB(horizontal, 20, horizontal, 10),
+          padding: EdgeInsets.fromLTRB(horizontal, 20, horizontal, 16),
           child: SelectableText(
             CommonStrings.aboutMe,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(height: 1.65),
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  height: 1.7,
+                  color: AppColors.lightGray.withValues(alpha: 0.95),
+                ),
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: horizontal),
+          padding: EdgeInsets.fromLTRB(horizontal, 0, horizontal, 24),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -59,27 +73,34 @@ class AboutView extends StatelessWidget {
                 "What I'm doing",
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
+              const SizedBox(height: 6),
+              Container(
+                width: 42,
+                height: 4,
+                decoration: BoxDecoration(
+                  gradient: AppColors.yellowGradient,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
               const SizedBox(height: 20),
-              ResponsiveLayout(
-                mobileView: Column(
-                  children: _focusAreas
-                      .map((area) => Padding(
-                            padding: const EdgeInsets.only(bottom: 12),
-                            child: _focusCard(context, area, cardPadding, iconSize),
-                          ))
-                      .toList(),
-                ),
-                desktopView: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: _focusAreas
-                      .map((area) => Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.only(right: 16),
-                              child: _focusCard(context, area, cardPadding, iconSize),
-                            ),
-                          ))
-                      .toList(),
-                ),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final cardWidth = columns == 1
+                      ? constraints.maxWidth
+                      : (constraints.maxWidth - 16) / columns;
+                  return Wrap(
+                    spacing: 16,
+                    runSpacing: 16,
+                    children: _focusAreas
+                        .map(
+                          (area) => SizedBox(
+                            width: cardWidth,
+                            child: _focusCard(context, area),
+                          ),
+                        )
+                        .toList(),
+                  );
+                },
               ),
             ],
           ),
@@ -88,41 +109,53 @@ class AboutView extends StatelessWidget {
     );
   }
 
-  Widget _focusCard(
-    BuildContext context,
-    (String, String, String) area,
-    double padding,
-    double iconSize,
-  ) {
+  Widget _focusCard(BuildContext context, _FocusArea area) {
     return Neumorphic(
-      padding: EdgeInsets.all(padding),
+      padding: const EdgeInsets.all(20),
       style: cardStyle(),
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SvgPicture.asset(area.$1, height: iconSize),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SelectableText(
-                  area.$2,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                const SizedBox(height: 8),
-                SelectableText(
-                  area.$3,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: AppColors.lightGray,
-                        height: 1.5,
-                      ),
-                ),
-              ],
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: area.accent.withValues(alpha: 0.12),
+              borderRadius: BorderRadius.circular(14),
+              border: Border.all(color: area.accent.withValues(alpha: 0.25)),
             ),
+            child: SvgPicture.asset(area.iconPath, height: 36),
+          ),
+          const SizedBox(height: 16),
+          SelectableText(
+            area.title,
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
+          const SizedBox(height: 8),
+          SelectableText(
+            area.description,
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: AppColors.lightGray,
+                  height: 1.55,
+                ),
           ),
         ],
       ),
     );
   }
+}
+
+class _FocusArea {
+  final String iconPath;
+  final Color accent;
+  final String title;
+  final String description;
+
+  const _FocusArea({
+    required this.iconPath,
+    required this.accent,
+    required this.title,
+    required this.description,
+  });
 }

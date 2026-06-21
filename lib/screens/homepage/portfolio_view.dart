@@ -32,6 +32,15 @@ class PortfolioView extends StatelessWidget {
             children: children(context),
           ),
         ),
+        tabView: Container(
+          alignment: Alignment.centerLeft,
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+          child: Wrap(
+            spacing: 20,
+            runSpacing: 20,
+            children: children(context),
+          ),
+        ),
         desktopView: Container(
           alignment: Alignment.centerLeft,
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
@@ -49,6 +58,7 @@ class PortfolioView extends StatelessWidget {
     return [
       PortfolioCard(context, portfolioInfo: CommonStrings.coverMeApp),
       PortfolioCard(context, portfolioInfo: CommonStrings.neoMartApp),
+      PortfolioCard(context, portfolioInfo: CommonStrings.workAnywhereApp),
       PortfolioCard(context, portfolioInfo: CommonStrings.remoteCursorPackage),
       PortfolioCard(context, portfolioInfo: CommonStrings.todoListApp),
       PortfolioCard(context, portfolioInfo: CommonStrings.portfolioApp),

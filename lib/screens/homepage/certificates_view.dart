@@ -26,6 +26,17 @@ class CertificatesView extends StatelessWidget {
           ],
         ),
       ),
+      tabView: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _header(context, cards.length),
+            const SizedBox(height: 20),
+            Wrap(spacing: 16, runSpacing: 16, children: cards),
+          ],
+        ),
+      ),
       desktopView: Container(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
         child: Column(

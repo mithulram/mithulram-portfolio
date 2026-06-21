@@ -13,17 +13,19 @@ class ResumeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveLayout(
       mobileView: _content(context, isDesktop: false),
+      tabView: _content(context, isDesktop: false, horizontal: 20),
       desktopView: _content(context, isDesktop: true),
     );
   }
 
-  Widget _content(BuildContext context, {required bool isDesktop}) {
-    final horizontal = isDesktop ? 30.0 : 10.0;
+  Widget _content(BuildContext context,
+      {required bool isDesktop, double? horizontal}) {
+    final hPad = horizontal ?? (isDesktop ? 30.0 : 10.0);
     final vertical = isDesktop ? 30.0 : 30.0;
 
     return Container(
       alignment: Alignment.centerLeft,
-      padding: EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
+      padding: EdgeInsets.symmetric(horizontal: hPad, vertical: vertical),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -35,7 +37,7 @@ class ResumeView extends StatelessWidget {
           ),
           TimeLineListView(
             title: 'Education',
-            data: CommonStrings.educationMap.reversed.toList(),
+            data: CommonStrings.educationMap,
           ),
           const SizedBox(height: 24),
           _sectionHeader(
@@ -112,10 +114,12 @@ class ResumeView extends StatelessWidget {
   List<Widget> _skillGroupSections(BuildContext context) {
     final skillIcons = <String, String>{
       'Java': 'assets/svg/java.svg',
+      'J2EE': 'assets/svg/java.svg',
       'Spring Boot': 'assets/svg/spring.svg',
       'Flutter': 'assets/svg/flutter.svg',
       'Dart': 'assets/svg/dart.svg',
       'Python': 'assets/svg/python.svg',
+      'C++': 'assets/svg/java.svg',
       'Azure': 'assets/svg/azure.svg',
       'SQL': 'assets/svg/sql.svg',
       'JavaScript': 'assets/svg/javascript.svg',
