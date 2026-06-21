@@ -1,6 +1,6 @@
-# Mithulram G — Portfolio
+# Mithulram Gunasekaran — Portfolio
 
-My personal portfolio, built with Flutter for the web. Covers who I am, what I've built, my experience, certifications, and a contact form that actually works.
+Editorial Flutter web portfolio for backend, data, and secure-systems engineering work.
 
 ### Live
 
@@ -13,31 +13,20 @@ My personal portfolio, built with Flutter for the web. Covers who I am, what I'v
 
 ## Sections
 
-- **About** — Who I am, my background, and what I do
-- **Resume** — Education, work experience, and skills in a timeline layout
-- **Projects** — Things I've built, with cover images and descriptions
-- **Certificates** — Professional certifications I've earned
-- **Contact** — A form that emails me and sends you an auto-reply
+- **About** — Evidence-backed capability summary and current toolkit
+- **Resume** — Education, experience, skills, and ATS resume download
+- **Projects** — Six current GitHub engineering projects with explicit scope boundaries
+- **Certifications** — Professional certifications and additional skills credentials
+- **Contact** — Server-backed contact form with direct email fallback
 
 ---
 
 ## Built with
 
 - Flutter Web + Dart
-- GetX — state management
-- Neumorphic UI design
-- EmailJS — contact form + auto-reply emails
-- Responsive layout across desktop, tablet, and mobile
-
----
-
-## Deployments
-
-**Vercel** — primary deployment, served directly from the `build/web` output in this repo. Vercel picks up changes on every push to `main`.
-
-**GitHub Pages** — secondary deployment, built automatically via GitHub Actions on every push to `main`. Uses Flutter 3.35.3 and builds with `--base-href "/mithulram-portfolio/"` to handle the subpath correctly.
-
-Both deployments stay in sync — push once, both update.
+- Editorial dark design system (Poppins, gold accent, split-shell layout)
+- Hash-based in-app navigation (`#about`, `#resume`, `#projects`, `#certifications`, `#contact`)
+- Vercel serverless contact endpoint via Resend
 
 ---
 
@@ -50,9 +39,42 @@ flutter pub get
 flutter run -d chrome
 ```
 
-To build for web:
+Build for web:
 
 ```bash
+flutter build web --release
+```
+
+GitHub Pages build (contact form uses the Vercel API):
+
+```bash
+flutter build web --release --base-href "/mithulram-portfolio/" --dart-define=CONTACT_API_URL=https://mithulram-portfolio.vercel.app/api/contact
+```
+
+---
+
+## Contact delivery setup (Vercel)
+
+The contact form posts to `/api/contact` on Vercel. Configure these environment variables in the Vercel project before release:
+
+- `RESEND_API_KEY`
+- `CONTACT_TO_EMAIL=gmithulram@gmail.com`
+- `CONTACT_FROM_EMAIL` (must be a verified Resend sender domain)
+- `ALLOWED_ORIGINS=https://mithulram-portfolio.vercel.app,https://mithulram.github.io`
+
+See `.env.example` for variable names only. Never commit real secrets.
+
+GitHub Pages serves the static Flutter build only. Its contact form calls the Vercel endpoint through `CONTACT_API_URL`.
+
+---
+
+## Tests
+
+```bash
+dart format .
+flutter analyze
+flutter test
+node --test test/api/contact.test.js
 flutter build web --release
 ```
 

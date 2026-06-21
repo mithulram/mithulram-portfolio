@@ -45,6 +45,7 @@ dependencies:
   url_launcher: ^6.3.0
   responsive_builder: ^0.7.1
   flutter_dotenv: ^5.1.0
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
@@ -86,6 +87,7 @@ flutter:
     - assets/svg/
     - assets/images/
     - assets/cv/
+    - assets/resume/
     - assets/images/certificates/mithulramg Microsoft az-104-1.png
     - assets/images/certificates/Certificate Java SE 11 dev-1.png
     - assets/images/certificates/certificate_vb3f.j6jH.Ew3M (1)-1.png

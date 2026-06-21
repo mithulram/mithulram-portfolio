@@ -1,0 +1,7 @@
+{
+  "name": "mithulram-portfolio",
+  "private": true,
+  "scripts": {
+    "test:api": "node --test test/api/contact.test.js"
+  }
+}

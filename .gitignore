@@ -17,6 +17,12 @@ doc/api/
 
 # dotenv environment variables file
 .env*
+!.env.example
+
+# Local review artifacts
+node_modules/
+review-screenshots/
+scripts/debug-hash.mjs
 
 # Avoid committing generated Javascript files:
 *.dart.js

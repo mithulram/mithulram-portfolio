@@ -24,7 +24,7 @@ jobs:
           flutter-version: "3.35.3"
 
       - name: Build web
-        run: flutter build web --base-href "/mithulram-portfolio/"
+        run: flutter build web --release --base-href "/mithulram-portfolio/" --dart-define=CONTACT_API_URL=https://mithulram-portfolio.vercel.app/api/contact
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
