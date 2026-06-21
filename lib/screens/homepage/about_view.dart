@@ -9,34 +9,35 @@ import '../../utils/common_strings.dart';
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
 
+  static const _goldFilter = ColorFilter.mode(
+    AppColors.selectionColor,
+    BlendMode.srcIn,
+  );
+
   static const _focusAreas = [
     _FocusArea(
-      iconPath: 'assets/svg/flutter.svg',
-      accent: Color(0xFF47C5FB),
-      title: 'Mobile Development',
-      description:
-          'Production Flutter apps for iOS and Android — Firebase, location services, BLoC, and clean architecture.',
-    ),
-    _FocusArea(
       iconPath: 'assets/svg/spring.svg',
-      accent: Color(0xFF6DB33F),
-      title: 'Backend & APIs',
+      title: 'Backend & Secure APIs',
       description:
-          'Java and Spring Boot services, REST APIs, SQL, microservices, and integration workflows.',
-    ),
-    _FocusArea(
-      iconPath: 'assets/svg/azure.svg',
-      accent: Color(0xFF0078D4),
-      title: 'Cloud & DevOps',
-      description:
-          'Azure services, CI/CD pipelines, Azure DevOps, and cloud architecture for reliable delivery.',
+          'Java, Spring Boot, RBAC, audit events, REST APIs, and integration tests for systems you can inspect.',
     ),
     _FocusArea(
       iconPath: 'assets/svg/python.svg',
-      accent: Color(0xFF3776AB),
-      title: 'AI & Data',
+      title: 'Data & Observability',
       description:
-          'Python, algorithms, ML foundations, and data-oriented engineering for intelligent systems.',
+          'Python pipelines, DuckDB, quarantine handling, FastAPI monitors, SLOs, and Prometheus metrics.',
+    ),
+    _FocusArea(
+      iconPath: 'assets/svg/flutter.svg',
+      title: 'Mobile & Product',
+      description:
+          'Production Flutter apps with Firebase, clean architecture, BLoC, and real user-facing workflows.',
+    ),
+    _FocusArea(
+      iconPath: 'assets/svg/azure.svg',
+      title: 'Cloud & Engineering',
+      description:
+          'Azure, CI/CD, system design, testing discipline, and maintainable delivery practices.',
     ),
   ];
 
@@ -117,19 +118,26 @@ class AboutView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
-              color: area.accent.withValues(alpha: 0.12),
+              color: AppColors.selectionColor.withValues(alpha: 0.08),
               borderRadius: BorderRadius.circular(14),
-              border: Border.all(color: area.accent.withValues(alpha: 0.25)),
+              border: Border.all(
+                color: AppColors.selectionColor.withValues(alpha: 0.35),
+              ),
             ),
-            child: SvgPicture.asset(area.iconPath, height: 36),
+            child: SvgPicture.asset(
+              area.iconPath,
+              height: 34,
+              colorFilter: _goldFilter,
+            ),
           ),
           const SizedBox(height: 16),
           SelectableText(
             area.title,
             style: Theme.of(context).textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.w600,
+                  color: AppColors.white,
                 ),
           ),
           const SizedBox(height: 8),
@@ -148,13 +156,11 @@ class AboutView extends StatelessWidget {
 
 class _FocusArea {
   final String iconPath;
-  final Color accent;
   final String title;
   final String description;
 
   const _FocusArea({
     required this.iconPath,
-    required this.accent,
     required this.title,
     required this.description,
   });

@@ -16,10 +16,10 @@ class CommonStrings {
   };
 
   static const String headline =
-      "AI-Oriented Software Engineer · Backend, Cloud & Mobile";
+      "Software Engineer · Backend, Data & Secure Systems";
 
   static const String aboutMe =
-      "I'm Mithulram G — a software engineer in Passau, Germany, finishing my Master's in Informatics at the University of Passau with a focus on AI engineering and scalable systems.\n\nI spent three years at Xmplar in Bangalore building production Flutter apps and Java/Spring Boot backends: fitness platforms, Firebase integrations, referral flows, and location-aware features that moved real engagement numbers.\n\nThese days I'm open to Werkstudent and junior roles across backend, mobile, and cloud. I work comfortably with Java, Spring Boot, Flutter, Python, Azure, REST APIs, and SQL.\n\nCertified in Java SE 11, PCAP Python, Azure Administrator, and Azure Solutions Architect Expert. Fluent in English and Tamil; German at B1 level.";
+      "I'm Mithulram G — a software engineer in Passau, Germany, pursuing my M.Sc. in Informatics at the University of Passau.\n\nI build backend and data systems where trust is designed in: explicit permissions, quarantined bad records, observable services, and tests that respect the unhappy path. My recent work spans Spring Boot APIs, Python data pipelines, FastAPI monitors, and automotive security tooling.\n\nBefore Germany, I spent three years at Xmplar in Bangalore shipping production Flutter apps and Java/Spring Boot backends with Firebase, referral flows, and measurable engagement gains.\n\nOpen to Werkstudent and junior roles. Certified in Java SE 11, PCAP Python, Azure Administrator, and Azure Solutions Architect Expert. Fluent in English and Tamil; German at B1 level.";
 
   static const educationMap = [
     {
@@ -38,16 +38,22 @@ class CommonStrings {
 
   static const experienceMap = [
     {
+      'title': 'Software Engineering Projects · University of Passau',
+      'time': '2024 – Present',
+      'desc':
+          'Building inspectable backend and data systems as part of my Master\'s in Informatics. Developed RupeeRoute (sandbox remittance monorepo with ledger concepts and RBAC), a Spring Boot secure asset API with audit events, a Python/DuckDB data-quality pipeline with quarantine handling, a FastAPI service-health monitor with SLOs and incidents, an automotive cybersecurity test bench, and a C++ battery telemetry validation harness. Published on GitHub with tests, documentation, and reproducible local workflows.'
+    },
+    {
       'title': 'Junior Developer · Xmplar, Bangalore',
       'time': 'Dec 2021 – Aug 2024',
       'desc':
-          'Built Java/Spring Boot services and Flutter features for production workflows. Tripled data-handling efficiency through cleaner API design. Shipped responsive UI that lifted engagement by 20%. Implemented Firebase Analytics, Crashlytics, push notifications, dynamic links, and referral flows (50% engagement boost). Delivered turn-by-turn location tracking and end-to-end release support.'
+          'Tripled data-handling efficiency through process optimization and cleaner backend/mobile delivery. Designed responsive Flutter interfaces, contributing to a 20% increase in user engagement. Built and maintained Java/Spring Boot, REST API, SQL, and Flutter functionality across production workflows. Implemented turn-by-turn location tracking, Firebase Analytics, Crashlytics, push notifications, dynamic links, and referral flows — supporting a 50% boost in user engagement. Worked across product requirements, UI delivery, backend integration, debugging, and release readiness.'
     },
     {
       'title': 'Backend Intern · Adpay, Chennai',
       'time': 'May 2020 – Jul 2020',
       'desc':
-          'Developed REST API features with Java and Spring Boot for an Android distributor application. Supported backend implementation, testing, and integration in a small product team.'
+          'Developed REST API functionality using Java and Spring Boot for an Android distributor application. Supported backend implementation, testing, and integration in a small product engineering environment.'
     }
   ];
 
@@ -56,47 +62,156 @@ class CommonStrings {
       'Java',
       'J2EE',
       'Spring Boot',
+      'Spring Security',
       'REST APIs',
       'SQL',
       'Microservices',
-      'API Design',
+      'FastAPI',
     ],
     'Mobile / Frontend': [
       'Flutter',
       'Dart',
       'Firebase',
-      'MVVM',
-      'MVC',
+      'React',
+      'TypeScript',
       'BLoC',
       'GetX',
-      'JavaScript',
+      'MVVM',
     ],
     'Cloud / DevOps': [
       'Azure',
       'Azure DevOps',
       'CI/CD',
-      'Azure CLI',
+      'Prometheus',
+      'Docker',
       'Cloud Architecture',
     ],
-    'AI / Data': [
+    'Data / AI': [
       'Python',
+      'DuckDB',
       'C++',
       'Algorithms',
-      'A* Search',
-      'Backtracking',
       'ML Foundations',
       'TensorFlow/Keras',
+      'Parquet',
     ],
     'Engineering': [
-      'OOP',
-      'Agile',
+      'RBAC',
       'System Design',
       'Clean Architecture',
       'Testing',
+      'Agile',
+      'Observability',
     ],
   };
 
   static const languages = ['English (Fluent)', 'Tamil (Fluent)', 'German (B1)'];
+
+  static const Map<String, String> rupeeRouteApp = {
+    'githubUrl': 'https://github.com/mithulram/rupee-route',
+    'coverImage': 'assets/images/cover-rupee-route.svg',
+    'title': 'RupeeRoute',
+    'iconUrl': 'assets/svg/javascript.svg',
+    'type': 'Full-Stack Platform',
+    'about': '''
+Sandbox remittance-platform monorepo exploring secure transfer workflows with integer money handling, transfer state machines, double-entry ledger concepts, role-aware operations, and deterministic provider integrations.
+
+**Technologies:** TypeScript, NestJS, Next.js, PostgreSQL
+
+Sandbox only — no live money movement or regulatory authorization.
+''',
+  };
+
+  static const Map<String, String> secureAssetApiApp = {
+    'githubUrl': 'https://github.com/mithulram/secure-asset-access-api',
+    'coverImage': 'assets/images/cover-secure-api.svg',
+    'title': 'Secure Asset Access API',
+    'iconUrl': 'assets/svg/java.svg',
+    'type': 'Backend API',
+    'about': '''
+Java/Spring Boot API for classified technical asset management with validated REST endpoints, role-based authorization, JPA persistence, audit events, health checks, and security integration tests.
+
+**Technologies:** Java, Spring Boot, Spring Security, JPA, REST APIs
+''',
+  };
+
+  static const Map<String, String> dataPipelineApp = {
+    'githubUrl': 'https://github.com/mithulram/data-quality-lineage-pipeline',
+    'coverImage': 'assets/images/cover-data-pipeline.svg',
+    'title': 'Data Quality & Lineage Pipeline',
+    'iconUrl': 'assets/svg/python.svg',
+    'type': 'Data Engineering',
+    'about': '''
+Python/DuckDB pipeline that validates source data, quarantines invalid records, enriches trusted data, exports CSV and Parquet, and records quality and lineage artefacts.
+
+**Technologies:** Python, DuckDB, SQL, Parquet
+''',
+  };
+
+  static const Map<String, String> healthMonitorApp = {
+    'githubUrl': 'https://github.com/mithulram/service-health-incident-monitor',
+    'coverImage': 'assets/images/cover-health-monitor.svg',
+    'title': 'Service Health & Incident Monitor',
+    'iconUrl': 'assets/svg/python.svg',
+    'type': 'Observability Platform',
+    'about': '''
+FastAPI service-health monitor with SLOs, error budgets, incident tracking, Prometheus-format metrics, and automated tests for operational reliability.
+
+**Technologies:** Python, FastAPI, Prometheus, SLO/SLI design
+''',
+  };
+
+  static const Map<String, String> opsDashboardApp = {
+    'githubUrl': 'https://github.com/mithulram/operations-dashboard',
+    'coverImage': 'assets/images/cover-ops-dashboard.svg',
+    'title': 'Operations Dashboard',
+    'iconUrl': 'assets/svg/react.svg',
+    'type': 'Web Dashboard',
+    'about': '''
+React operations dashboard consuming live SLO and incident API data — visualising service health, error budgets, and incident status for engineering teams.
+
+**Technologies:** React, TypeScript, REST API integration
+''',
+  };
+
+  static const Map<String, String> automotiveSecurityApp = {
+    'githubUrl': 'https://github.com/mithulram/automotive-security-test-bench',
+    'coverImage': 'assets/images/cover-auto-security.svg',
+    'title': 'Automotive Security Test Bench',
+    'iconUrl': 'assets/svg/java.svg',
+    'type': 'Security Tooling',
+    'about': '''
+Reproducible automotive cybersecurity risk-assessment CLI with ECU threat scenarios, risk prioritisation, and JSON/HTML reporting for security analysis workflows.
+
+**Technologies:** Python, CLI design, security assessment patterns
+''',
+  };
+
+  static const Map<String, String> batteryTelemetryApp = {
+    'githubUrl': 'https://github.com/mithulram/battery-telemetry-validation-harness',
+    'coverImage': 'assets/images/cover-battery-telemetry.svg',
+    'title': 'Battery Telemetry Validation Harness',
+    'iconUrl': 'assets/svg/java.svg',
+    'type': 'C++ Systems',
+    'about': '''
+C++17 telemetry validation harness with deterministic quarantine rules, CMake/CTest integration, and Python fault injection for battery data validation scenarios.
+
+**Technologies:** C++17, CMake, Python, validation engineering
+''',
+  };
+
+  static const Map<String, String> aiLabApp = {
+    'githubUrl': 'https://github.com/mithulram/ai-engineering-lab-project',
+    'coverImage': 'assets/images/cover-ai-lab.svg',
+    'title': 'AI Engineering Lab — Object Counting',
+    'iconUrl': 'assets/svg/python.svg',
+    'type': 'AI Application',
+    'about': '''
+University of Passau AI Engineering Lab project — object counting application with a full AI pipeline from image input through detection and counting workflows.
+
+**Technologies:** Python, AI/ML pipeline, computer vision foundations
+''',
+  };
 
   static const Map<String, String> coverMeApp = {
     'playstoreUrl': "https://play.google.com/store/apps/details?id=com.coverme.fitness.instructor",
@@ -295,8 +410,7 @@ Technologies: Developed using Flutter for cross-platform functionality, integrat
   static const Map<String, String> remoteCursorPackage = {
     'playstoreUrl': "",
     'githubUrl': 'https://github.com/mithulram/remote_cursor',
-    'coverImage':
-        'https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ffh6eax88thjcndx9jvly.png',
+    'coverImage': 'assets/images/cover-todo.svg',
     'title': 'Remote Cursor Package',
     'iconUrl':
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ccrKgnGQ14EhsAmrL0dTt3Kkj5jx_Ilb77llYmgkqrsFokSSrt3GcxJy9iiY278ugzc&usqp=CAU',

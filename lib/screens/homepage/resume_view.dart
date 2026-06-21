@@ -116,13 +116,18 @@ class ResumeView extends StatelessWidget {
       'Java': 'assets/svg/java.svg',
       'J2EE': 'assets/svg/java.svg',
       'Spring Boot': 'assets/svg/spring.svg',
+      'Spring Security': 'assets/svg/spring.svg',
       'Flutter': 'assets/svg/flutter.svg',
       'Dart': 'assets/svg/dart.svg',
       'Python': 'assets/svg/python.svg',
+      'FastAPI': 'assets/svg/python.svg',
+      'DuckDB': 'assets/svg/sql.svg',
       'C++': 'assets/svg/java.svg',
       'Azure': 'assets/svg/azure.svg',
       'SQL': 'assets/svg/sql.svg',
       'JavaScript': 'assets/svg/javascript.svg',
+      'TypeScript': 'assets/svg/javascript.svg',
+      'React': 'assets/svg/react.svg',
     };
 
     return CommonStrings.skillGroups.entries.map((entry) {

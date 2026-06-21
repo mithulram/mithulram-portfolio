@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#121212"/>
+      <stop offset="100%" style="stop-color:#1E1E1F"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F7D96A"/>
+      <stop offset="100%" style="stop-color:#F4C35C"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect x="40" y="40" width="720" height="370" rx="24" fill="#2B2B2C" stroke="#383838" stroke-width="2"/>
+  <rect x="40" y="360" width="180" height="4" rx="2" fill="url(#gold)"/>
+  <text x="70" y="130" font-family="Arial, sans-serif" font-size="16" fill="#F7D96A" letter-spacing="3">ENGINEERING</text>
+  <text x="70" y="190" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#FAFAFA">AI Lab</text>
+  <text x="70" y="240" font-family="Arial, sans-serif" font-size="18" fill="#D6D6D6">Object Counting · ML</text>
+  <circle cx="680" cy="120" r="60" fill="none" stroke="#F7D96A" stroke-width="2" opacity="0.35"/>
+  <circle cx="680" cy="120" r="35" fill="#F7D96A" opacity="0.12"/>
+  <rect x="580" y="260" width="150" height="90" rx="12" fill="#121212" stroke="#F7D96A55" stroke-width="1"/>
+  <line x1="600" y1="290" x2="710" y2="290" stroke="#F7D96A" stroke-width="2" opacity="0.6"/>
+  <line x1="600" y1="315" x2="680" y2="315" stroke="#D6D6D6" stroke-width="2" opacity="0.3"/>
+  <line x1="600" y1="335" x2="700" y2="335" stroke="#D6D6D6" stroke-width="2" opacity="0.2"/>
+</svg>
