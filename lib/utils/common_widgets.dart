@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:portfolio/screens/responsive_layout.dart';
+import 'package:portfolio/utils/common_strings.dart';
 import 'package:portfolio/utils/controllers.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:timeline_tile/timeline_tile.dart' as tt;
@@ -306,11 +308,9 @@ class TabItem extends StatelessWidget {
 Widget downloadCVButton() {
   return InkWell(
     onTap: () async {
-      // analyticServices.logEvent(eventName: "CV downloaded");
-      launchUrl(
-          Uri.parse(
-              "https://drive.google.com/file/d/13ZqS2nCFgjquf02kmWDERUo3rhNJt2C_/view?usp=sharing"), // CV pdf link
-          mode: LaunchMode.platformDefault);
+      final base = Uri.base;
+      final cvUrl = Uri.parse('${base.origin}${base.path}cv/Mithulram_G_CV.pdf');
+      await launchUrl(cvUrl, mode: LaunchMode.externalApplication);
     },
     child: Neumorphic(
       style: NeumorphicStyle(
@@ -344,5 +344,57 @@ Widget downloadCVButton() {
         ),
       ),
     ),
+  );
+}
+
+Widget socialLinksRow({double iconSize = 22}) {
+  final links = [
+    (
+      'assets/svg/github.svg',
+      CommonStrings.profileLinks['github']!,
+      'GitHub',
+    ),
+    (
+      'assets/svg/linkedin.svg',
+      CommonStrings.profileLinks['linkedin']!,
+      'LinkedIn',
+    ),
+    (
+      'assets/svg/web-dev.svg',
+      CommonStrings.profileLinks['portfolio']!,
+      'Portfolio',
+    ),
+  ];
+
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: links.map((link) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 6),
+        child: InkWell(
+          onTap: () => launchUrl(
+            Uri.parse(link.$2),
+            mode: LaunchMode.externalApplication,
+          ),
+          borderRadius: BorderRadius.circular(10),
+          child: Tooltip(
+            message: link.$3,
+            child: Neumorphic(
+              padding: const EdgeInsets.all(10),
+              style: NeumorphicStyle(
+                shape: NeumorphicShape.concave,
+                boxShape:
+                    NeumorphicBoxShape.roundRect(BorderRadius.circular(10)),
+                depth: 0.4,
+                lightSource: LightSource.topLeft,
+                color: AppColors.lightBlackContainer,
+                shadowLightColor: AppColors.selectionColor,
+              ),
+              child: SvgPicture.asset(link.$1, height: iconSize),
+            ),
+          ),
+        ),
+      );
+    }).toList(),
   );
 }

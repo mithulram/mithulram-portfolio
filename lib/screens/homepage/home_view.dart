@@ -404,7 +404,7 @@ class SideBar extends StatelessWidget {
                                     horizontal: 8, vertical: 4),
                                 border: 8,
                                 child: SelectableText(
-                                  "AI Solutions Architect & Backend Developer",
+                                  CommonStrings.headline,
                                   style: Theme.of(context).textTheme.bodySmall,
                                   textAlign: TextAlign.center,
                                 ),
@@ -476,6 +476,8 @@ class SideBar extends StatelessWidget {
                                 title: "LOCATION",
                                 subtitle: CommonStrings.myDetails['address'],
                               ),
+                              const SizedBox(height: 12),
+                              socialLinksRow(iconSize: 20),
                             ],
                           ),
                         ),
@@ -531,7 +533,7 @@ class SideBar extends StatelessWidget {
                                     horizontal: 8, vertical: 4),
                                 border: 8,
                                 child: SelectableText(
-                                  "AI Solutions Architect & Backend Developer",
+                                  CommonStrings.headline,
                                   style: Theme.of(context).textTheme.bodySmall,
                                   textAlign: TextAlign.center,
                                 ),
@@ -618,6 +620,8 @@ class SideBar extends StatelessWidget {
                                 title: "LOCATION",
                                 subtitle: CommonStrings.myDetails['address'],
                               ),
+                              const SizedBox(height: 12),
+                              socialLinksRow(iconSize: 20),
                             ],
                           ),
                         ),
@@ -667,7 +671,7 @@ class SideBar extends StatelessWidget {
                           horizontal: 8, vertical: 4),
                       border: 8,
                       child: SelectableText(
-                        "AI Solutions Architect & Backend Developer",
+                        CommonStrings.headline,
                         style: Theme.of(context).textTheme.bodySmall,
                         textAlign: TextAlign.center,
                       ),
@@ -698,7 +702,8 @@ class SideBar extends StatelessWidget {
                     CustomListTile(
                         icon: Icons.phone_android,
                         title: "PHONE",
-                        subtitle: "+91 9500539218, +491708834985",
+                        subtitle:
+                            "${CommonStrings.myDetails['mobile']}, ${CommonStrings.myDetails['mobile_de']}",
                         onTap: () {
                           launchUrl(
                               Uri(
@@ -710,7 +715,9 @@ class SideBar extends StatelessWidget {
                       icon: Icons.location_on_outlined,
                       title: "LOCATION",
                       subtitle: CommonStrings.myDetails['address'],
-                    )
+                    ),
+                    const SizedBox(height: 16),
+                    socialLinksRow(),
                   ],
                 ),
               ),

@@ -2,39 +2,63 @@ class CommonStrings {
   static const myDetails = {
     "email": "gmithulram@gmail.com",
     "mobile": "+91-9500539218",
+    "mobile_de": "+49-1708834985",
     "address": "Passau, Germany",
+    "german_level": "German A2",
+    "availability": "20 h/week (student visa)",
   };
+
+  static const profileLinks = {
+    "portfolio": "https://mithulram-portfolio.vercel.app/",
+    "github": "https://github.com/mithulram",
+    "linkedin": "https://www.linkedin.com/in/mithulram-g-926ba520a/",
+    "cv": "assets/cv/Mithulram_G_CV.pdf",
+  };
+
+  static const String headline =
+      "AI-Oriented Software Engineer · Backend, Cloud & Mobile";
+
   static const String aboutMe =
-      "I'm Mithulram G, an aspiring AI Solutions Architect and Backend & Mobile Developer currently pursuing a Master's in AI Engineering at the University of Passau, Germany. With over 3 years of experience in Java & Spring Boot backend development and Flutter mobile development, I specialize in bridging AI technologies with scalable backend systems.\n\nMy expertise spans across multiple technologies including Java & J2EE, Dart, C++, Flutter, REST APIs, SQL, Spring Boot, and Azure Services. I'm passionate about designing intelligent, efficient, and user-centric solutions for real-world challenges. My goal is to become an AI Solutions Architect, leading projects that integrate AI, cloud technologies, and robust backend systems to drive innovation and efficiency across industries.\n\nI hold several certifications including Python Certified Associate, Java SE 11 Developer, Azure Solutions Architect Expert, and Microsoft Azure Administrator. I'm fluent in English, Tamil, and German, enabling me to work effectively in diverse international environments.";
+      "I'm Mithulram G, a software engineer based in Passau, Germany. I'm pursuing my Master's in Informatics at the University of Passau, with a focus on AI engineering and scalable software systems.\n\nBefore moving to Germany, I spent three years at Xmplar in Bangalore shipping production Flutter apps and Java/Spring Boot backends — fitness scheduling platforms, Firebase integrations, referral flows, and location-aware features that moved real engagement numbers.\n\nI'm looking for working-student or junior roles where I can contribute across backend services, mobile products, and cloud tooling. Comfortable with Java, Spring Boot, Flutter, Python, Azure, REST APIs, and SQL.\n\nCertified in Java SE 11, PCAP Python, Azure Administrator, and Azure Solutions Architect Expert. I speak English and Tamil fluently, and German at A2 level.";
+
   static const educationMap = [
     {
       'title': 'University of Passau',
-      'time': '2024 - Present',
+      'time': '2024 – Present',
       'desc':
-          'Currently pursuing Master\'s in AI Engineering, focusing on AI technologies, machine learning, and intelligent systems development.'
+          "Master's in Informatics (Computer Science), AI Engineering focus — machine learning foundations, intelligent systems, and software architecture."
     },
     {
-      'title': 'SRM University',
-      'time': '2018 - 2022',
+      'title': 'SRM University, Chennai',
+      'time': '2018 – 2022',
       'desc':
-          'Bachelor in Computer Science-IT with CGPA 7.8/10, specializing in software development, algorithms, and computer systems.'
+          'B.Sc. Computer Science – IT, CGPA 7.8/10. Coursework in algorithms, software engineering, and distributed systems.'
     }
   ];
 
   static const experienceMap = [
     {
-      'title': 'Xmplar, Bangalore, Karnataka, India',
-      'time': 'Dec 2021 - Aug 2024',
+      'title': 'Junior Developer · Xmplar, Bangalore',
+      'time': 'Dec 2021 – Aug 2024',
       'desc':
-          'Junior Developer: Tripled data handling efficiency through strategic process optimization. Designed responsive user interfaces resulting in 20% increase in user engagement. Enhanced user experience with precise turn-by-turn location tracking. Utilized Firebase for analytics, crash analysis, push notifications, and dynamic linking. Engineered innovative referral system achieving 50% boost in user engagement. Acquired Flutter expertise and spearheaded projects for identifying qualified professionals for gym and event training coverage.'
+          'Built Java/Spring Boot services and Flutter features for production workflows. Tripled data-handling efficiency through cleaner API design. Shipped responsive UI that lifted engagement by 20%. Implemented Firebase Analytics, Crashlytics, push notifications, dynamic links, and referral flows (50% engagement boost). Delivered turn-by-turn location tracking and end-to-end release support.'
     },
     {
-      'title': 'Adpay, Chennai, Tamil Nadu, India',
-      'time': 'May 2020 - July 2020 (3 months)',
+      'title': 'Backend Intern · Adpay, Chennai',
+      'time': 'May 2020 – Jul 2020',
       'desc':
-          'Intern: Worked in backend development creating APIs using Java and Spring Boot for a Distributor application in Android.'
+          'Developed REST API features with Java and Spring Boot for an Android distributor application. Supported backend implementation, testing, and integration in a small product team.'
     }
   ];
+
+  static const skillGroups = {
+    'Backend': ['Java', 'Spring Boot', 'REST APIs', 'SQL', 'Microservices'],
+    'Mobile / Frontend': ['Flutter', 'Dart', 'Firebase', 'MVVM', 'BLoC', 'GetX'],
+    'Cloud / DevOps': ['Azure', 'Azure DevOps', 'CI/CD', 'Azure CLI'],
+    'AI / Data': ['Python', 'Algorithms', 'A* Search', 'ML Foundations'],
+  };
+
+  static const languages = ['English', 'Tamil', 'German (A2)'];
 
   static const Map<String, String> coverMeApp = {
     'playstoreUrl': "https://play.google.com/store/apps/details?id=com.coverme.fitness.instructor",

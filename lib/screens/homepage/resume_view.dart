@@ -1,13 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/screens/responsive_layout.dart';
 import 'package:portfolio/utils/app_colors.dart';
 import 'package:portfolio/utils/common_widgets.dart';
-import 'package:portfolio/utils/controllers.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../../utils/common_strings.dart';
 
 class ResumeView extends StatelessWidget {
@@ -15,203 +11,163 @@ class ResumeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // print("context: ${context.toString()}");
-    //analyticServices.logScreenView(screenName: context.toString());
-
     return ResponsiveLayout(
-      mobileView: Container(
-        alignment: Alignment.centerLeft,
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // TimeLineListView(
-            //   title: "Education",
-            //   icon: const Icon(
-            //     Icons.school_outlined,
-            //     color: AppColors.accent,
-            //     size: 18,
-            //     weight: .2,
-            //   ),
-            //   data: CommonStrings.educationMap.reversed.toList(),
-            // ),
-            Row(
-              children: [
-                Neumorphic(
-                  padding: const EdgeInsets.all(12),
-                  style: cardStyle(radius: 12),
-                  child: const Icon(
-                    Icons.school_outlined,
-                    color: AppColors.accent,
-                    size: 18,
-                    weight: .2,
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                SelectableText(
-                  "Education",
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ],
-            ),
-            TimeLineListView(
-              title: "Education",
-              data: CommonStrings.educationMap.reversed.toList(),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              children: [
-                Neumorphic(
-                  padding: const EdgeInsets.all(12),
-                  style: cardStyle(radius: 12),
-                  child: const Icon(
-                    Icons.school_outlined,
-                    color: AppColors.accent,
-                    size: 18,
-                    weight: .2,
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                SelectableText(
-                  "Experience",
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ],
-            ),
-            TimeLineListView(
-              title: "Experience",
-              data: CommonStrings.experienceMap,
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            SelectableText(
-              "My Skills",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Wrap(
-              runSpacing: 15,
-              spacing: 15,
-              children: _skillCards(context),
-            )
+      mobileView: _content(context, isDesktop: false),
+      desktopView: _content(context, isDesktop: true),
+    );
+  }
+
+  Widget _content(BuildContext context, {required bool isDesktop}) {
+    final horizontal = isDesktop ? 30.0 : 10.0;
+    final vertical = isDesktop ? 30.0 : 30.0;
+
+    return Container(
+      alignment: Alignment.centerLeft,
+      padding: EdgeInsets.symmetric(horizontal: horizontal, vertical: vertical),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _sectionHeader(
+            context,
+            icon: Icons.school_outlined,
+            title: 'Education',
+            trailing: isDesktop ? downloadCVButton() : null,
+          ),
+          TimeLineListView(
+            title: 'Education',
+            data: CommonStrings.educationMap.reversed.toList(),
+          ),
+          const SizedBox(height: 24),
+          _sectionHeader(
+            context,
+            icon: Icons.work_outline_rounded,
+            title: 'Experience',
+          ),
+          TimeLineListView(
+            title: 'Experience',
+            data: CommonStrings.experienceMap,
+          ),
+          const SizedBox(height: 32),
+          _sectionHeader(
+            context,
+            icon: Icons.psychology_outlined,
+            title: 'Technical Skills',
+          ),
+          const SizedBox(height: 16),
+          ..._skillGroupSections(context),
+          const SizedBox(height: 28),
+          _sectionHeader(
+            context,
+            icon: Icons.translate_rounded,
+            title: 'Languages',
+          ),
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 10,
+            runSpacing: 10,
+            children: CommonStrings.languages
+                .map((lang) => _languageChip(context, lang))
+                .toList(),
+          ),
+          if (!isDesktop) ...[
+            const SizedBox(height: 24),
+            downloadCVButton(),
           ],
-        ),
-      ),
-      desktopView: Container(
-        alignment: Alignment.centerLeft,
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // TimeLineListView(
-            //   title: "Education",
-            //   icon: const Icon(
-            //     Icons.school_outlined,
-            //     color: AppColors.accent,
-            //     size: 18,
-            //     weight: .2,
-            //   ),
-            //   data: CommonStrings.educationMap.reversed.toList(),
-            // ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Neumorphic(
-                      padding: const EdgeInsets.all(12),
-                      style: cardStyle(radius: 12),
-                      child: const Icon(
-                        Icons.school_outlined,
-                        color: AppColors.accent,
-                        size: 18,
-                        weight: .2,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    SelectableText(
-                      "Education",
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                  ],
-                ),
-                downloadCVButton(),
-              ],
-            ),
-            TimeLineListView(
-              title: "Education",
-              data: CommonStrings.educationMap.reversed.toList(),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Row(
-              children: [
-                Neumorphic(
-                  padding: const EdgeInsets.all(12),
-                  style: cardStyle(radius: 12),
-                  child: const Icon(
-                    Icons.school_outlined,
-                    color: AppColors.accent,
-                    size: 18,
-                    weight: .2,
-                  ),
-                ),
-                const SizedBox(
-                  width: 20,
-                ),
-                SelectableText(
-                  "Experience",
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ],
-            ),
-            TimeLineListView(
-              title: "Experience",
-              data: CommonStrings.experienceMap,
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            SelectableText(
-              "My Skills",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Wrap(
-              runSpacing: 15,
-              spacing: 15,
-              children: _skillCards(context),
-            ),
-          ],
-        ),
+        ],
       ),
     );
   }
 
-  List<Widget> _skillCards(BuildContext context) {
-    return [
-      SkillChip(title: "Flutter", icon: SvgPicture.asset('assets/svg/flutter.svg', height: 22)),
-      SkillChip(title: "Python", icon: SvgPicture.asset('assets/svg/python.svg', height: 22)),
-      SkillChip(title: "Java", icon: SvgPicture.asset('assets/svg/java.svg', height: 22)),
-      SkillChip(title: "Spring Boot", icon: SvgPicture.asset('assets/svg/spring.svg', height: 22)),
-      SkillChip(title: "Azure", icon: SvgPicture.asset('assets/svg/azure.svg', height: 22)),
-      SkillChip(title: "SQL", icon: SvgPicture.asset('assets/svg/sql.svg', height: 22)),
-      SkillChip(title: "JavaScript", icon: SvgPicture.asset('assets/svg/javascript.svg', height: 22)),
-    ];
+  Widget _sectionHeader(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    Widget? trailing,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Neumorphic(
+                padding: const EdgeInsets.all(12),
+                style: cardStyle(radius: 12),
+                child: Icon(icon, color: AppColors.accent, size: 18),
+              ),
+              const SizedBox(width: 16),
+              SelectableText(
+                title,
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ],
+          ),
+          if (trailing != null) trailing,
+        ],
+      ),
+    );
+  }
+
+  List<Widget> _skillGroupSections(BuildContext context) {
+    final skillIcons = <String, String>{
+      'Java': 'assets/svg/java.svg',
+      'Spring Boot': 'assets/svg/spring.svg',
+      'Flutter': 'assets/svg/flutter.svg',
+      'Dart': 'assets/svg/dart.svg',
+      'Python': 'assets/svg/python.svg',
+      'Azure': 'assets/svg/azure.svg',
+      'SQL': 'assets/svg/sql.svg',
+      'JavaScript': 'assets/svg/javascript.svg',
+    };
+
+    return CommonStrings.skillGroups.entries.map((entry) {
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              entry.key,
+              style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: AppColors.selectionColor,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: 0.4,
+                  ),
+            ),
+            const SizedBox(height: 10),
+            Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: entry.value.map((skill) {
+                final iconPath = skillIcons[skill];
+                return SkillChip(
+                  title: skill,
+                  icon: iconPath != null
+                      ? SvgPicture.asset(iconPath, height: 20)
+                      : Icon(Icons.code, size: 18, color: AppColors.accent),
+                );
+              }).toList(),
+            ),
+          ],
+        ),
+      );
+    }).toList();
+  }
+
+  Widget _languageChip(BuildContext context, String label) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+      decoration: BoxDecoration(
+        color: AppColors.lightBlackContainer,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: AppColors.borderColor),
+      ),
+      child: Text(
+        label,
+        style: Theme.of(context).textTheme.labelLarge,
+      ),
+    );
   }
 }
 
@@ -223,7 +179,7 @@ class SkillChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
       decoration: BoxDecoration(
         color: AppColors.lightBlackContainer,
         borderRadius: BorderRadius.circular(10),

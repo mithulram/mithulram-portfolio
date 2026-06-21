@@ -48,14 +48,14 @@ class PortfolioView extends StatelessWidget {
   List<Widget> children(BuildContext context) {
     return [
       PortfolioCard(context, portfolioInfo: CommonStrings.coverMeApp),
+      PortfolioCard(context, portfolioInfo: CommonStrings.neoMartApp),
+      PortfolioCard(context, portfolioInfo: CommonStrings.remoteCursorPackage),
+      PortfolioCard(context, portfolioInfo: CommonStrings.todoListApp),
+      PortfolioCard(context, portfolioInfo: CommonStrings.portfolioApp),
       PortfolioCard(context, portfolioInfo: CommonStrings.sudokuSolverApp),
       PortfolioCard(context,
           portfolioInfo: CommonStrings.pathfindingVisualizationApp),
       PortfolioCard(context, portfolioInfo: CommonStrings.snakeGameApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.todoListApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.portfolioApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.neoMartApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.remoteCursorPackage),
     ];
   }
 
