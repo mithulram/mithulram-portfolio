@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:portfolio/screens/responsive_layout.dart';
 import 'package:portfolio/utils/app_colors.dart';
 import 'package:portfolio/utils/common_widgets.dart';
-import 'package:portfolio/utils/controllers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../utils/common_strings.dart';
@@ -55,157 +54,276 @@ class PortfolioView extends StatelessWidget {
   }
 
   List<Widget> children(BuildContext context) {
-    return [
-      PortfolioCard(context, portfolioInfo: CommonStrings.rupeeRouteApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.secureAssetApiApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.dataPipelineApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.healthMonitorApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.opsDashboardApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.automotiveSecurityApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.batteryTelemetryApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.aiLabApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.coverMeApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.neoMartApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.workAnywhereApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.remoteCursorPackage),
-      PortfolioCard(context, portfolioInfo: CommonStrings.todoListApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.portfolioApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.sudokuSolverApp),
-      PortfolioCard(context,
-          portfolioInfo: CommonStrings.pathfindingVisualizationApp),
-      PortfolioCard(context, portfolioInfo: CommonStrings.snakeGameApp),
-    ];
+    return CommonStrings.featuredProjects
+        .map((info) => PortfolioCard(context, portfolioInfo: info))
+        .toList();
   }
 
   Widget PortfolioCard(BuildContext context,
       {required Map<String, String> portfolioInfo}) {
+    final cover = ProjectCoverCard(
+      label: portfolioInfo['coverLabel'] ?? portfolioInfo['title']!,
+      tagline: portfolioInfo['coverTagline'] ?? portfolioInfo['type']!,
+    );
+
+    void openDialog() {
+      Get.dialog(
+        CustomDialogue(portfolioInfo: portfolioInfo),
+        barrierDismissible: true,
+        transitionDuration: const Duration(milliseconds: 500),
+        transitionCurve: Curves.easeInOut,
+        useSafeArea: true,
+      );
+    }
+
     return ResponsiveLayout(
+      tabView: SizedBox(
+        width: 230,
+        child: _portfolioCardColumn(context, portfolioInfo, cover, openDialog),
+      ),
       mobileView: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InkWell(
-              onTap: () {
-                Get.dialog(
-                  CustomDialogue(portfolioInfo: portfolioInfo),
-                  barrierDismissible: true,
-                  transitionDuration: const Duration(milliseconds: 500),
-                  transitionCurve: Curves.easeInOut,
-                  useSafeArea: true,
-                );
-              },
-              child: Container(
-                constraints: const BoxConstraints(maxWidth: 350),
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: AspectRatio(
-                    aspectRatio: 16 / 9,
-                    child: portfolioInfo['coverImage']!.startsWith('http')
-                        ? Image.network(
-                            portfolioInfo['coverImage']!,
-                            fit: BoxFit.cover,
-                          )
-                        : portfolioInfo['coverImage']!.endsWith('.svg')
-                            ? SvgPicture.asset(
-                                portfolioInfo['coverImage']!,
-                                fit: BoxFit.cover,
-                              )
-                            : Image.asset(
-                                portfolioInfo['coverImage']!,
-                                fit: BoxFit.cover,
-                              )),
-              )),
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SelectableText(
-                  portfolioInfo['title']!,
-                  style: Theme.of(context).textTheme.titleMedium,
-                  maxLines: 1,
-                ),
-                SelectableText(
-                  portfolioInfo['type']!,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                  minLines: 1,
-                ),
-              ],
+            onTap: openDialog,
+            child: Container(
+              constraints: const BoxConstraints(maxWidth: 350),
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: AspectRatio(aspectRatio: 16 / 9, child: cover),
             ),
-          )
+          ),
+          const SizedBox(height: 10),
+          _portfolioCardLabels(context, portfolioInfo),
         ],
       ),
       desktopView: SizedBox(
         width: 230,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            InkWell(
-              onTap: () {
-                Get.dialog(
-                  CustomDialogue(portfolioInfo: portfolioInfo),
-                  barrierDismissible: true,
-                  transitionDuration: const Duration(milliseconds: 500),
-                  transitionCurve: Curves.easeInOut,
-                  useSafeArea: true,
-                );
-              },
-              child: Container(
-                clipBehavior: Clip.antiAlias,
-                width: 230,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
+        child: _portfolioCardColumn(context, portfolioInfo, cover, openDialog),
+      ),
+    );
+  }
+
+  Widget _portfolioCardColumn(
+    BuildContext context,
+    Map<String, String> portfolioInfo,
+    Widget cover,
+    VoidCallback openDialog,
+  ) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        InkWell(
+          onTap: openDialog,
+          child: Container(
+            clipBehavior: Clip.antiAlias,
+            width: 230,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: AspectRatio(aspectRatio: 16 / 9, child: cover),
+          ),
+        ),
+        const SizedBox(height: 10),
+        _portfolioCardLabels(context, portfolioInfo, desktop: true),
+      ],
+    );
+  }
+
+  Widget _portfolioCardLabels(
+    BuildContext context,
+    Map<String, String> portfolioInfo, {
+    bool desktop = false,
+  }) {
+    final titleStyle = Theme.of(context).textTheme.titleMedium;
+    final typeStyle = Theme.of(context).textTheme.bodyMedium;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          desktop
+              ? Text(
+                  portfolioInfo['title']!,
+                  style: titleStyle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                )
+              : SelectableText(
+                  portfolioInfo['title']!,
+                  style: titleStyle,
+                  maxLines: 1,
                 ),
-                child: AspectRatio(
-                    aspectRatio: 16 / 9,
-                    child: portfolioInfo['coverImage']!.startsWith('http')
-                        ? Image.network(
-                            portfolioInfo['coverImage']!,
-                            fit: BoxFit.cover,
-                          )
-                        : portfolioInfo['coverImage']!.endsWith('.svg')
-                            ? SvgPicture.asset(
-                                portfolioInfo['coverImage']!,
-                                fit: BoxFit.cover,
-                              )
-                            : Image.asset(
-                                portfolioInfo['coverImage']!,
-                                fit: BoxFit.cover,
-                              )),
+          desktop
+              ? Text(
+                  portfolioInfo['type']!,
+                  style: typeStyle,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                )
+              : SelectableText(
+                  portfolioInfo['type']!,
+                  style: typeStyle,
+                  minLines: 1,
+                ),
+        ],
+      ),
+    );
+  }
+}
+
+class ProjectCoverCard extends StatelessWidget {
+  final String label;
+  final String tagline;
+
+  const ProjectCoverCard({
+    super.key,
+    required this.label,
+    required this.tagline,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [AppColors.smokeyBlack, AppColors.background],
+        ),
+      ),
+      padding: const EdgeInsets.all(10),
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: AppColors.lightBlackContainer,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(color: AppColors.borderColor),
+            ),
+          ),
+          Positioned(
+            left: 14,
+            right: 56,
+            top: 14,
+            child: Text(
+              'ENGINEERING',
+              style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                    color: AppColors.selectionColor,
+                    letterSpacing: 2.5,
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
+          ),
+          Positioned(
+            left: 14,
+            right: 70,
+            top: 34,
+            bottom: 28,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  label,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: AppColors.white,
+                        fontWeight: FontWeight.w700,
+                        height: 1.1,
+                      ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  tagline,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                        color: AppColors.lightGray,
+                      ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 14,
+            bottom: 12,
+            child: Container(
+              width: 52,
+              height: 3,
+              decoration: BoxDecoration(
+                gradient: AppColors.yellowGradient,
+                borderRadius: BorderRadius.circular(2),
               ),
             ),
-            const SizedBox(
-              height: 10,
+          ),
+          Positioned(
+            top: 10,
+            right: 12,
+            child: Container(
+              width: 34,
+              height: 34,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: AppColors.selectionColor.withValues(alpha: 0.35),
+                ),
+                color: AppColors.selectionColor.withValues(alpha: 0.12),
+              ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+          ),
+          Positioned(
+            right: 12,
+            bottom: 12,
+            child: Container(
+              width: 42,
+              height: 28,
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+              decoration: BoxDecoration(
+                color: AppColors.smokeyBlack,
+                borderRadius: BorderRadius.circular(6),
+                border: Border.all(
+                  color: AppColors.selectionColor.withValues(alpha: 0.35),
+                ),
+              ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    portfolioInfo['title']!,
-                    style: Theme.of(context).textTheme.titleMedium,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                  Container(
+                    height: 2,
+                    decoration: BoxDecoration(
+                      color: AppColors.selectionColor.withValues(alpha: 0.6),
+                      borderRadius: BorderRadius.circular(1),
+                    ),
                   ),
-                  Text(
-                    portfolioInfo['type']!,
-                    style: Theme.of(context).textTheme.bodyMedium,
-                    maxLines: 1,
+                  Container(
+                    height: 2,
+                    width: 24,
+                    decoration: BoxDecoration(
+                      color: AppColors.lightGray.withValues(alpha: 0.3),
+                      borderRadius: BorderRadius.circular(1),
+                    ),
+                  ),
+                  Container(
+                    height: 2,
+                    width: 30,
+                    decoration: BoxDecoration(
+                      color: AppColors.lightGray.withValues(alpha: 0.2),
+                      borderRadius: BorderRadius.circular(1),
+                    ),
                   ),
                 ],
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -214,6 +332,22 @@ class PortfolioView extends StatelessWidget {
 class CustomDialogue extends StatelessWidget {
   final Map<String, String> portfolioInfo;
   const CustomDialogue({required this.portfolioInfo, super.key});
+
+  Widget _dialogCover(double width) {
+    return SizedBox(
+      width: width,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(16),
+        child: AspectRatio(
+          aspectRatio: 16 / 9,
+          child: ProjectCoverCard(
+            label: portfolioInfo['coverLabel'] ?? portfolioInfo['title']!,
+            tagline: portfolioInfo['coverTagline'] ?? portfolioInfo['type']!,
+          ),
+        ),
+      ),
+    );
+  }
 
   Widget _linkButton(BuildContext context,
       {required String url,
@@ -295,26 +429,7 @@ class CustomDialogue extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        AvatarContainer(
-                            clip: Clip.antiAlias,
-                            padding: EdgeInsets.zero,
-                            radius: 20,
-                            height: 80,
-                            width: 80,
-                            child: portfolioInfo['iconUrl']! == ""
-                                ? Image.asset(
-                                    'assets/images/app-icon.jpg',
-                                    fit: BoxFit.cover,
-                                  )
-                                : portfolioInfo['iconUrl']!.startsWith('http')
-                                    ? Image.network(
-                                        portfolioInfo['iconUrl']!,
-                                        fit: BoxFit.cover,
-                                      )
-                                    : Image.asset(
-                                        portfolioInfo['iconUrl']!,
-                                        fit: BoxFit.cover,
-                                      )),
+                        _dialogCover(120),
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsets.only(left: 10),
@@ -406,25 +521,7 @@ class CustomDialogue extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        AvatarContainer(
-                            clip: Clip.antiAlias,
-                            padding: EdgeInsets.zero,
-                            height: 160,
-                            width: 160,
-                            child: portfolioInfo['iconUrl']! == ""
-                                ? Image.asset(
-                                    'assets/images/app-icon.jpg',
-                                    fit: BoxFit.cover,
-                                  )
-                                : portfolioInfo['iconUrl']!.startsWith('http')
-                                    ? Image.network(
-                                        portfolioInfo['iconUrl']!,
-                                        fit: BoxFit.cover,
-                                      )
-                                    : Image.asset(
-                                        portfolioInfo['iconUrl']!,
-                                        fit: BoxFit.cover,
-                                      )),
+                        _dialogCover(200),
                         const SizedBox(height: 20),
                         _buttons(context),
                       ],

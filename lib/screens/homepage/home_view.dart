@@ -1,15 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:get/get.dart';
-import 'package:portfolio/main.dart';
 import 'package:portfolio/screens/homepage/home_controller.dart';
 import 'package:portfolio/screens/responsive_layout.dart';
 import 'package:portfolio/utils/app_colors.dart';
 import 'package:portfolio/utils/common_strings.dart';
 import 'package:portfolio/utils/common_widgets.dart';
-import 'package:portfolio/utils/controllers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeView extends StatelessWidget {
@@ -391,7 +388,7 @@ class SideBar extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SelectableText(
-                                "Mithulram G",
+                                "Mithulram Gunasekaran",
                                 style:
                                     Theme.of(context).textTheme.headlineMedium,
                                 textAlign: TextAlign.center,
@@ -520,7 +517,7 @@ class SideBar extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SelectableText(
-                                "Mithulram G",
+                                "Mithulram Gunasekaran",
                                 style:
                                     Theme.of(context).textTheme.headlineMedium,
                                 textAlign: TextAlign.center,
@@ -702,8 +699,7 @@ class SideBar extends StatelessWidget {
                     CustomListTile(
                         icon: Icons.phone_android,
                         title: "PHONE",
-                        subtitle:
-                            "${CommonStrings.myDetails['mobile']}, ${CommonStrings.myDetails['mobile_de']}",
+                        subtitle: CommonStrings.myDetails['mobile'],
                         onTap: () {
                           launchUrl(
                               Uri(

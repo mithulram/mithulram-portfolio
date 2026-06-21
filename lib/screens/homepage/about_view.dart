@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/screens/responsive_layout.dart';
 import 'package:portfolio/utils/app_colors.dart';
 import 'package:portfolio/utils/common_widgets.dart';
@@ -9,35 +8,30 @@ import '../../utils/common_strings.dart';
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
 
-  static const _goldFilter = ColorFilter.mode(
-    AppColors.selectionColor,
-    BlendMode.srcIn,
-  );
-
   static const _focusAreas = [
     _FocusArea(
-      iconPath: 'assets/svg/spring.svg',
-      title: 'Backend & Secure APIs',
+      icon: Icons.api_outlined,
+      title: 'Backend and APIs',
       description:
-          'Java, Spring Boot, RBAC, audit events, REST APIs, and integration tests for systems you can inspect.',
+          'Java, Spring Boot, REST APIs, validation, authorization, audit events, and integration tests.',
     ),
     _FocusArea(
-      iconPath: 'assets/svg/python.svg',
-      title: 'Data & Observability',
+      icon: Icons.storage_outlined,
+      title: 'Data quality',
       description:
-          'Python pipelines, DuckDB, quarantine handling, FastAPI monitors, SLOs, and Prometheus metrics.',
+          'Python, DuckDB, SQL, quarantine-first validation, lineage, and reliable analytical outputs.',
     ),
     _FocusArea(
-      iconPath: 'assets/svg/flutter.svg',
-      title: 'Mobile & Product',
+      icon: Icons.shield_outlined,
+      title: 'Systems and security',
       description:
-          'Production Flutter apps with Firebase, clean architecture, BLoC, and real user-facing workflows.',
+          'Threat modeling, risk scoring, access control, automotive-security research, and failure-mode analysis.',
     ),
     _FocusArea(
-      iconPath: 'assets/svg/azure.svg',
-      title: 'Cloud & Engineering',
+      icon: Icons.devices_outlined,
+      title: 'Product delivery',
       description:
-          'Azure, CI/CD, system design, testing discipline, and maintainable delivery practices.',
+          'Flutter, React, mobile-to-backend workflows, analytics, diagnostics, and accessible interfaces.',
     ),
   ];
 
@@ -126,10 +120,10 @@ class AboutView extends StatelessWidget {
                 color: AppColors.selectionColor.withValues(alpha: 0.35),
               ),
             ),
-            child: SvgPicture.asset(
-              area.iconPath,
-              height: 34,
-              colorFilter: _goldFilter,
+            child: Icon(
+              area.icon,
+              color: AppColors.selectionColor,
+              size: 34,
             ),
           ),
           const SizedBox(height: 16),
@@ -155,12 +149,12 @@ class AboutView extends StatelessWidget {
 }
 
 class _FocusArea {
-  final String iconPath;
+  final IconData icon;
   final String title;
   final String description;
 
   const _FocusArea({
-    required this.iconPath,
+    required this.icon,
     required this.title,
     required this.description,
   });

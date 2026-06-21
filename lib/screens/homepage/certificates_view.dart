@@ -9,6 +9,7 @@ class CertificatesView extends StatelessWidget {
   const CertificatesView({super.key});
 
   static const _hackerrankProfile = 'https://www.hackerrank.com/profile/mithulramg';
+  static const _gridSpacing = 20.0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class CertificatesView extends StatelessWidget {
           children: [
             _header(context, cards.length),
             const SizedBox(height: 16),
-            ...cards,
+            _certificateGrid(cards, crossAxisCount: 1, spacing: 16),
           ],
         ),
       ),
@@ -33,7 +34,7 @@ class CertificatesView extends StatelessWidget {
           children: [
             _header(context, cards.length),
             const SizedBox(height: 20),
-            Wrap(spacing: 16, runSpacing: 16, children: cards),
+            _certificateGrid(cards, crossAxisCount: 2),
           ],
         ),
       ),
@@ -44,14 +45,29 @@ class CertificatesView extends StatelessWidget {
           children: [
             _header(context, cards.length),
             const SizedBox(height: 20),
-            Wrap(
-              spacing: 20,
-              runSpacing: 20,
-              children: cards,
-            ),
+            _certificateGrid(cards, crossAxisCount: 2),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _certificateGrid(
+    List<Widget> cards, {
+    required int crossAxisCount,
+    double spacing = _gridSpacing,
+  }) {
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: crossAxisCount,
+        crossAxisSpacing: spacing,
+        mainAxisSpacing: spacing,
+        mainAxisExtent: CertificateCard.cardHeight,
+      ),
+      itemCount: cards.length,
+      itemBuilder: (_, index) => cards[index],
     );
   }
 
@@ -205,6 +221,8 @@ class CertificatesView extends StatelessWidget {
 }
 
 class CertificateCard extends StatelessWidget {
+  static const double cardHeight = 210;
+
   final String title;
   final String issuer;
   final String date;
@@ -228,16 +246,8 @@ class CertificateCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveLayout(
-      mobileView: _card(context, fullWidth: true),
-      desktopView: SizedBox(width: 350, child: _card(context)),
-    );
-  }
-
-  Widget _card(BuildContext context, {bool fullWidth = false}) {
-    return Container(
-      width: fullWidth ? double.infinity : null,
-      margin: EdgeInsets.only(bottom: fullWidth ? 15 : 0),
+    return SizedBox(
+      height: cardHeight,
       child: GestureDetector(
         onTap: () => _showCertificateModal(context),
         child: Neumorphic(
@@ -282,10 +292,13 @@ class CertificateCard extends StatelessWidget {
                               Theme.of(context).textTheme.bodyMedium?.copyWith(
                                     color: AppColors.selectionColor,
                                   ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ],
                     ),
                   ),
+                  const SizedBox(width: 8),
                   Container(
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -304,14 +317,17 @@ class CertificateCard extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 12),
-              Text(
-                description,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppColors.lightGray,
-                      height: 1.4,
-                    ),
+              Expanded(
+                child: Text(
+                  description,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: AppColors.lightGray,
+                        height: 1.4,
+                      ),
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-              const SizedBox(height: 10),
               Row(
                 children: [
                   Icon(

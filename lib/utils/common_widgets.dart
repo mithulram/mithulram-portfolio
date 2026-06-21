@@ -309,7 +309,9 @@ Widget downloadCVButton() {
   return InkWell(
     onTap: () async {
       final base = Uri.base;
-      final cvUrl = Uri.parse('${base.origin}${base.path}cv/Mithulram_G_CV.pdf');
+      final cvUrl = base.resolve(
+        'resume/Mithulram_Gunasekaran_ATS_Portfolio_Resume.pdf',
+      );
       await launchUrl(cvUrl, mode: LaunchMode.externalApplication);
     },
     child: Neumorphic(
@@ -334,7 +336,7 @@ Widget downloadCVButton() {
               width: 8,
             ),
             Text(
-              "Download CV",
+              "Download Resume",
               style: Theme.of(Get.context!)
                   .textTheme
                   .labelLarge
@@ -347,44 +349,46 @@ Widget downloadCVButton() {
   );
 }
 
-Widget socialLinksRow({double iconSize = 22}) {
+Widget socialLinksRow({double iconSize = 18}) {
+  const goldFilter = ColorFilter.mode(AppColors.accent, BlendMode.srcIn);
+
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      _socialButton(
+      _socialNeumorphicButton(
         tooltip: 'GitHub',
         url: CommonStrings.profileLinks['github']!,
-        background: const Color(0xFF1A1A1B),
-        border: AppColors.borderColor,
-        child: SvgPicture.asset('assets/svg/github.svg', height: iconSize),
+        child: SvgPicture.asset(
+          'assets/svg/github.svg',
+          height: iconSize,
+          colorFilter: goldFilter,
+        ),
       ),
-      _socialButton(
+      _socialNeumorphicButton(
         tooltip: 'LinkedIn',
         url: CommonStrings.profileLinks['linkedin']!,
-        background: const Color(0xFF0A66C2),
-        border: const Color(0xFF0A66C2),
         child: SvgPicture.asset(
           'assets/svg/linkedin.svg',
           height: iconSize,
-          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+          colorFilter: goldFilter,
         ),
       ),
-      _socialButton(
-        tooltip: 'Portfolio',
+      _socialNeumorphicButton(
+        tooltip: 'Portfolio website',
         url: CommonStrings.profileLinks['portfolio']!,
-        background: AppColors.selectionColor.withValues(alpha: 0.15),
-        border: AppColors.selectionColor.withValues(alpha: 0.45),
-        child: SvgPicture.asset('assets/svg/flutter.svg', height: iconSize),
+        child: Icon(
+          Icons.language_outlined,
+          size: iconSize,
+          color: AppColors.accent,
+        ),
       ),
     ],
   );
 }
 
-Widget _socialButton({
+Widget _socialNeumorphicButton({
   required String tooltip,
   required String url,
-  required Color background,
-  required Color border,
   required Widget child,
 }) {
   return Padding(
@@ -394,12 +398,15 @@ Widget _socialButton({
       borderRadius: BorderRadius.circular(12),
       child: Tooltip(
         message: tooltip,
-        child: Container(
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: background,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: border),
+        child: Neumorphic(
+          padding: const EdgeInsets.all(12),
+          style: NeumorphicStyle(
+            shape: NeumorphicShape.concave,
+            boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
+            depth: .4,
+            lightSource: LightSource.topLeft,
+            color: AppColors.lightBlackContainer,
+            shadowLightColor: AppColors.white,
           ),
           child: child,
         ),

@@ -1,465 +1,262 @@
 class CommonStrings {
   static const myDetails = {
-    "email": "gmithulram@gmail.com",
-    "mobile": "+91-9500539218",
-    "mobile_de": "+49-1708834985",
-    "address": "Passau, Germany",
-    "german_level": "German B1",
-    "availability": "20 h/week (student visa)",
+    'email': 'gmithulram@gmail.com',
+    'mobile': '+49 170 8834985',
+    'address': 'Passau, Germany',
+    'german_level': 'German (B1 - Intermediate)',
   };
 
   static const profileLinks = {
-    "portfolio": "https://mithulram-portfolio.vercel.app/",
-    "github": "https://github.com/mithulram",
-    "linkedin": "https://www.linkedin.com/in/mithulram-g-926ba520a/",
-    "cv": "assets/cv/Mithulram_G_CV.pdf",
+    'portfolio': 'https://mithulram-portfolio.vercel.app/',
+    'github': 'https://github.com/mithulram',
+    'linkedin': 'https://www.linkedin.com/in/mithulram-g-926ba520a',
+    'cv': 'resume/Mithulram_Gunasekaran_ATS_Portfolio_Resume.pdf',
   };
 
   static const String headline =
-      "Software Engineer · Backend, Data & Secure Systems";
+      'Software Engineer - Backend, Data & Secure Systems';
 
   static const String aboutMe =
-      "I'm Mithulram G — a software engineer in Passau, Germany, pursuing my M.Sc. in Informatics at the University of Passau.\n\nI build backend and data systems where trust is designed in: explicit permissions, quarantined bad records, observable services, and tests that respect the unhappy path. My recent work spans Spring Boot APIs, Python data pipelines, FastAPI monitors, and automotive security tooling.\n\nBefore Germany, I spent three years at Xmplar in Bangalore shipping production Flutter apps and Java/Spring Boot backends with Firebase, referral flows, and measurable engagement gains.\n\nOpen to Werkstudent and junior roles. Certified in Java SE 11, PCAP Python, Azure Administrator, and Azure Solutions Architect Expert. Fluent in English and Tamil; German at B1 level.";
+      'I am Mithulram Gunasekaran, a software engineer and M.Sc. Computer Science student in Germany. I build backend, data, and security-minded software for the places where correctness matters: access decisions, unreliable input, operational signals, and the uncomfortable paths systems need to survive.\n\nAt Xmplar, I spent nearly three years delivering Flutter workflows and backend-integrated product features. That work contributed to a 20% improvement in user engagement and a 3x improvement in data-handling efficiency. More recently, my automotive-cybersecurity research at the University of Passau focused on authentication gaps, ECU communication risks, and structured technical reporting.\n\nI am most useful where clear APIs, testable failure paths, practical documentation, and thoughtful product delivery meet.';
 
   static const educationMap = [
     {
-      'title': 'University of Passau',
-      'time': '2024 – Present',
-      'desc':
-          "Master's in Informatics (Computer Science), AI Engineering focus — machine learning foundations, intelligent systems, and software architecture."
+      'title': 'M.Sc. Computer Science',
+      'time': 'University of Passau, Passau, Germany | 2025 - Present',
+      'desc': '',
     },
     {
-      'title': 'SRM University, Chennai',
-      'time': '2018 – 2022',
-      'desc':
-          'B.Sc. Computer Science – IT, CGPA 7.8/10. Coursework in algorithms, software engineering, and distributed systems.'
-    }
+      'title': 'B.E. Computer Science and Information Technology',
+      'time': 'SRM University, Chennai, India | 2018 - 2022 | CGPA 7.8/10',
+      'desc': '',
+    },
   ];
 
   static const experienceMap = [
     {
-      'title': 'Software Engineering Projects · University of Passau',
-      'time': '2024 – Present',
+      'title': 'Student Research Assistant - Automotive Cybersecurity',
+      'time': 'University of Passau (ASOA) | Mar 2025 - Mar 2026',
       'desc':
-          'Building inspectable backend and data systems as part of my Master\'s in Informatics. Developed RupeeRoute (sandbox remittance monorepo with ledger concepts and RBAC), a Spring Boot secure asset API with audit events, a Python/DuckDB data-quality pipeline with quarantine handling, a FastAPI service-health monitor with SLOs and incidents, an automotive cybersecurity test bench, and a C++ battery telemetry validation harness. Published on GitHub with tests, documentation, and reproducible local workflows.'
+          'Reviewed 20+ automotive-security sources; documented 15+ vulnerability and failure-mode patterns; prioritized 10+ security and safety risks using likelihood-impact scoring and ECU communication analysis.',
     },
     {
-      'title': 'Junior Developer · Xmplar, Bangalore',
-      'time': 'Dec 2021 – Aug 2024',
+      'title': 'Junior Developer',
+      'time': 'Xmplar | Dec 2021 - Aug 2024',
       'desc':
-          'Tripled data-handling efficiency through process optimization and cleaner backend/mobile delivery. Designed responsive Flutter interfaces, contributing to a 20% increase in user engagement. Built and maintained Java/Spring Boot, REST API, SQL, and Flutter functionality across production workflows. Implemented turn-by-turn location tracking, Firebase Analytics, Crashlytics, push notifications, dynamic links, and referral flows — supporting a 50% boost in user engagement. Worked across product requirements, UI delivery, backend integration, debugging, and release readiness.'
+          'Built Flutter and backend-integrated workflows; contributed to 20% higher user engagement and 3x more efficient data handling; implemented Analytics, Crashlytics, notifications, and deep-link/referral flows.',
     },
     {
-      'title': 'Backend Intern · Adpay, Chennai',
-      'time': 'May 2020 – Jul 2020',
+      'title': 'Backend Intern',
+      'time': 'Adpay | May 2020 - Jul 2020',
       'desc':
-          'Developed REST API functionality using Java and Spring Boot for an Android distributor application. Supported backend implementation, testing, and integration in a small product engineering environment.'
-    }
+          'Developed and documented Java and Spring Boot APIs for an Android distributor application.',
+    },
   ];
 
   static const skillGroups = {
-    'Backend': [
-      'Java',
-      'J2EE',
+    'Languages': ['Java', 'Python', 'TypeScript', 'C++', 'SQL', 'Dart'],
+    'Backend and data': [
       'Spring Boot',
       'Spring Security',
-      'REST APIs',
-      'SQL',
-      'Microservices',
       'FastAPI',
-    ],
-    'Mobile / Frontend': [
-      'Flutter',
-      'Dart',
-      'Firebase',
-      'React',
-      'TypeScript',
-      'BLoC',
-      'GetX',
-      'MVVM',
-    ],
-    'Cloud / DevOps': [
-      'Azure',
-      'Azure DevOps',
-      'CI/CD',
-      'Prometheus',
-      'Docker',
-      'Cloud Architecture',
-    ],
-    'Data / AI': [
-      'Python',
       'DuckDB',
-      'C++',
-      'Algorithms',
-      'ML Foundations',
-      'TensorFlow/Keras',
-      'Parquet',
+      'JPA',
+      'REST APIs',
+      'data quality',
     ],
-    'Engineering': [
-      'RBAC',
-      'System Design',
-      'Clean Architecture',
-      'Testing',
-      'Agile',
-      'Observability',
+    'Frontend and mobile': [
+      'React',
+      'Flutter',
+      'Firebase Analytics',
+      'Crashlytics',
+      'notifications',
+      'deep links',
+    ],
+    'Cloud and delivery': [
+      'Microsoft Azure',
+      'Git',
+      'GitLab',
+      'GitHub Actions',
+      'CI/CD',
+      'technical documentation',
+    ],
+    'Security and systems': [
+      'Threat modeling',
+      'risk scoring',
+      'vulnerability analysis',
+      'authentication',
+      'access control',
+      'ECU communication',
     ],
   };
 
-  static const languages = ['English (Fluent)', 'Tamil (Fluent)', 'German (B1)'];
+  static const languages = [
+    'Tamil (Native)',
+    'English (Fluent)',
+    'German (B1 - Intermediate)',
+  ];
 
   static const Map<String, String> rupeeRouteApp = {
     'githubUrl': 'https://github.com/mithulram/rupee-route',
     'coverImage': 'assets/images/cover-rupee-route.svg',
+    'coverLabel': 'RupeeRoute',
+    'coverTagline': 'Remittance Platform',
     'title': 'RupeeRoute',
     'iconUrl': 'assets/svg/javascript.svg',
-    'type': 'Full-Stack Platform',
+    'type': 'Fintech systems',
     'about': '''
-Sandbox remittance-platform monorepo exploring secure transfer workflows with integer money handling, transfer state machines, double-entry ledger concepts, role-aware operations, and deterministic provider integrations.
+A sandbox-to-pilot remittance-platform monorepo demonstrating integer money, immutable audit trails, transfer state machines, RBAC operations, and deterministic providers.
 
-**Technologies:** TypeScript, NestJS, Next.js, PostgreSQL
+**Proof:** 133 Vitest tests; 7 PostgreSQL integration tests; desktop E2E and accessibility smoke coverage.
 
-Sandbox only — no live money movement or regulatory authorization.
+**Technologies:** TypeScript, NestJS, PostgreSQL, Redis, Next.js, Expo React Native
+
+Sandbox only. No live money, payment rails, settlement, regulatory authorization, or production remittance claim.
 ''',
   };
 
   static const Map<String, String> secureAssetApiApp = {
     'githubUrl': 'https://github.com/mithulram/secure-asset-access-api',
     'coverImage': 'assets/images/cover-secure-api.svg',
+    'coverLabel': 'Secure API',
+    'coverTagline': 'Spring Boot · RBAC',
     'title': 'Secure Asset Access API',
     'iconUrl': 'assets/svg/java.svg',
-    'type': 'Backend API',
+    'type': 'Backend and security',
     'about': '''
-Java/Spring Boot API for classified technical asset management with validated REST endpoints, role-based authorization, JPA persistence, audit events, health checks, and security integration tests.
+A production-style Java backend demonstrator for classified technical assets, role-based endpoints, audit events, validation, and health checks.
 
-**Technologies:** Java, Spring Boot, Spring Security, JPA, REST APIs
+**Proof:** MockMvc security tests cover unauthenticated rejection, role boundaries, validation, audit records, and missing resources.
+
+**Technologies:** Java, Spring Boot, Spring Security, JPA, H2, REST APIs, Actuator, JUnit/MockMvc
+
+Named asset grants are recorded for audit review; runtime asset-level grant evaluation is intentionally out of scope. H2 is local and ephemeral.
 ''',
   };
 
   static const Map<String, String> dataPipelineApp = {
     'githubUrl': 'https://github.com/mithulram/data-quality-lineage-pipeline',
     'coverImage': 'assets/images/cover-data-pipeline.svg',
-    'title': 'Data Quality & Lineage Pipeline',
+    'coverLabel': 'Data Pipeline',
+    'coverTagline': 'Python · DuckDB',
+    'title': 'Data Quality and Lineage Pipeline',
     'iconUrl': 'assets/svg/python.svg',
-    'type': 'Data Engineering',
+    'type': 'Data and reliability',
     'about': '''
-Python/DuckDB pipeline that validates source data, quarantines invalid records, enriches trusted data, exports CSV and Parquet, and records quality and lineage artefacts.
+A Python and DuckDB pipeline that validates order batches, quarantines invalid records, enriches valid data, and creates lineage-aware analytical artifacts.
 
-**Technologies:** Python, DuckDB, SQL, Parquet
+**Proof:** Configurable error-rate gate with quality reports, lineage JSON, CSV, and Parquet outputs.
+
+**Technologies:** Python, DuckDB, SQL, CSV, Parquet, GitHub Actions
+
+Synthetic source data and a local analytical pipeline, not a production warehouse or data catalog.
 ''',
   };
 
   static const Map<String, String> healthMonitorApp = {
     'githubUrl': 'https://github.com/mithulram/service-health-incident-monitor',
     'coverImage': 'assets/images/cover-health-monitor.svg',
-    'title': 'Service Health & Incident Monitor',
+    'coverLabel': 'Health Monitor',
+    'coverTagline': 'FastAPI · SLOs',
+    'title': 'Service Health and Incident Monitor',
     'iconUrl': 'assets/svg/python.svg',
-    'type': 'Observability Platform',
+    'type': 'Operations and observability',
     'about': '''
-FastAPI service-health monitor with SLOs, error budgets, incident tracking, Prometheus-format metrics, and automated tests for operational reliability.
+A FastAPI monitor that exposes readiness, Prometheus-format metrics, availability SLOs, synthetic error-budget reasoning, and incident context.
 
-**Technologies:** Python, FastAPI, Prometheus, SLO/SLI design
-''',
-  };
+**Proof:** HTTP tests prove that a demo fault injection changes error-budget headroom.
 
-  static const Map<String, String> opsDashboardApp = {
-    'githubUrl': 'https://github.com/mithulram/operations-dashboard',
-    'coverImage': 'assets/images/cover-ops-dashboard.svg',
-    'title': 'Operations Dashboard',
-    'iconUrl': 'assets/svg/react.svg',
-    'type': 'Web Dashboard',
-    'about': '''
-React operations dashboard consuming live SLO and incident API data — visualising service health, error budgets, and incident status for engineering teams.
+**Technologies:** Python, FastAPI, Prometheus text metrics, health endpoints, SLO/error budget, GitHub Actions
 
-**Technologies:** React, TypeScript, REST API integration
+Events are synthetic and in memory; SLO/error budget is process-lifetime, not a monthly production measurement.
 ''',
   };
 
   static const Map<String, String> automotiveSecurityApp = {
     'githubUrl': 'https://github.com/mithulram/automotive-security-test-bench',
     'coverImage': 'assets/images/cover-auto-security.svg',
+    'coverLabel': 'Auto Security',
+    'coverTagline': 'Cybersecurity CLI',
     'title': 'Automotive Security Test Bench',
     'iconUrl': 'assets/svg/java.svg',
-    'type': 'Security Tooling',
+    'type': 'Automotive cybersecurity',
     'about': '''
-Reproducible automotive cybersecurity risk-assessment CLI with ECU threat scenarios, risk prioritisation, and JSON/HTML reporting for security analysis workflows.
+A reproducible assessment tool that validates ECU threat scenarios, prioritizes risks with a transparent 5x5 likelihood-impact model, and maps controls to attack categories.
 
-**Technologies:** Python, CLI design, security assessment patterns
+**Proof:** Generates tested JSON and responsive HTML technical-review reports plus an optional CI policy gate.
+
+**Technologies:** Python, typed domain model, CLI, JSON/HTML reports, Docker, GitHub Actions
+
+A portfolio demonstrator inspired by research, not ISO/SAE 21434 compliance, a production vehicle-security product, or a safety case.
 ''',
   };
 
   static const Map<String, String> batteryTelemetryApp = {
-    'githubUrl': 'https://github.com/mithulram/battery-telemetry-validation-harness',
+    'githubUrl':
+        'https://github.com/mithulram/battery-telemetry-validation-harness',
     'coverImage': 'assets/images/cover-battery-telemetry.svg',
+    'coverLabel': 'Telemetry Harness',
+    'coverTagline': 'C++17 · Validation',
     'title': 'Battery Telemetry Validation Harness',
     'iconUrl': 'assets/svg/java.svg',
-    'type': 'C++ Systems',
+    'type': 'Automotive validation',
     'about': '''
-C++17 telemetry validation harness with deterministic quarantine rules, CMake/CTest integration, and Python fault injection for battery data validation scenarios.
+A deterministic validation gate for synthetic BMS cell telemetry that quarantines malformed, duplicate, out-of-range, and timestamp-invalid readings.
 
-**Technologies:** C++17, CMake, Python, validation engineering
+**Proof:** C++17 core with 7 deterministic rules, Python fault injection, CMake/CTest, and CI.
+
+**Technologies:** C++17, CMake, CTest, Python, CSV/JSON, fault injection, GitHub Actions
+
+Synthetic telemetry only; not connected to production vehicle hardware, firmware, or a BMS ECU.
+''',
+  };
+
+  static const Map<String, String> opsDashboardApp = {
+    'githubUrl': 'https://github.com/mithulram/operations-dashboard',
+    'coverImage': 'assets/images/cover-ops-dashboard.svg',
+    'coverLabel': 'Ops Dashboard',
+    'coverTagline': 'React · Metrics',
+    'title': 'Operations Dashboard',
+    'iconUrl': 'assets/svg/react.svg',
+    'type': 'Operations and observability',
+    'about': '''
+A React dashboard that consumes the service-health monitor API to visualise availability, error-budget headroom, and incident context for engineering review.
+
+**Proof:** Typed API client, responsive layout, and dashboard views wired to live monitor endpoints in local demo mode.
+
+**Technologies:** React, TypeScript, REST API integration
+
+Demo dashboard for the portfolio monitor; not a production NOC or multi-tenant operations product.
 ''',
   };
 
   static const Map<String, String> aiLabApp = {
     'githubUrl': 'https://github.com/mithulram/ai-engineering-lab-project',
     'coverImage': 'assets/images/cover-ai-lab.svg',
+    'coverLabel': 'AI Lab',
+    'coverTagline': 'Object Counting · ML',
     'title': 'AI Engineering Lab — Object Counting',
     'iconUrl': 'assets/svg/python.svg',
-    'type': 'AI Application',
+    'type': 'AI engineering',
     'about': '''
-University of Passau AI Engineering Lab project — object counting application with a full AI pipeline from image input through detection and counting workflows.
+University of Passau AI Engineering Lab project implementing an object-counting pipeline from image input through model inference, evaluation, and reproducible experiment reporting.
 
-**Technologies:** Python, AI/ML pipeline, computer vision foundations
+**Proof:** Structured lab workflow with tested preprocessing, inference, and evaluation steps documented for review.
+
+**Technologies:** Python, computer vision, ML pipeline foundations
+
+Academic lab coursework and experimentation, not a production computer-vision product or deployed service.
 ''',
   };
 
-  static const Map<String, String> coverMeApp = {
-    'playstoreUrl': "https://play.google.com/store/apps/details?id=com.coverme.fitness.instructor",
-    'appstoreUrl': "https://apps.apple.com/gb/app/coverme-instructor/id6446840487",
-    'githubUrl': "",
-    'coverImage': "assets/images/cover-coverme.svg",
-    'title': "CoverMe",
-    'iconUrl': "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/70/bc/c5/70bcc52a-c1d6-7dba-d8fc-f9d320db4f14/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg",
-    'type': "Mobile Application",
-    'about': '''
-CoverMe is a fitness and wellness workforce management platform — the operating system for fitness venues to manage teams, schedule staff, and find cover instructors instantly. Built with Flutter for both iOS and Android.
-
-**Key Features:**
-- **Ultra-fast Matching**: Finds and books a qualified instructor in an average of 21 seconds
-- **Cover Requests**: Venues post open sessions; instructors accept in one tap
-- **Intelligent Matching**: Pairs venues with the right local instructor based on speciality and availability
-- **Instructor Profiles**: Video uploads, certifications, and speciality tags
-- **Integrated Invoicing**: Seamless payment and earnings tracking built in
-- **Rewards System**: Instructor perks and exclusive partner discounts
-- **Real-time Coordination**: Replaces messy WhatsApp group chains entirely
-- **Multi-region Support**: Live in the US, UK, and Australia
-
-**Technologies Used:**
-- **Flutter**: Cross-platform iOS and Android from a single codebase
-- **Firebase**: Real-time data, push notifications, and authentication
-- **Location Services**: Matching instructors to nearby venues
-- **Video Integration**: Instructor profile video uploads
-- **Payment Gateway**: Integrated invoicing and earnings dashboard
-
-Available on the App Store and Google Play.
-''',
-  };
-
-  static const Map<String, String> sudokuSolverApp = {
-    'playstoreUrl': "",
-    'githubUrl': "https://github.com/mithulram/sudoko",
-    'coverImage': "assets/images/cover-sudoku.svg",
-    'title': "Sudoku Solver",
-    'iconUrl': "assets/images/profile.png",
-    'about': '''
-A sophisticated 9x9 Sudoku solver developed using Python and the Backtracking Algorithm. This project features both GUI and Text-Based interfaces, providing users with a comprehensive solution for solving complex Sudoku puzzles.
-
-**Key Features:**
-- **Backtracking Algorithm**: Implements an efficient backtracking approach to solve any valid 9x9 Sudoku puzzle
-- **Dual Interface**: Offers both graphical user interface and command-line text interface for different user preferences
-- **Visual Demonstration**: Provides step-by-step algorithm visualization to help users understand the solving process
-- **Error Handling**: Robust input validation and error handling for invalid puzzles
-
-**Technologies Used:**
-- **Python**: Core programming language for algorithm implementation
-- **Backtracking Algorithm**: Efficient puzzle-solving methodology
-- **GUI Framework**: User-friendly graphical interface
-- **Tkinter/Pygame**: For visual representation and user interaction
-
-This project demonstrates strong algorithmic thinking, problem-solving skills, and the ability to create user-friendly applications with multiple interface options.
-''',
-    'type': "Python Application"
-  };
-
-  static const Map<String, String> pathfindingVisualizationApp = {
-    'playstoreUrl': "",
-    'githubUrl': "https://github.com/mithulram/A-Path-Finding-Visualization",
-    'coverImage': "assets/images/cover-pathfinding.svg",
-    'title': "Pathfinding Visualization",
-    'iconUrl': "assets/images/profile.png",
-    'about': '''
-An interactive visualization tool for the A* algorithm, designed to demonstrate shortest pathfinding in real-time. This Python application provides an engaging way to understand pathfinding algorithms through dynamic visualization.
-
-**Key Features:**
-- **A* Algorithm Implementation**: Efficient shortest pathfinding using heuristic-based search
-- **Interactive Grid System**: Dynamic grid creation with customizable dimensions and obstacle placement
-- **Real-time Visualization**: Live pathfinding demonstration with step-by-step algorithm execution
-- **Obstacle Management**: Interactive obstacle placement and removal for testing different scenarios
-- **Heuristic Optimization**: Multiple heuristic functions for optimal pathfinding performance
-
-**Technologies Used:**
-- **Python**: Core programming language for algorithm implementation
-- **A* Algorithm**: Advanced pathfinding methodology with heuristic optimization
-- **Pygame/Tkinter**: Interactive graphical interface for visualization
-- **Heuristic Functions**: Various distance calculation methods (Manhattan, Euclidean, etc.)
-
-This project showcases advanced algorithmic knowledge, interactive design skills, and the ability to create educational tools that make complex algorithms accessible and engaging.
-''',
-    'type': "Python Application"
-  };
-
-  static const Map<String, String> snakeGameApp = {
-    'playstoreUrl': "",
-    'githubUrl': "https://github.com/mithulram/mithulram-puthon-snake-game-on-termina",
-    'coverImage': 'assets/images/cover-snake.svg',
-    'title': "Snake Game",
-    'iconUrl': "assets/images/profile.png",
-    'type': "Python Application",
-    'about': '''
-A classic Snake game implementation in Python, featuring terminal-based gameplay with modern enhancements. This project demonstrates fundamental game development concepts while providing an engaging user experience.
-
-**Key Features:**
-- **Classic Gameplay**: Traditional Snake game mechanics with growing snake and food collection
-- **Real-time Scoring**: Dynamic score tracking and display during gameplay
-- **Responsive Controls**: Smooth and responsive keyboard controls for precise movement
-- **Terminal Interface**: Clean, text-based user interface optimized for terminal environments
-- **Game Logic**: Robust collision detection, boundary handling, and game state management
-
-**Technologies Used:**
-- **Python**: Core programming language for game implementation
-- **Terminal Interface**: Text-based user interface using curses or similar libraries
-- **Game Logic**: Custom game mechanics and state management
-- **Input Handling**: Keyboard event processing for game controls
-
-This project showcases fundamental programming concepts, game development skills, and the ability to create engaging applications with clean, maintainable code. It demonstrates proficiency in Python programming and understanding of basic game development principles.
-'''
-  };
-
-  static const Map<String, String> workAnywhereApp = {
-    'playstoreUrl': "",
-    'githubUrl': "",
-    'coverImage': 'assets/images/project-cover.png',
-    'title': "Work Anywhere",
-    'iconUrl': "assets/images/app-icon.jpg",
-    'type': "Mobile Application",
-    'about': '''
-Work Anywhere is a comprehensive HRMS (Human Resource Management System) built with Flutter for remote-first teams. It helps organisations track attendance, monitor work progress, and manage projects from one mobile app.
-
-**Key Features:**
-- Real-time location fetching for accurate attendance marking
-- Face recognition authentication via Google ML Kit and Microsoft Cognitive Services
-- Voice recording for task and meeting notes
-- Meeting scheduling with calendar integration
-- Activity capture and real-time task tracking
-- Role-based access for Admin, Manager, and Member users
-
-**Technologies Used:**
-- Flutter for cross-platform mobile development
-- Google ML Kit and Azure Cognitive Services for face recognition
-- Location services and real-time data sync
-- Role-based user management and secure authentication
-'''
-  };
-
-  static const Map<String, String> portfolioApp = {
-    'playstoreUrl': "",
-    'githubUrl': "https://github.com/mithulram/mithulram-portfolio",
-    'coverImage': "assets/images/portfolio-cover.png",
-    'title': "Personal Portfolio - Mithulram G",
-    'iconUrl': "assets/images/profile.png",
-    'type': "Web Application",
-    'about': '''
-This portfolio represents my professional journey as an aspiring AI Solutions Architect and Backend & Mobile Developer. Built using Flutter framework, it showcases my expertise in multiple technologies and my commitment to creating intelligent, efficient solutions.
-
-**Key Features:**
-- **Responsive Design**: Optimized for all devices using Responsive Builder for seamless viewing experience
-- **Modern UI/UX**: Clean, professional design with smooth animations and transitions
-- **Interactive Elements**: Interactive maps and dynamic content presentation
-- **Contact Integration**: EmailJS-powered contact form for direct communication
-- **State Management**: Efficient state management using GetX for smooth user experience
-
-**Technologies Used:**
-- **Flutter**: Cross-platform framework for web application development
-- **GetX**: State management and dependency injection
-- **Flutter Map**: Interactive map integration
-- **EmailJS**: Contact form functionality
-- **Responsive Builder**: Adaptive UI design
-
-This portfolio demonstrates my technical skills, professional experience, and projects while providing an engaging platform for potential employers and collaborators to learn about my capabilities and achievements.
-'''
-  };
-
-  static const Map<String, String> neoMartApp = {
-    'playstoreUrl': "https://apps.apple.com/in/app/neomart/id1519575784",
-    'githubUrl': "",
-    'coverImage': "assets/images/cover-neomart.svg",
-    'title': "NeoMart Consumer App",
-    'iconUrl': "",
-    'type': "Mobile Application",
-    'about': '''
-NeoMart Consumer App is a cutting-edge eCommerce platform designed to connect users with their favorite local markets and stores. This innovative app simplifies shopping for groceries, vegetables, fruits, medicines, and more—all from the comfort of home. Key features include:
-
--  **Comprehensive Shopping**: Offers a wide selection of products, allowing users to choose from various local stores and markets in one seamless app.
-
--  **Real-Time Communication**: Enables users to chat and call local shopkeepers, providing personalized support and enhancing the shopping experience.
-
--  **Push Notifications**: Integrated push notifications keep users informed about order updates, special offers, and new arrivals, ensuring they never miss out.
-
--  **Real-Time Delivery Tracking**: Users can monitor their order status in real time, providing transparency and improving customer satisfaction.
-
--  **Secure Payment Integration**: Supports multiple payment gateways, allowing users to complete transactions securely and efficiently.
-
--  **User-Friendly Interface**: Designed for ease of use, the app delivers a smooth and intuitive shopping experience for users of all backgrounds.
-
--  **Chat Support**: Built-in chat support feature helps users with any queries or issues, ensuring timely assistance.
-
-Technologies: Developed using Flutter for cross-platform functionality, integrated with Firebase for push notifications and chat support, and real-time database features to ensure smooth order tracking and communication. This app is designed to provide a reliable and engaging eCommerce experience.
-'''
-  };
-
-  static const Map<String, String> remoteCursorPackage = {
-    'playstoreUrl': "",
-    'githubUrl': 'https://github.com/mithulram/remote_cursor',
-    'coverImage': 'assets/images/cover-todo.svg',
-    'title': 'Remote Cursor Package',
-    'iconUrl':
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8ccrKgnGQ14EhsAmrL0dTt3Kkj5jx_Ilb77llYmgkqrsFokSSrt3GcxJy9iiY278ugzc&usqp=CAU',
-    'type': 'Flutter Package',
-    'about': '''
-RemoteCursor is a powerful Flutter package that transforms your mobile device into a wireless mouse or trackpad controller. It enables precise control of your computer cursor using touch gestures or device gyroscope movements via WebSocket communication.
-
-**Key Features:**
-
-- **Dual Control Methods**: Use your device as a touchpad or motion-controlled pointer.
-- **Precise Tracking**: Advanced algorithms ensure smooth cursor movement.
-- **Customizable Sensitivity**: Fine-tune controls to match your preferences.
-- **WebSocket Communication**: Establishes a low-latency connection to your computer.
-- **Gesture Support**: Supports click, right-click, and double-click actions.
-- **Configuration Options**: Extensive parameters to customize behavior.
-
-**Technologies Used:**
-
-- **Flutter**: For cross-platform mobile application development.
-- **WebSocket**: Facilitates real-time communication between the mobile device and desktop.
-- **Gyroscope & Touch Input**: Leverages device sensors for intuitive control.
-
-Explore the package on pub.dev: https://pub.dev/packages/remote_cursor
-'''
-  };
-
-  static const Map<String, String> todoListApp = {
-    'playstoreUrl': "",
-    'githubUrl': "https://github.com/mithulram/TO-DO-List-application---Flutter",
-    'coverImage': "assets/images/cover-todo.svg",
-    'title': "To-Do List App",
-    'iconUrl': "assets/images/profile.png",
-    'type': "Mobile Application",
-    'about': '''
-A feature-rich To-Do List application built with Flutter, following clean architecture principles and the BLoC pattern for state management. Designed to help users stay organised and on top of their daily tasks.
-
-**Key Features:**
-- **Task Management**: Create, update, complete, and delete tasks with ease
-- **Priority Levels**: Mark tasks by priority (high, medium, low) for better focus
-- **Due Dates**: Set and track deadlines with visual indicators
-- **BLoC Pattern**: Reactive state management for a smooth, predictable UI
-- **Local Storage**: Tasks persist offline using local database integration
-- **Clean Architecture**: Separation of concerns across data, domain, and presentation layers
-
-**Technologies Used:**
-- **Flutter**: Cross-platform mobile framework
-- **BLoC**: Business Logic Component pattern for state management
-- **Clean Architecture**: Layered project structure for scalability
-- **Local Database**: Persistent offline task storage
-'''
-  };
+  static const List<Map<String, String>> featuredProjects = [
+    rupeeRouteApp,
+    secureAssetApiApp,
+    dataPipelineApp,
+    healthMonitorApp,
+    opsDashboardApp,
+    automotiveSecurityApp,
+    batteryTelemetryApp,
+    aiLabApp,
+  ];
 }
