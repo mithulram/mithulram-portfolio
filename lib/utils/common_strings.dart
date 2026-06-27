@@ -153,22 +153,25 @@ Synthetic source data and a local analytical pipeline, not a production warehous
 ''',
   };
 
-  static const Map<String, String> healthMonitorApp = {
-    'githubUrl': 'https://github.com/mithulram/service-health-incident-monitor',
-    'coverImage': 'assets/images/cover-health-monitor.svg',
-    'coverLabel': 'Health Monitor',
-    'coverTagline': 'FastAPI · SLOs',
-    'title': 'Service Health and Incident Monitor',
-    'iconUrl': 'assets/svg/python.svg',
-    'type': 'Operations and observability',
+  static const Map<String, String> operationsStackApp = {
+    'githubUrl': 'https://github.com/mithulram/operations-dashboard',
+    'companionRepoUrl':
+        'https://github.com/mithulram/service-health-incident-monitor',
+    'liveDemoUrl': 'https://operations-dashboard-b8v.pages.dev',
+    'coverImage': 'assets/images/cover-ops-dashboard.svg',
+    'coverLabel': 'Ops Demo',
+    'coverTagline': 'Live stack',
+    'title': 'Operations Dashboard + Service Health Monitor',
+    'iconUrl': 'assets/svg/react.svg',
+    'type': 'Data and reliability',
     'about': '''
-A FastAPI monitor that exposes readiness, Prometheus-format metrics, availability SLOs, synthetic error-budget reasoning, and incident context.
+An end-to-end live full-stack demo: a React/Vite operations dashboard on Cloudflare Pages, a FastAPI service-health backend on Render, SLO and error-budget views, incident context, and deployed smoke checks.
 
-**Proof:** HTTP tests prove that a demo fault injection changes error-budget headroom.
+**Proof:** Live dashboard reads the deployed monitor API; backend and frontend smoke tests verify health, summary, incidents, and CORS.
 
-**Technologies:** Python, FastAPI, Prometheus text metrics, health endpoints, SLO/error budget, GitHub Actions
+**Technologies:** React, TypeScript, Vite, FastAPI, Prometheus text metrics, SLO/error budget, GitHub Actions
 
-Events are synthetic and in memory; SLO/error budget is process-lifetime, not a monthly production measurement.
+Synthetic in-memory demo data only; not production monitoring software or a multi-tenant NOC product.
 ''',
   };
 
@@ -211,25 +214,6 @@ Synthetic telemetry only; not connected to production vehicle hardware, firmware
 ''',
   };
 
-  static const Map<String, String> opsDashboardApp = {
-    'githubUrl': 'https://github.com/mithulram/operations-dashboard',
-    'coverImage': 'assets/images/cover-ops-dashboard.svg',
-    'coverLabel': 'Ops Dashboard',
-    'coverTagline': 'React · Metrics',
-    'title': 'Operations Dashboard',
-    'iconUrl': 'assets/svg/react.svg',
-    'type': 'Operations and observability',
-    'about': '''
-A React dashboard that consumes the service-health monitor API to visualise availability, error-budget headroom, and incident context for engineering review.
-
-**Proof:** Typed API client, responsive layout, and dashboard views wired to live monitor endpoints in local demo mode.
-
-**Technologies:** React, TypeScript, REST API integration
-
-Demo dashboard for the portfolio monitor; not a production NOC or multi-tenant operations product.
-''',
-  };
-
   static const Map<String, String> aiLabApp = {
     'githubUrl': 'https://github.com/mithulram/ai-engineering-lab-project',
     'coverImage': 'assets/images/cover-ai-lab.svg',
@@ -253,8 +237,7 @@ Academic lab coursework and experimentation, not a production computer-vision pr
     rupeeRouteApp,
     secureAssetApiApp,
     dataPipelineApp,
-    healthMonitorApp,
-    opsDashboardApp,
+    operationsStackApp,
     automotiveSecurityApp,
     batteryTelemetryApp,
     aiLabApp,

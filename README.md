@@ -15,7 +15,7 @@ Editorial Flutter web portfolio for backend, data, and secure-systems engineerin
 
 - **About** — Evidence-backed capability summary and current toolkit
 - **Resume** — Education, experience, skills, and ATS resume download
-- **Projects** — Six current GitHub engineering projects with explicit scope boundaries
+- **Projects** — Seven current GitHub engineering projects with explicit scope boundaries, including a [live Operations Dashboard demo](https://operations-dashboard-b8v.pages.dev)
 - **Certifications** — Professional certifications and additional skills credentials
 - **Contact** — Server-backed contact form with direct email fallback
 

@@ -3,11 +3,11 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "efcd2cdc1da82191029eaf178f030ce9",
+const RESOURCES = {"flutter_bootstrap.js": "6c8f3789385f950f2badfe8a595a5947",
 "version.json": "009c9e65172e010890f7f65fde438006",
 "index.html": "075bb342beb4ab9412ee3bf6bcb41574",
 "/": "075bb342beb4ab9412ee3bf6bcb41574",
-"main.dart.js": "8918ed8e069ad2668e8eeb54a5466ed7",
+"main.dart.js": "d47b7c6782d9561582de341d42e6916b",
 "resume/Mithulram_Gunasekaran_ATS_Portfolio_Resume.pdf": "357148dd6ada93d72f62e9e21b706fcb",
 "flutter.js": "888483df48293866f9f41d3d9274a779",
 "favicon.png": "fd3220ef9d8fd63d41a775c9676eabf9",
@@ -26,7 +26,7 @@ const RESOURCES = {"flutter_bootstrap.js": "efcd2cdc1da82191029eaf178f030ce9",
 "assets/packages/fluttertoast/assets/toastify.css": "a85675050054f179444bc5ad70ffc635",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/AssetManifest.bin": "5bb9066b28b321ab932bbe9277142872",
-"assets/fonts/MaterialIcons-Regular.otf": "a06fc5e2cbe6cca5a7ddd2889b969fad",
+"assets/fonts/MaterialIcons-Regular.otf": "22b6a16ddd4b852ac5278ca3ca8e6fc4",
 "assets/assets/svg/spring.svg": "9f2f383902889cb3e54660c7cbce9eb0",
 "assets/assets/svg/open-book.svg": "c30f880084801e7359a41049792ac74c",
 "assets/assets/svg/javascript.svg": "d8036b1cbd6a35abd73116b8b5fd0214",

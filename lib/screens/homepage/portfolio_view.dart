@@ -139,6 +139,8 @@ class PortfolioView extends StatelessWidget {
   }) {
     final titleStyle = Theme.of(context).textTheme.titleMedium;
     final typeStyle = Theme.of(context).textTheme.bodyMedium;
+    final liveDemoUrl = portfolioInfo['liveDemoUrl'] ?? '';
+    final titleMaxLines = liveDemoUrl.isNotEmpty ? 2 : 1;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -150,13 +152,13 @@ class PortfolioView extends StatelessWidget {
               ? Text(
                   portfolioInfo['title']!,
                   style: titleStyle,
-                  maxLines: 1,
+                  maxLines: titleMaxLines,
                   overflow: TextOverflow.ellipsis,
                 )
               : SelectableText(
                   portfolioInfo['title']!,
                   style: titleStyle,
-                  maxLines: 1,
+                  maxLines: titleMaxLines,
                 ),
           desktop
               ? Text(
@@ -170,6 +172,25 @@ class PortfolioView extends StatelessWidget {
                   style: typeStyle,
                   minLines: 1,
                 ),
+          if (liveDemoUrl.isNotEmpty) ...[
+            const SizedBox(height: 6),
+            InkWell(
+              onTap: () async {
+                if (!await launchUrl(Uri.parse(liveDemoUrl))) {
+                  throw Exception('could not launch url');
+                }
+              },
+              child: Text(
+                'Open live demo',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                      color: AppColors.selectionColor,
+                      fontWeight: FontWeight.w700,
+                    ),
+              ),
+            ),
+          ],
         ],
       ),
     );
@@ -232,21 +253,23 @@ class ProjectCoverCard extends StatelessWidget {
               children: [
                 Text(
                   label,
-                  maxLines: 2,
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: AppColors.white,
                         fontWeight: FontWeight.w700,
-                        height: 1.1,
+                        height: 1.05,
+                        fontSize: 16,
                       ),
                 ),
-                const SizedBox(height: 6),
+                const SizedBox(height: 4),
                 Text(
                   tagline,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: AppColors.lightGray,
+                        fontSize: 11,
                       ),
                 ),
               ],
@@ -377,16 +400,37 @@ class CustomDialogue extends StatelessWidget {
   }
 
   Widget _buttons(BuildContext context) {
+    final liveDemo = portfolioInfo['liveDemoUrl'] ?? '';
     final github = portfolioInfo['githubUrl'] ?? '';
+    final companion = portfolioInfo['companionRepoUrl'] ?? '';
     final playstore = portfolioInfo['playstoreUrl'] ?? '';
     final appstore = portfolioInfo['appstoreUrl'] ?? '';
     final buttons = <Widget>[];
 
+    if (liveDemo.isNotEmpty) {
+      buttons.add(_linkButton(
+        context,
+        url: liveDemo,
+        icon: const Icon(Icons.play_arrow_rounded,
+            size: 18, color: AppColors.selectionColor),
+        label: 'Open live demo',
+      ));
+    }
     if (github.isNotEmpty) {
-      buttons.add(_linkButton(context,
-          url: github,
-          icon: SvgPicture.asset('assets/svg/github.svg', height: 18),
-          label: 'GitHub'));
+      buttons.add(_linkButton(
+        context,
+        url: github,
+        icon: SvgPicture.asset('assets/svg/github.svg', height: 18),
+        label: companion.isNotEmpty ? 'Frontend repo' : 'GitHub',
+      ));
+    }
+    if (companion.isNotEmpty) {
+      buttons.add(_linkButton(
+        context,
+        url: companion,
+        icon: SvgPicture.asset('assets/svg/github.svg', height: 18),
+        label: 'Backend repo',
+      ));
     }
     if (appstore.isNotEmpty) {
       buttons.add(_linkButton(context,

@@ -1,142 +1,104 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:portfolio/app/portfolio_app.dart';
-import 'package:portfolio/app/portfolio_controller.dart';
-import 'package:portfolio/app/portfolio_shell.dart';
-import 'package:portfolio/content/portfolio_content.dart';
-import 'package:portfolio/screens/contact_screen.dart';
-import 'package:portfolio/services/contact_service.dart';
-import 'package:portfolio/theme/app_theme.dart';
+import 'package:get/get.dart';
+import 'package:portfolio/screens/homepage/portfolio_view.dart';
+import 'package:portfolio/utils/common_strings.dart';
 
-void main() {
-  testWidgets('starts on About view with full name', (tester) async {
-    await tester.pumpWidget(const PortfolioApp());
-    await tester.pumpAndSettle();
-
-    expect(find.text('About me'), findsOneWidget);
-    expect(find.text(PortfolioContent.fullName), findsWidgets);
-    expect(find.text('Mithulram G'), findsNothing);
-  });
-
-  testWidgets('navigates to every primary view', (tester) async {
-    await tester.pumpWidget(const PortfolioApp());
-    await tester.pumpAndSettle();
-
-    for (final item in PortfolioContent.navItems) {
-      await tester.tap(find.text(item.$2).first);
-      await tester.pumpAndSettle();
-    }
-
-    expect(find.text('Send a message'), findsOneWidget);
-  });
-
-  testWidgets('contact form validates invalid input', (tester) async {
-    tester.view.physicalSize = const Size(1280, 1600);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-
-    await tester.pumpWidget(const PortfolioApp());
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('Contact').first);
-    await tester.pumpAndSettle();
-    await tester.ensureVisible(find.text('Send message'));
-    await tester.tap(find.text('Send message'));
-    await tester.pumpAndSettle();
-
-    expect(find.textContaining('Enter a name between'), findsOneWidget);
-    expect(find.textContaining('Enter a valid email'), findsOneWidget);
-    expect(find.textContaining('Enter a message between'), findsOneWidget);
-  });
-
-  testWidgets('contact form shows success on valid submission', (tester) async {
-    await tester.pumpWidget(
-      MaterialApp(
-        theme: buildPortfolioTheme(),
-        home: Scaffold(
-          body: ContactScreen(
-            contactService: _FakeContactService(success: true),
-          ),
-        ),
-      ),
-    );
-    await tester.pumpAndSettle();
-
-    await tester.enterText(find.byType(TextFormField).at(0), 'Alex Recruiter');
-    await tester.enterText(
-      find.byType(TextFormField).at(1),
-      'alex@example.com',
-    );
-    await tester.enterText(
-      find.byType(TextFormField).at(2),
-      'Hello, I would like to connect about a backend role.',
-    );
-
-    await tester.tap(find.text('Send message'));
-    await tester.pumpAndSettle();
-
-    expect(find.textContaining('Thanks'), findsOneWidget);
-  });
-
-  testWidgets('desktop layout uses split shell at wide width', (tester) async {
-    tester.view.physicalSize = const Size(1440, 1000);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-
-    final controller = PortfolioController();
-    addTearDown(controller.dispose);
-
-    await tester.pumpWidget(
-      MaterialApp(
-        theme: buildPortfolioTheme(),
-        home: Scaffold(
-          body: PortfolioShell(controller: controller),
-        ),
-      ),
-    );
-    await tester.pumpAndSettle();
-
-    expect(find.text(PortfolioContent.fullName), findsOneWidget);
-    expect(find.text('About me'), findsOneWidget);
-  });
-
-  testWidgets('projects filter narrows visible cards', (tester) async {
-    tester.view.physicalSize = const Size(1440, 1600);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-
-    await tester.pumpWidget(const PortfolioApp());
-    await tester.pumpAndSettle();
-
-    await tester.tap(find.text('Projects').first);
-    await tester.pumpAndSettle();
-
-    expect(find.text('RupeeRoute'), findsOneWidget);
-    expect(find.text('Secure Asset Access API'), findsOneWidget);
-
-    await tester.tap(find.widgetWithText(FilterChip, 'Fintech systems'));
-    await tester.pumpAndSettle();
-
-    expect(find.text('RupeeRoute'), findsOneWidget);
-    expect(find.text('Secure Asset Access API'), findsNothing);
-  });
+Widget _portfolioTestApp(Widget child) {
+  return GetMaterialApp(
+    theme: ThemeData.dark(),
+    home: Scaffold(body: child),
+  );
 }
 
-class _FakeContactService extends ContactService {
-  _FakeContactService({required this.success});
+Future<void> openProjectDialog(WidgetTester tester, String coverLabel) async {
+  final inkWell = find.ancestor(
+    of: find.text(coverLabel),
+    matching: find.byType(InkWell),
+  );
+  await tester.ensureVisible(inkWell.first);
+  await tester.tap(inkWell.first);
+  await tester.pumpAndSettle();
+}
 
-  final bool success;
+void main() {
+  setUp(() {
+    Get.testMode = true;
+  });
 
-  @override
-  Future<ContactResult> send({
-    required String name,
-    required String email,
-    required String message,
-    String? honeypot,
-  }) async {
-    if (success) {
-      return const ContactResult.success();
-    }
-    return const ContactResult.failure('Failed');
-  }
+  tearDown(Get.reset);
+
+  testWidgets('portfolio view shows the live operations demo CTA', (tester) async {
+    tester.view.physicalSize = const Size(390, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+
+    await tester.pumpWidget(_portfolioTestApp(const PortfolioView()));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.text('Operations Dashboard + Service Health Monitor'),
+      findsOneWidget,
+    );
+    expect(find.text('Open live demo'), findsOneWidget);
+    expect(find.text('Data Quality and Lineage Pipeline'), findsOneWidget);
+    expect(find.text('Data and reliability'), findsWidgets);
+  });
+
+  testWidgets('data and reliability projects remain visible together', (tester) async {
+    tester.view.physicalSize = const Size(390, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+
+    await tester.pumpWidget(_portfolioTestApp(const PortfolioView()));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Data Quality and Lineage Pipeline'), findsOneWidget);
+    expect(
+      find.text('Operations Dashboard + Service Health Monitor'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('repository-only project dialog still shows GitHub link', (tester) async {
+    tester.view.physicalSize = const Size(390, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+
+    await tester.pumpWidget(_portfolioTestApp(const PortfolioView()));
+    await tester.pumpAndSettle();
+    await openProjectDialog(tester, 'RupeeRoute');
+
+    expect(find.text('GitHub'), findsOneWidget);
+    expect(find.text('Frontend repo'), findsNothing);
+    expect(find.text('Backend repo'), findsNothing);
+  });
+
+  testWidgets('operations project dialog exposes live demo and repo links',
+      (tester) async {
+    tester.view.physicalSize = const Size(900, 1200);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+
+    await tester.pumpWidget(_portfolioTestApp(const PortfolioView()));
+    await tester.pumpAndSettle();
+    await openProjectDialog(tester, 'Ops Demo');
+
+    expect(find.text('Open live demo'), findsWidgets);
+    expect(find.text('Frontend repo'), findsOneWidget);
+    expect(find.text('Backend repo'), findsOneWidget);
+  });
+
+  test('featured projects include the live operations stack entry', () {
+    final titles = CommonStrings.featuredProjects
+        .map((project) => project['title'])
+        .toList();
+
+    expect(
+      titles,
+      contains('Operations Dashboard + Service Health Monitor'),
+    );
+    expect(titles, isNot(contains('Operations Dashboard')));
+    expect(titles, isNot(contains('Service Health and Incident Monitor')));
+  });
 }
