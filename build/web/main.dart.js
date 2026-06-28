@@ -52190,7 +52190,7 @@ r.e=s.a.a
 r.f=s.d},
 $S:0}
 A.Oi.prototype={
-O(a){return A.aGA(new A.nf(B.IM,null,null),B.a4,new A.vb(1,B.OL,new A.dx(B.CS,B.u)),this.c.U(0,new A.i(0,40.95)),1.25,B.WA)}}
+O(a){return A.aGA(new A.nf(B.IM,null,null),B.a4,new A.vb(1,B.OM,new A.dx(B.CS,B.u)),this.c.U(0,new A.i(0,40.95)),1.25,B.WA)}}
 A.qS.prototype={
 I(){return"MaterialType."+this.b}}
 A.vg.prototype={
@@ -84157,7 +84157,7 @@ return!0}else if(p.at!=null)a.A(0,p)
 if(q>e)return this.FX(a,s,r,q,e)
 return!1},
 FY(a,b,c,d,e){var s,r,q,p,o,n,m,l,k,j
-for(s=d+1,r=s<e,q=2*b,p=2*c,o=this.a,n=0;n<4;++n){m=B.OX[n]
+for(s=d+1,r=s<e,q=2*b,p=2*c,o=this.a,n=0;n<4;++n){m=B.OY[n]
 l=m.a
 k=m.b
 j=o.i(0,new A.ec(s,q+l,p+k))
@@ -89054,7 +89054,7 @@ A.Pq.prototype={
 O(a){var s=null
 return new A.fc(A.bv(B.a7,A.wY(B.mI,this.Hr(a),B.Bv,B.mI,30,20),B.l,s,s,s,s,s,s,B.k8,s,s,s),A.bv(B.ct,A.wY(B.b4,this.Hr(a),B.dr,B.b4,20,20),B.l,s,s,s,s,s,s,B.k9,s,s,s),A.bv(B.ct,A.wY(B.b4,this.Hr(a),B.dr,B.b4,20,20),B.l,s,s,s,s,s,s,B.ka,s,s,s),s)},
 Hr(a){var s=t._D
-s=A.Y(new A.ah(B.OZ,new A.agw(this,a),s),s.h("at.E"))
+s=A.Y(new A.ah(B.OD,new A.agw(this,a),s),s.h("at.E"))
 return s},
 a6a(a,b){var s,r,q=null,p=b.i(0,"coverLabel")
 if(p==null){p=b.i(0,"title")
@@ -89290,7 +89290,7 @@ A.tU.prototype={
 O(a){var s,r=this,q=null,p=r.w
 p=A.bM(p==null?30:p)
 s=A.jc(B.bw,1)
-return A.bv(q,A.k6(r.c,q,q),B.l,q,q,new A.bT(q,q,s,p,B.OY,B.MD,B.S),q,r.r,q,r.d,q,q,r.f)}}
+return A.bv(q,A.k6(r.c,q,q),B.l,q,q,new A.bT(q,q,s,p,B.OZ,B.MD,B.S),q,r.r,q,r.d,q,q,r.f)}}
 A.F0.prototype={
 O(a){var s=null,r=this.c.length+1
 return new A.Bi(new A.Rx(new A.ann(this),r,!0,!0,!0,s),s,B.aX,!1,s,s,B.vS,!0,s,r,B.aH,s,s,B.a4,B.aB,s)}}
@@ -90056,7 +90056,7 @@ s.r=A.b0(b).gn()
 if(a!==0)s.a=B.NB[a]
 if(e!=null)s.snG(this.z[e])
 if(d===1){s.b=B.be
-if(f!=null&&f!==0)s.d=B.OV[f]
+if(f!=null&&f!==0)s.d=B.OW[f]
 if(g!=null&&g!==0)s.e=B.P1[g]
 if(h!=null&&h!==4)s.ax=h
 if(i!=null&&i!==0)s.c=i}this.x.push(s)},
@@ -97033,8 +97033,8 @@ B.Of=s([B.H6,B.h8],t.t_)
 B.N5=s([0.03,0.97],t.n)
 B.MD=new A.lK(B.cQ,B.n_,B.bF,B.Of,B.N5,null)
 B.HS=new A.n(1,0.9568627450980393,0.7647058823529411,0.3607843137254902,B.e)
-B.OF=s([B.z,B.HS],t.t_)
-B.hW=new A.lK(B.ct,B.jm,B.bF,B.OF,null,null)
+B.OG=s([B.z,B.HS],t.t_)
+B.hW=new A.lK(B.ct,B.jm,B.bF,B.OG,null,null)
 B.NO=s([B.h_,B.jM],t.t_)
 B.ME=new A.lK(B.cQ,B.n_,B.bF,B.NO,null,null)
 B.hX=new A.O9(B.ex,A.a3("O9<ey>"))
@@ -97049,12 +97049,12 @@ B.MM=s([192,193,194],t.t)
 B.py=s(["text","multiline","number","phone","datetime","emailAddress","url","visiblePassword","name","address","none","webSearch","twitter"],t.s)
 B.MN=s([239,191,189],t.t)
 B.Nb=s([4,9,14,19],t.t)
-B.OR=s([137,80,78,71,13,10,26,10],t.Z)
+B.OS=s([137,80,78,71,13,10,26,10],t.Z)
 B.M_=new A.nu(0,"png")
 B.Mb=new A.kj(B.M_,!1,0,"png")
-B.LY=new A.lG(B.OR,B.Mb,0,"png")
-B.OS=s([71,73,70,56,55,97],t.Z)
-B.LX=new A.lG(B.OS,B.hR,1,"gif87a")
+B.LY=new A.lG(B.OS,B.Mb,0,"png")
+B.OT=s([71,73,70,56,55,97],t.Z)
+B.LX=new A.lG(B.OT,B.hR,1,"gif87a")
 B.Oc=s([71,73,70,56,57,97],t.Z)
 B.LW=new A.lG(B.Oc,B.hR,2,"gif89a")
 B.MO=s([255,216,255],t.Z)
@@ -97103,8 +97103,8 @@ B.mn=new A.mr(5,"end")
 B.NA=s([B.fz,B.mm,B.bT,B.iW,B.b1,B.mn],A.a3("t<mr>"))
 B.NJ=s([2,1.13276676],t.n)
 B.MQ=s([2.18349805,1.20311921],t.n)
-B.OG=s([2.33888662,1.28698796],t.n)
-B.OK=s([2.48660575,1.36351941],t.n)
+B.OH=s([2.33888662,1.28698796],t.n)
+B.OL=s([2.48660575,1.36351941],t.n)
 B.NE=s([2.62226596,1.44717976],t.n)
 B.NH=s([2.7514899,1.53385819],t.n)
 B.Oa=s([3.36298265,1.98288283],t.n)
@@ -97112,7 +97112,7 @@ B.NN=s([4.08649929,2.23811846],t.n)
 B.O0=s([4.85481134,2.47563463],t.n)
 B.NF=s([5.62945551,2.72948597],t.n)
 B.NK=s([6.43023796,2.98020421],t.n)
-B.pA=s([B.NJ,B.MQ,B.OG,B.OK,B.NE,B.NH,B.Oa,B.NN,B.O0,B.NF,B.NK],t.zg)
+B.pA=s([B.NJ,B.MQ,B.OH,B.OL,B.NE,B.NH,B.Oa,B.NN,B.O0,B.NF,B.NK],t.zg)
 B.Cf=new A.cx(0,"clear")
 B.Cg=new A.cx(1,"src")
 B.Cv=new A.cx(2,"dst")
@@ -97259,6 +97259,16 @@ B.Or=s([],t.n)
 B.On=s([],t.t)
 B.r=s([],t.ee)
 B.Oz=s([],t.XS)
+B.e6={githubUrl:0,coverImage:1,coverLabel:2,coverTagline:3,title:4,iconUrl:5,type:6,about:7}
+B.R1=new A.b_(B.e6,["https://github.com/mithulram/rupee-route","assets/images/cover-rupee-route.svg","RupeeRoute","Remittance Platform","RupeeRoute","assets/svg/javascript.svg","Fintech systems","A sandbox-to-pilot remittance-platform monorepo demonstrating integer money, immutable audit trails, transfer state machines, RBAC operations, and deterministic providers.\n\n**Proof:** 133 Vitest tests; 7 PostgreSQL integration tests; desktop E2E and accessibility smoke coverage.\n\n**Technologies:** TypeScript, NestJS, PostgreSQL, Redis, Next.js, Expo React Native\n\nSandbox only. No live money, payment rails, settlement, regulatory authorization, or production remittance claim.\n"],t.l)
+B.R4=new A.b_(B.e6,["https://github.com/mithulram/secure-asset-access-api","assets/images/cover-secure-api.svg","Secure API","Spring Boot \xb7 RBAC","Secure Asset Access API","assets/svg/java.svg","Backend and security","A production-style Java backend demonstrator for classified technical assets, role-based endpoints, audit events, validation, and health checks.\n\n**Proof:** MockMvc security tests cover unauthenticated rejection, role boundaries, validation, audit records, and missing resources.\n\n**Technologies:** Java, Spring Boot, Spring Security, JPA, H2, REST APIs, Actuator, JUnit/MockMvc\n\nNamed asset grants are recorded for audit review; runtime asset-level grant evaluation is intentionally out of scope. H2 is local and ephemeral.\n"],t.l)
+B.R_=new A.b_(B.e6,["https://github.com/mithulram/data-quality-lineage-pipeline","assets/images/cover-data-pipeline.svg","Data Pipeline","Python \xb7 DuckDB","Data Quality and Lineage Pipeline","assets/svg/python.svg","Data and reliability","A Python and DuckDB pipeline that validates order batches, quarantines invalid records, enriches valid data, and creates lineage-aware analytical artifacts.\n\n**Proof:** Configurable error-rate gate with quality reports, lineage JSON, CSV, and Parquet outputs.\n\n**Technologies:** Python, DuckDB, SQL, CSV, Parquet, GitHub Actions\n\nSynthetic source data and a local analytical pipeline, not a production warehouse or data catalog.\n"],t.l)
+B.S2={githubUrl:0,companionRepoUrl:1,liveDemoUrl:2,coverImage:3,coverLabel:4,coverTagline:5,title:6,iconUrl:7,type:8,about:9}
+B.Rb=new A.b_(B.S2,["https://github.com/mithulram/operations-dashboard","https://github.com/mithulram/service-health-incident-monitor","https://operations-dashboard-b8v.pages.dev","assets/images/cover-ops-dashboard.svg","Ops Monitor","Free-first monitoring","Ops Monitor \u2014 Uptime & Status Pages","assets/svg/react.svg","Data and reliability","A free-first, self-hostable monitoring product for solo developers and small teams: URL checks, automatic incidents, optional email alerts, and a public status page.\n\n**Live:** [Dashboard](https://operations-dashboard-b8v.pages.dev) \xb7 [Public status](https://operations-dashboard-b8v.pages.dev/status/default) \xb7 [Backend repo](https://github.com/mithulram/service-health-incident-monitor) \xb7 [Frontend repo](https://github.com/mithulram/operations-dashboard)\n\n**Proof:** Docker Compose self-host in ~10 minutes; deployed smoke tests cover monitors, incidents, public status JSON, and CORS.\n\n**Technologies:** React, TypeScript, Vite, FastAPI, SQLite, Docker Compose, Cloudflare Pages, Render\n\nLightweight MVP \u2014 not enterprise on-call software, multi-tenant RBAC, or Slack/PagerDuty integrations yet.\n"],t.l)
+B.R3=new A.b_(B.e6,["https://github.com/mithulram/automotive-security-test-bench","assets/images/cover-auto-security.svg","Auto Security","Cybersecurity CLI","Automotive Security Test Bench","assets/svg/java.svg","Automotive cybersecurity","A reproducible assessment tool that validates ECU threat scenarios, prioritizes risks with a transparent 5x5 likelihood-impact model, and maps controls to attack categories.\n\n**Proof:** Generates tested JSON and responsive HTML technical-review reports plus an optional CI policy gate.\n\n**Technologies:** Python, typed domain model, CLI, JSON/HTML reports, Docker, GitHub Actions\n\nA portfolio demonstrator inspired by research, not ISO/SAE 21434 compliance, a production vehicle-security product, or a safety case.\n"],t.l)
+B.R0=new A.b_(B.e6,["https://github.com/mithulram/battery-telemetry-validation-harness","assets/images/cover-battery-telemetry.svg","Telemetry Harness","C++17 \xb7 Validation","Battery Telemetry Validation Harness","assets/svg/java.svg","Automotive validation","A deterministic validation gate for synthetic BMS cell telemetry that quarantines malformed, duplicate, out-of-range, and timestamp-invalid readings.\n\n**Proof:** C++17 core with 7 deterministic rules, Python fault injection, CMake/CTest, and CI.\n\n**Technologies:** C++17, CMake, CTest, Python, CSV/JSON, fault injection, GitHub Actions\n\nSynthetic telemetry only; not connected to production vehicle hardware, firmware, or a BMS ECU.\n"],t.l)
+B.R2=new A.b_(B.e6,["https://github.com/mithulram/ai-engineering-lab-project","assets/images/cover-ai-lab.svg","AI Lab","Object Counting \xb7 ML","AI Engineering Lab \u2014 Object Counting","assets/svg/python.svg","AI engineering","University of Passau AI Engineering Lab project implementing an object-counting pipeline from image input through model inference, evaluation, and reproducible experiment reporting.\n\n**Proof:** Structured lab workflow with tested preprocessing, inference, and evaluation steps documented for review.\n\n**Technologies:** Python, computer vision, ML pipeline foundations\n\nAcademic lab coursework and experimentation, not a production computer-vision product or deployed service.\n"],t.l)
+B.OD=s([B.R1,B.R4,B.R_,B.Rb,B.R3,B.R0,B.R2],t.m0)
 B.kO=new A.iz(0)
 B.L7=new A.iz(1)
 B.L9=new A.iz(2)
@@ -97269,21 +97279,21 @@ B.p9=new A.iz(8)
 B.l3=s([B.kO,B.L7,B.L9,B.q,B.U,B.by,B.d3,B.Ld,B.p9],A.a3("t<iz>"))
 B.Sl=new A.i(0,2)
 B.Dc=new A.e5(0.75,B.dx,B.o0,B.Sl,1.5)
-B.OL=s([B.Dc],t.sq)
+B.OM=s([B.Dc],t.sq)
 B.f0=s([B.cR,B.bZ,B.fO,B.fP,B.jq],t.QP)
 B.iU=new A.wp(0,"butt")
 B.fy=new A.wp(1,"round")
 B.X0=new A.wp(2,"square")
-B.OV=s([B.iU,B.fy,B.X0],A.a3("t<wp>"))
+B.OW=s([B.iU,B.fy,B.X0],A.a3("t<wp>"))
 B.U1=new A.ad(0,0)
 B.U2=new A.ad(0,1)
 B.U5=new A.ad(1,0)
 B.U6=new A.ad(1,1)
-B.OX=s([B.U1,B.U2,B.U5,B.U6],A.a3("t<+(m,m)>"))
+B.OY=s([B.U1,B.U2,B.U5,B.U6],A.a3("t<+(m,m)>"))
 B.IR=new A.n(0.25,0,0,0,B.e)
 B.SM=new A.i(-4,8)
 B.De=new A.e5(0,B.dx,B.IR,B.SM,24)
-B.OY=s([B.De],t.sq)
+B.OZ=s([B.De],t.sq)
 B.e_=new A.hX(0,"controlModifier")
 B.e0=new A.hX(1,"shiftModifier")
 B.e1=new A.hX(2,"altModifier")
@@ -97294,16 +97304,6 @@ B.ls=new A.hX(6,"scrollLockModifier")
 B.lt=new A.hX(7,"functionModifier")
 B.vP=new A.hX(8,"symbolModifier")
 B.pG=s([B.e_,B.e0,B.e1,B.e2,B.lq,B.lr,B.ls,B.lt,B.vP],A.a3("t<hX>"))
-B.e6={githubUrl:0,coverImage:1,coverLabel:2,coverTagline:3,title:4,iconUrl:5,type:6,about:7}
-B.R1=new A.b_(B.e6,["https://github.com/mithulram/rupee-route","assets/images/cover-rupee-route.svg","RupeeRoute","Remittance Platform","RupeeRoute","assets/svg/javascript.svg","Fintech systems","A sandbox-to-pilot remittance-platform monorepo demonstrating integer money, immutable audit trails, transfer state machines, RBAC operations, and deterministic providers.\n\n**Proof:** 133 Vitest tests; 7 PostgreSQL integration tests; desktop E2E and accessibility smoke coverage.\n\n**Technologies:** TypeScript, NestJS, PostgreSQL, Redis, Next.js, Expo React Native\n\nSandbox only. No live money, payment rails, settlement, regulatory authorization, or production remittance claim.\n"],t.l)
-B.R4=new A.b_(B.e6,["https://github.com/mithulram/secure-asset-access-api","assets/images/cover-secure-api.svg","Secure API","Spring Boot \xb7 RBAC","Secure Asset Access API","assets/svg/java.svg","Backend and security","A production-style Java backend demonstrator for classified technical assets, role-based endpoints, audit events, validation, and health checks.\n\n**Proof:** MockMvc security tests cover unauthenticated rejection, role boundaries, validation, audit records, and missing resources.\n\n**Technologies:** Java, Spring Boot, Spring Security, JPA, H2, REST APIs, Actuator, JUnit/MockMvc\n\nNamed asset grants are recorded for audit review; runtime asset-level grant evaluation is intentionally out of scope. H2 is local and ephemeral.\n"],t.l)
-B.R_=new A.b_(B.e6,["https://github.com/mithulram/data-quality-lineage-pipeline","assets/images/cover-data-pipeline.svg","Data Pipeline","Python \xb7 DuckDB","Data Quality and Lineage Pipeline","assets/svg/python.svg","Data and reliability","A Python and DuckDB pipeline that validates order batches, quarantines invalid records, enriches valid data, and creates lineage-aware analytical artifacts.\n\n**Proof:** Configurable error-rate gate with quality reports, lineage JSON, CSV, and Parquet outputs.\n\n**Technologies:** Python, DuckDB, SQL, CSV, Parquet, GitHub Actions\n\nSynthetic source data and a local analytical pipeline, not a production warehouse or data catalog.\n"],t.l)
-B.S2={githubUrl:0,companionRepoUrl:1,liveDemoUrl:2,coverImage:3,coverLabel:4,coverTagline:5,title:6,iconUrl:7,type:8,about:9}
-B.Rb=new A.b_(B.S2,["https://github.com/mithulram/operations-dashboard","https://github.com/mithulram/service-health-incident-monitor","https://operations-dashboard-b8v.pages.dev","assets/images/cover-ops-dashboard.svg","Ops Demo","Live stack","Operations Dashboard + Service Health Monitor","assets/svg/react.svg","Data and reliability","An end-to-end live full-stack demo: a React/Vite operations dashboard on Cloudflare Pages, a FastAPI service-health backend on Render, SLO and error-budget views, incident context, and deployed smoke checks.\n\n**Proof:** Live dashboard reads the deployed monitor API; backend and frontend smoke tests verify health, summary, incidents, and CORS.\n\n**Technologies:** React, TypeScript, Vite, FastAPI, Prometheus text metrics, SLO/error budget, GitHub Actions\n\nSynthetic in-memory demo data only; not production monitoring software or a multi-tenant NOC product.\n"],t.l)
-B.R3=new A.b_(B.e6,["https://github.com/mithulram/automotive-security-test-bench","assets/images/cover-auto-security.svg","Auto Security","Cybersecurity CLI","Automotive Security Test Bench","assets/svg/java.svg","Automotive cybersecurity","A reproducible assessment tool that validates ECU threat scenarios, prioritizes risks with a transparent 5x5 likelihood-impact model, and maps controls to attack categories.\n\n**Proof:** Generates tested JSON and responsive HTML technical-review reports plus an optional CI policy gate.\n\n**Technologies:** Python, typed domain model, CLI, JSON/HTML reports, Docker, GitHub Actions\n\nA portfolio demonstrator inspired by research, not ISO/SAE 21434 compliance, a production vehicle-security product, or a safety case.\n"],t.l)
-B.R0=new A.b_(B.e6,["https://github.com/mithulram/battery-telemetry-validation-harness","assets/images/cover-battery-telemetry.svg","Telemetry Harness","C++17 \xb7 Validation","Battery Telemetry Validation Harness","assets/svg/java.svg","Automotive validation","A deterministic validation gate for synthetic BMS cell telemetry that quarantines malformed, duplicate, out-of-range, and timestamp-invalid readings.\n\n**Proof:** C++17 core with 7 deterministic rules, Python fault injection, CMake/CTest, and CI.\n\n**Technologies:** C++17, CMake, CTest, Python, CSV/JSON, fault injection, GitHub Actions\n\nSynthetic telemetry only; not connected to production vehicle hardware, firmware, or a BMS ECU.\n"],t.l)
-B.R2=new A.b_(B.e6,["https://github.com/mithulram/ai-engineering-lab-project","assets/images/cover-ai-lab.svg","AI Lab","Object Counting \xb7 ML","AI Engineering Lab \u2014 Object Counting","assets/svg/python.svg","AI engineering","University of Passau AI Engineering Lab project implementing an object-counting pipeline from image input through model inference, evaluation, and reproducible experiment reporting.\n\n**Proof:** Structured lab workflow with tested preprocessing, inference, and evaluation steps documented for review.\n\n**Technologies:** Python, computer vision, ML pipeline foundations\n\nAcademic lab coursework and experimentation, not a production computer-vision product or deployed service.\n"],t.l)
-B.OZ=s([B.R1,B.R4,B.R_,B.Rb,B.R3,B.R0,B.R2],t.m0)
 B.l4=s([!0,!1],t.HZ)
 B.P0=s(["pointerdown","pointermove","pointerleave","pointerup","pointercancel","touchstart","touchend","touchmove","touchcancel","mousedown","mousemove","mouseleave","mouseup","wheel"],t.s)
 B.pH=s([1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144,524288,1048576,2097152,4194304,8388608,16777216,33554432,67108864,134217728,268435456,536870912,1073741824,2147483648],t.t)
@@ -98057,38 +98057,38 @@ B.N0=s([4294968072,null,null,8589935161],t.Z)
 B.O7=s([8589934850,8589934850,8589934851,null],t.Z)
 B.vK=new A.ci(["*",B.N3,"+",B.N4,"-",B.N6,".",B.N7,"/",B.N8,"0",B.N9,"1",B.Na,"2",B.Nc,"3",B.Ne,"4",B.Nf,"5",B.Ng,"6",B.Nh,"7",B.Ni,"8",B.Nj,"9",B.Nl,"Alt",B.O4,"AltGraph",B.MT,"ArrowDown",B.MU,"ArrowLeft",B.MV,"ArrowRight",B.MW,"ArrowUp",B.MX,"Clear",B.N1,"Control",B.O5,"Delete",B.MS,"End",B.MY,"Enter",B.MR,"Home",B.MZ,"Insert",B.N2,"Meta",B.O6,"PageDown",B.N_,"PageUp",B.N0,"Shift",B.O7],A.a3("ci<h,J<m?>>"))
 B.Nk=s([B.pO,null,null,B.vu],t.L)
-B.OD=s([B.vg,null,null,B.vv],t.L)
+B.OE=s([B.vg,null,null,B.vv],t.L)
 B.NI=s([B.vh,null,null,B.vw],t.L)
 B.O8=s([B.vi,null,null,B.da],t.L)
 B.MJ=s([B.vj,null,null,B.vx],t.L)
-B.OT=s([B.vk,null,null,B.le],t.L)
-B.OQ=s([B.vl,null,null,B.f9],t.L)
+B.OU=s([B.vk,null,null,B.le],t.L)
+B.OR=s([B.vl,null,null,B.f9],t.L)
 B.Ns=s([B.vm,null,null,B.db],t.L)
 B.P_=s([B.vn,null,null,B.fa],t.L)
-B.OP=s([B.vo,null,null,B.dc],t.L)
+B.OQ=s([B.vo,null,null,B.dc],t.L)
 B.Np=s([B.vp,null,null,B.lf],t.L)
 B.MP=s([B.vq,null,null,B.dd],t.L)
 B.NC=s([B.vr,null,null,B.fb],t.L)
-B.OE=s([B.vs,null,null,B.de],t.L)
-B.OI=s([B.vt,null,null,B.fc],t.L)
+B.OF=s([B.vs,null,null,B.de],t.L)
+B.OJ=s([B.vt,null,null,B.fc],t.L)
 B.Nt=s([B.f7,B.f7,B.i4,null],t.L)
-B.OU=s([B.i1,null,B.i1,null],t.L)
+B.OV=s([B.i1,null,B.i1,null],t.L)
 B.NP=s([B.bO,null,null,B.db],t.L)
 B.NQ=s([B.bA,null,null,B.dc],t.L)
 B.NR=s([B.bB,null,null,B.dd],t.L)
-B.OW=s([B.bP,null,null,B.de],t.L)
-B.OM=s([B.l8,null,null,B.lf],t.L)
+B.OX=s([B.bP,null,null,B.de],t.L)
+B.ON=s([B.l8,null,null,B.lf],t.L)
 B.Nu=s([B.dW,B.dW,B.f6,null],t.L)
 B.Oh=s([B.aJ,null,null,B.da],t.L)
 B.NS=s([B.d7,null,null,B.f9],t.L)
 B.Nn=s([B.i0,null,null,B.ld],t.L)
 B.NT=s([B.d8,null,null,B.fb],t.L)
-B.ON=s([B.l9,null,null,B.le],t.L)
+B.OO=s([B.l9,null,null,B.le],t.L)
 B.Nv=s([B.f8,B.f8,B.i5,null],t.L)
 B.NU=s([B.f4,null,null,B.fa],t.L)
 B.Om=s([B.f5,null,null,B.fc],t.L)
 B.Nw=s([B.cG,B.cG,B.d9,null],t.L)
-B.R8=new A.ci(["*",B.Nk,"+",B.OD,"-",B.NI,".",B.O8,"/",B.MJ,"0",B.OT,"1",B.OQ,"2",B.Ns,"3",B.P_,"4",B.OP,"5",B.Np,"6",B.MP,"7",B.NC,"8",B.OE,"9",B.OI,"Alt",B.Nt,"AltGraph",B.OU,"ArrowDown",B.NP,"ArrowLeft",B.NQ,"ArrowRight",B.NR,"ArrowUp",B.OW,"Clear",B.OM,"Control",B.Nu,"Delete",B.Oh,"End",B.NS,"Enter",B.Nn,"Home",B.NT,"Insert",B.ON,"Meta",B.Nv,"PageDown",B.NU,"PageUp",B.Om,"Shift",B.Nw],A.a3("ci<h,J<f?>>"))
+B.R8=new A.ci(["*",B.Nk,"+",B.OE,"-",B.NI,".",B.O8,"/",B.MJ,"0",B.OU,"1",B.OR,"2",B.Ns,"3",B.P_,"4",B.OQ,"5",B.Np,"6",B.MP,"7",B.NC,"8",B.OF,"9",B.OJ,"Alt",B.Nt,"AltGraph",B.OV,"ArrowDown",B.NP,"ArrowLeft",B.NQ,"ArrowRight",B.NR,"ArrowUp",B.OX,"Clear",B.ON,"Control",B.Nu,"Delete",B.Oh,"End",B.NS,"Enter",B.Nn,"Home",B.NT,"Insert",B.OO,"Meta",B.Nv,"PageDown",B.NU,"PageUp",B.Om,"Shift",B.Nw],A.a3("ci<h,J<f?>>"))
 B.S4={multiply:0,screen:1,overlay:2,darken:3,lighten:4,"color-dodge":5,"color-burn":6,"hard-light":7,"soft-light":8,difference:9,exclusion:10,hue:11,saturation:12,color:13,luminosity:14}
 B.CF=new A.eh(24,"multiply")
 B.Ck=new A.eh(14,"screen")
@@ -98109,10 +98109,10 @@ B.R9=new A.b_(B.S4,[B.CF,B.Ck,B.Cm,B.Co,B.Cq,B.Cs,B.Cu,B.Cx,B.Cz,B.CB,B.CD,B.CH,
 B.S8={Languages:0,"Backend and data":1,"Frontend and mobile":2,"Cloud and delivery":3,"Security and systems":4}
 B.No=s(["Java","Python","TypeScript","C++","SQL","Dart"],t.s)
 B.NV=s(["Spring Boot","Spring Security","FastAPI","DuckDB","JPA","REST APIs","data quality"],t.s)
-B.OH=s(["React","Flutter","Firebase Analytics","Crashlytics","notifications","deep links"],t.s)
-B.OJ=s(["Microsoft Azure","Git","GitLab","GitHub Actions","CI/CD","technical documentation"],t.s)
-B.OO=s(["Threat modeling","risk scoring","vulnerability analysis","authentication","access control","ECU communication"],t.s)
-B.Ra=new A.b_(B.S8,[B.No,B.NV,B.OH,B.OJ,B.OO],t.AH)
+B.OI=s(["React","Flutter","Firebase Analytics","Crashlytics","notifications","deep links"],t.s)
+B.OK=s(["Microsoft Azure","Git","GitLab","GitHub Actions","CI/CD","technical documentation"],t.s)
+B.OP=s(["Threat modeling","risk scoring","vulnerability analysis","authentication","access control","ECU communication"],t.s)
+B.Ra=new A.b_(B.S8,[B.No,B.NV,B.OI,B.OK,B.OP],t.AH)
 B.S9={KeyA:0,KeyB:1,KeyC:2,KeyD:3,KeyE:4,KeyF:5,KeyG:6,KeyH:7,KeyI:8,KeyJ:9,KeyK:10,KeyL:11,KeyM:12,KeyN:13,KeyO:14,KeyP:15,KeyQ:16,KeyR:17,KeyS:18,KeyT:19,KeyU:20,KeyV:21,KeyW:22,KeyX:23,KeyY:24,KeyZ:25,Digit1:26,Digit2:27,Digit3:28,Digit4:29,Digit5:30,Digit6:31,Digit7:32,Digit8:33,Digit9:34,Digit0:35,Minus:36,Equal:37,BracketLeft:38,BracketRight:39,Backslash:40,Semicolon:41,Quote:42,Backquote:43,Comma:44,Period:45,Slash:46}
 B.vL=new A.b_(B.S9,["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0","-","=","[","]","\\",";","'","`",",",".","/"],t.l)
 B.Sf={png:0,jpeg:1,jpg:2,webp:3,gif:4,bmp:5}

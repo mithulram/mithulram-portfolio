@@ -37,7 +37,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(
-      find.text('Operations Dashboard + Service Health Monitor'),
+      find.text('Ops Monitor — Uptime & Status Pages'),
       findsOneWidget,
     );
     expect(find.text('Open live demo'), findsOneWidget);
@@ -55,7 +55,7 @@ void main() {
 
     expect(find.text('Data Quality and Lineage Pipeline'), findsOneWidget);
     expect(
-      find.text('Operations Dashboard + Service Health Monitor'),
+      find.text('Ops Monitor — Uptime & Status Pages'),
       findsOneWidget,
     );
   });
@@ -82,7 +82,7 @@ void main() {
 
     await tester.pumpWidget(_portfolioTestApp(const PortfolioView()));
     await tester.pumpAndSettle();
-    await openProjectDialog(tester, 'Ops Demo');
+    await openProjectDialog(tester, 'Ops Monitor');
 
     expect(find.text('Open live demo'), findsWidgets);
     expect(find.text('Frontend repo'), findsOneWidget);
@@ -96,7 +96,7 @@ void main() {
 
     expect(
       titles,
-      contains('Operations Dashboard + Service Health Monitor'),
+      contains('Ops Monitor — Uptime & Status Pages'),
     );
     expect(titles, isNot(contains('Operations Dashboard')));
     expect(titles, isNot(contains('Service Health and Incident Monitor')));
