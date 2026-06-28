@@ -159,19 +159,21 @@ Synthetic source data and a local analytical pipeline, not a production warehous
         'https://github.com/mithulram/service-health-incident-monitor',
     'liveDemoUrl': 'https://operations-dashboard-b8v.pages.dev',
     'coverImage': 'assets/images/cover-ops-dashboard.svg',
-    'coverLabel': 'Ops Demo',
-    'coverTagline': 'Live stack',
-    'title': 'Operations Dashboard + Service Health Monitor',
+    'coverLabel': 'Ops Monitor',
+    'coverTagline': 'Free-first monitoring',
+    'title': 'Ops Monitor — Uptime & Status Pages',
     'iconUrl': 'assets/svg/react.svg',
     'type': 'Data and reliability',
     'about': '''
-An end-to-end live full-stack demo: a React/Vite operations dashboard on Cloudflare Pages, a FastAPI service-health backend on Render, SLO and error-budget views, incident context, and deployed smoke checks.
+A free-first, self-hostable monitoring product for solo developers and small teams: URL checks, automatic incidents, optional email alerts, and a public status page.
 
-**Proof:** Live dashboard reads the deployed monitor API; backend and frontend smoke tests verify health, summary, incidents, and CORS.
+**Live:** [Dashboard](https://operations-dashboard-b8v.pages.dev) · [Public status](https://operations-dashboard-b8v.pages.dev/status/default) · [Backend repo](https://github.com/mithulram/service-health-incident-monitor) · [Frontend repo](https://github.com/mithulram/operations-dashboard)
 
-**Technologies:** React, TypeScript, Vite, FastAPI, Prometheus text metrics, SLO/error budget, GitHub Actions
+**Proof:** Docker Compose self-host in ~10 minutes; deployed smoke tests cover monitors, incidents, public status JSON, and CORS.
 
-Synthetic in-memory demo data only; not production monitoring software or a multi-tenant NOC product.
+**Technologies:** React, TypeScript, Vite, FastAPI, SQLite, Docker Compose, Cloudflare Pages, Render
+
+Lightweight MVP — not enterprise on-call software, multi-tenant RBAC, or Slack/PagerDuty integrations yet.
 ''',
   };
 
